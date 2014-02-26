@@ -18,6 +18,9 @@ namespace Rationals
         {
             get
             {
+                if (_numerator.IsZero)
+                    return Zero;
+
                 BigInteger gcd = BigInteger.GreatestCommonDivisor(_numerator, _denominator);
 
                 if (_denominator.Sign < 0)
