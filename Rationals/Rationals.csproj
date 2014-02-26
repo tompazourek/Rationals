@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base.cs" />
+    <Compile Include="Canonical.cs" />
     <Compile Include="Formatting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
