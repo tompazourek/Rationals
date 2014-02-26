@@ -13,6 +13,11 @@ namespace Rationals
         private readonly BigInteger _denominator;
         private readonly BigInteger _numerator;
 
+        public Rational(BigInteger whole)
+            : this(whole, 1)
+        {
+        }
+
         public Rational(BigInteger numerator, BigInteger denominator)
         {
             if (denominator == 0)
