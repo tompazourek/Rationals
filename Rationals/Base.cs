@@ -18,6 +18,15 @@ namespace Rationals
         {
         }
 
+        internal Rational(ref BigInteger numerator, ref BigInteger denominator)
+        {
+            if (denominator == 0)
+                throw new ArgumentOutOfRangeException("denominator", "Denominator cannot be zero.");
+
+            _numerator = numerator;
+            _denominator = denominator;
+        }
+
         public Rational(BigInteger numerator, BigInteger denominator)
         {
             if (denominator == 0)
@@ -25,6 +34,11 @@ namespace Rationals
 
             _numerator = numerator;
             _denominator = denominator;
+        }
+
+        public bool IsZero
+        {
+            get { return _numerator.IsZero; }
         }
 
         public BigInteger Numerator

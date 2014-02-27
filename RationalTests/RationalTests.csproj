@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="BaseTests.cs" />
     <Compile Include="CanonicalTests.cs" />
+    <Compile Include="ComparisonsTests.cs" />
+    <Compile Include="OperationsTests.cs" />
     <Compile Include="FormattingTests.cs" />
     <Compile Include="ImplicitConversionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
