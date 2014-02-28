@@ -16,7 +16,6 @@ namespace Rationals
                 return -(decimal)(-rational);
 
             decimal result = 0;
-            Debug.WriteLine(result);
             var numerator = rational.Numerator;
             var denominator = rational.Denominator;
             var scale = 1M;
