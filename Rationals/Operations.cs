@@ -105,5 +105,15 @@ namespace Rationals
             var quotient = new Rational(ref numerator, ref denominator);
             return quotient;
         }
+
+        public static Rational operator ++(Rational p)
+        {
+            return p + One;
+        }
+
+        public static Rational operator --(Rational p)
+        {
+            return p - One;
+        }
     }
 }

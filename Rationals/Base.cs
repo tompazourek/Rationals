@@ -41,6 +41,11 @@ namespace Rationals
             get { return _numerator.IsZero; }
         }
 
+        public bool IsOne
+        {
+            get { return _numerator == _denominator; }
+        }
+
         public BigInteger Numerator
         {
             get { return _numerator; }
