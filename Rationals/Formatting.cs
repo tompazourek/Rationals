@@ -13,9 +13,12 @@ namespace Rationals
     {
         public override string ToString()
         {
-            if (_denominator == 1)
+            if (_denominator.IsOne)
                 return _numerator.ToString();
-            
+
+            if (_numerator.IsZero)
+                return 0.ToString();
+
             return string.Format(CultureInfo.InvariantCulture, "{0}/{1}", _numerator, _denominator);
         }
     }
