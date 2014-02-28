@@ -78,5 +78,38 @@ namespace RationalTests
             // assert
             Assert.IsTrue(p == q);
         }
+
+        [Test]
+        public void Equals1()
+        {
+            // arrange
+            var p = new Rational(4, 2);
+            var q = 2;
+
+            // assert
+            Assert.IsTrue(p.Equals(q));
+        }
+
+        [Test]
+        public void Equals2()
+        {
+            // arrange
+            var p = new Rational(4, 2);
+            var q = "hello";
+
+            // assert
+            Assert.IsFalse(p.Equals(q));
+        }
+
+        [Test]
+        public void Equals3()
+        {
+            // arrange
+            var p = new Rational(4, 2);
+            var q = new Rational(3, 2);
+
+            // assert
+            Assert.IsFalse(p.Equals(q));
+        }
     }
 }

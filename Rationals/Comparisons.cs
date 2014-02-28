@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,9 +12,51 @@ namespace Rationals
         public override bool Equals(object obj)
         {
             if (!(obj is Rational))
-                return false;
+            {
+                if (obj is int ||
+                    obj is uint ||
+                    obj is long ||
+                    obj is ulong ||
+                    obj is BigInteger)
+                {
+                    return Equals((Rational)obj);
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
-            Rational other = (Rational)obj;
+            return Equals((Rational)obj);
+        }
+
+        public bool Equals(int other)
+        {
+            return Equals((Rational)other);
+        }
+
+        public bool Equals(uint other)
+        {
+            return Equals((Rational)other);
+        }
+
+        public bool Equals(long other)
+        {
+            return Equals((Rational)other);
+        }
+
+        public bool Equals(ulong other)
+        {
+            return Equals((Rational)other);
+        }
+
+        public bool Equals(BigInteger other)
+        {
+            return Equals((Rational)other);
+        }
+
+        public bool Equals(Rational other)
+        {
             return Numerator * other.Denominator == other.Numerator * Denominator;
         }
 
