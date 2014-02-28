@@ -10,6 +10,26 @@ namespace Rationals
 {
     public partial struct Rational
     {
+        public static implicit operator Rational(sbyte n)
+        {
+            return n != 0 ? new Rational(n) : Zero;
+        }
+
+        public static implicit operator Rational(byte n)
+        {
+            return n != 0 ? new Rational(n) : Zero;
+        }
+
+        public static implicit operator Rational(short n)
+        {
+            return n != 0 ? new Rational(n) : Zero;
+        }
+
+        public static implicit operator Rational(ushort n)
+        {
+            return n != 0 ? new Rational(n) : Zero;
+        }
+
         public static implicit operator Rational(int n)
         {
             return n != 0 ? new Rational(n) : Zero;

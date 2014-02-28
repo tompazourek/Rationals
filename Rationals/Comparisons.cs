@@ -10,6 +10,10 @@ namespace Rationals
 {
     public partial struct Rational :
         IEquatable<Rational>, IComparable<Rational>,
+        IEquatable<sbyte>, IComparable<sbyte>,
+        IEquatable<byte>, IComparable<byte>,
+        IEquatable<short>, IComparable<short>,
+        IEquatable<ushort>, IComparable<ushort>,
         IEquatable<int>, IComparable<int>,
         IEquatable<uint>, IComparable<uint>,
         IEquatable<long>, IComparable<long>,
@@ -17,6 +21,11 @@ namespace Rationals
         IEquatable<BigInteger>, IComparable<BigInteger>
     {
         public int CompareTo(BigInteger other)
+        {
+            return CompareTo((Rational) other);
+        }
+
+        public int CompareTo(byte other)
         {
             return CompareTo((Rational) other);
         }
@@ -47,6 +56,16 @@ namespace Rationals
             return -1;
         }
 
+        public int CompareTo(sbyte other)
+        {
+            return CompareTo((Rational) other);
+        }
+
+        public int CompareTo(short other)
+        {
+            return CompareTo((Rational) other);
+        }
+
         public int CompareTo(uint other)
         {
             return CompareTo((Rational) other);
@@ -57,7 +76,17 @@ namespace Rationals
             return CompareTo((Rational) other);
         }
 
+        public int CompareTo(ushort other)
+        {
+            return CompareTo((Rational) other);
+        }
+
         public bool Equals(BigInteger other)
+        {
+            return Equals((Rational) other);
+        }
+
+        public bool Equals(byte other)
         {
             return Equals((Rational) other);
         }
@@ -77,6 +106,16 @@ namespace Rationals
             return (Numerator * other.Denominator).Equals(other.Numerator * Denominator);
         }
 
+        public bool Equals(sbyte other)
+        {
+            return Equals((Rational) other);
+        }
+
+        public bool Equals(short other)
+        {
+            return Equals((Rational) other);
+        }
+
         public bool Equals(uint other)
         {
             return Equals((Rational) other);
@@ -87,11 +126,20 @@ namespace Rationals
             return Equals((Rational) other);
         }
 
+        public bool Equals(ushort other)
+        {
+            return Equals((Rational) other);
+        }
+
         public override bool Equals(object other)
         {
             if (!(other is Rational))
             {
-                if (other is int ||
+                if (other is short ||
+                    other is ushort ||
+                    other is sbyte ||
+                    other is byte ||
+                    other is int ||
                     other is uint ||
                     other is long ||
                     other is ulong ||
