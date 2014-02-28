@@ -46,6 +46,14 @@ namespace Rationals
             get { return _numerator == _denominator; }
         }
 
+        /// <summary>
+        /// Gets a number that indicates the sign (negative, positive, or zero) of the rational number
+        /// </summary>
+        public int Sign
+        {
+            get { return _numerator.Sign * _denominator.Sign; }
+        }
+
         public BigInteger Numerator
         {
             get { return _numerator; }
