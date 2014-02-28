@@ -47,6 +47,7 @@
     <Compile Include="Comparisons.cs" />
     <Compile Include="Formatting.cs" />
     <Compile Include="ImplicitConversions.cs" />
+    <Compile Include="IntegerFractionParts.cs" />
     <Compile Include="Operations.cs" />
     <Compile Include="PredefinedRationals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
