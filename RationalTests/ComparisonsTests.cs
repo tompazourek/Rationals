@@ -111,5 +111,27 @@ namespace RationalTests
             // assert
             Assert.IsFalse(p.Equals(q));
         }
+
+        [Test]
+        public void GetHashCode_Same()
+        {
+            // arrange
+            var p = new Rational(4, -2);
+            var q = new Rational(-2, 1);
+
+            // assert
+            Assert.AreEqual(p.GetHashCode(), q.GetHashCode());
+        }
+
+        [Test]
+        public void GetHashCode_Different()
+        {
+            // arrange
+            var p = new Rational(4, 2);
+            var q = new Rational(-2, 1);
+
+            // assert
+            Assert.AreNotEqual(p.GetHashCode(), q.GetHashCode());
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Rationals
 {
-    public partial struct Rational
+    public partial struct Rational : IEquatable<Rational>, IEquatable<int>, IEquatable<uint>, IEquatable<long>, IEquatable<ulong>, IEquatable<BigInteger>
     {
         public override bool Equals(object obj)
         {
@@ -68,6 +68,18 @@ namespace Rationals
         public static bool operator !=(Rational left, Rational right)
         {
             return !(left == right);
+        }
+
+        public override int GetHashCode()
+        {
+            var canonical = CanonicalForm;
+            unchecked
+            {
+                int hash = 27;
+                hash = (13 * hash) + canonical.Numerator.GetHashCode();
+                hash = (13 * hash) + canonical.Denominator.GetHashCode();
+                return hash;
+            }
         }
     }
 }
