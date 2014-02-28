@@ -32,5 +32,10 @@ namespace Rationals
         {
             get { return _numerator.Sign * _denominator.Sign; }
         }
+
+        /// <summary>
+        /// Indicates whether the value of the rational number is a power of two.
+        /// </summary>
+        public bool IsPowerOfTwo { get { return _numerator.IsPowerOfTwo && _denominator.IsPowerOfTwo; } }
     }
 }
