@@ -11,7 +11,7 @@ namespace Rationals
     public partial struct Rational
     {
         /// <summary>
-        /// Multiplicative inverse of the rational number.
+        /// Multiplicative inverse of the rational number
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
@@ -24,30 +24,11 @@ namespace Rationals
         }
 
         /// <summary>
-        /// Additive inverse of the rational number.
+        /// Additive inverse of the rational number
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
         public static Rational Negate(Rational p)
-        {
-            return -p;
-        }
-
-        public static Rational operator +(Rational left, Rational right)
-        {
-            if (right.IsZero)
-                return left;
-
-            if (left.IsZero)
-                return right;
-
-            BigInteger numerator = left.Numerator * right.Denominator + left.Denominator * right.Numerator;
-            BigInteger denominator = left.Denominator * right.Denominator;
-            var sum = new Rational(ref numerator, ref denominator);
-            return sum;
-        }
-
-        public static Rational operator -(Rational p)
         {
             if (p.IsZero)
                 return Zero;
@@ -68,7 +49,33 @@ namespace Rationals
             return result;
         }
 
-        public static Rational operator -(Rational left, Rational right)
+        /// <summary>
+        /// Returns the sum of the two numbers.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static Rational Add(Rational left, Rational right)
+        {
+            if (right.IsZero)
+                return left;
+
+            if (left.IsZero)
+                return right;
+
+            BigInteger numerator = left.Numerator * right.Denominator + left.Denominator * right.Numerator;
+            BigInteger denominator = left.Denominator * right.Denominator;
+            var sum = new Rational(ref numerator, ref denominator);
+            return sum;
+        }
+
+        /// <summary>
+        /// Subtracts one number from another and returns result.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static Rational Subtract(Rational left, Rational right)
         {
             if (right.IsZero)
                 return left;
@@ -82,7 +89,13 @@ namespace Rationals
             return difference;
         }
 
-        public static Rational operator *(Rational left, Rational right)
+        /// <summary>
+        /// Returns product of the two numbers.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static Rational Multiply(Rational left, Rational right)
         {
             if (left.IsZero || right.IsZero)
                 return Zero;
@@ -93,7 +106,13 @@ namespace Rationals
             return product;
         }
 
-        public static Rational operator /(Rational left, Rational right)
+        /// <summary>
+        /// Divides one number by another and returns result.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static Rational Divide(Rational left, Rational right)
         {
             if (right.IsZero)
                 throw new DivideByZeroException();
@@ -107,14 +126,45 @@ namespace Rationals
             return quotient;
         }
 
-        public static Rational operator ++(Rational p)
+        /// <summary>
+        /// Exponentiation of the rational number to the given integer exponent
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="exponent"></param>
+        /// <returns></returns>
+        public static Rational Pow(Rational number, int exponent)
         {
-            return p + One;
-        }
+            if (exponent == 1)
+                return number;
 
-        public static Rational operator --(Rational p)
-        {
-            return p - One;
+            if (exponent == 0)
+                return One;
+
+            if (number.IsOne)
+                return number;
+            
+            if (number.IsZero)
+            {
+                if (exponent < 0)
+                    throw new DivideByZeroException("Cannot exponentiate zero to negative exponent.");
+
+                return number;
+            }
+               
+            if (exponent > 0)
+            {
+                var numerator = BigInteger.Pow(number.Numerator, exponent);
+                var denominator = BigInteger.Pow(number.Denominator, exponent);
+                var result = new Rational(ref numerator, ref denominator);
+                return result;
+            }
+            else
+            {
+                var numerator = BigInteger.Pow(number.Denominator, -exponent);
+                var denominator = BigInteger.Pow(number.Numerator, -exponent);
+                var result = new Rational(ref numerator, ref denominator);
+                return result;
+            }
         }
     }
 }

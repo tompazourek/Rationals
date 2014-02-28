@@ -48,6 +48,7 @@
     <Compile Include="ExtendedProperties.cs" />
     <Compile Include="Formatting.cs" />
     <Compile Include="ImplicitConversions.cs" />
+    <Compile Include="Operators.cs" />
     <Compile Include="WholeAndFraction.cs" />
     <Compile Include="Operations.cs" />
     <Compile Include="PredefinedRationals.cs" />

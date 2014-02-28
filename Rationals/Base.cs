@@ -21,7 +21,7 @@ namespace Rationals
         internal Rational(ref BigInteger numerator, ref BigInteger denominator)
         {
             if (denominator == 0)
-                throw new ArgumentOutOfRangeException("denominator", "Denominator cannot be zero.");
+                throw new DivideByZeroException("Denominator cannot be zero.");
 
             _numerator = numerator;
             _denominator = denominator;
@@ -30,7 +30,7 @@ namespace Rationals
         public Rational(BigInteger numerator, BigInteger denominator)
         {
             if (denominator == 0)
-                throw new ArgumentOutOfRangeException("denominator", "Denominator cannot be zero.");
+                throw new DivideByZeroException("Denominator cannot be zero.");
 
             _numerator = numerator;
             _denominator = denominator;

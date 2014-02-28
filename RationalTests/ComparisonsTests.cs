@@ -72,7 +72,7 @@ namespace RationalTests
         {
             // arrange
             var p = new Rational(4, 2);
-            int q = 2;
+            const int q = 2;
 
             // assert
             Assert.IsTrue(p == q);
@@ -83,7 +83,7 @@ namespace RationalTests
         {
             // arrange
             var p = new Rational(4, 2);
-            int q = 2;
+            const int q = 2;
 
             // assert
             Assert.IsTrue(p.Equals(q));
@@ -94,7 +94,7 @@ namespace RationalTests
         {
             // arrange
             var p = new Rational(4, 2);
-            string q = "hello";
+            const string q = "hello";
 
             // assert
             Assert.IsFalse(p.Equals(q));
