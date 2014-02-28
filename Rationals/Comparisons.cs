@@ -8,8 +8,55 @@ using System.Threading.Tasks;
 
 namespace Rationals
 {
-    public partial struct Rational : IEquatable<Rational>, IEquatable<int>, IEquatable<uint>, IEquatable<long>, IEquatable<ulong>, IEquatable<BigInteger>
+    public partial struct Rational :
+        IEquatable<Rational>, IComparable<Rational>,
+        IEquatable<int>, IComparable<int>,
+        IEquatable<uint>, IComparable<uint>,
+        IEquatable<long>, IComparable<long>,
+        IEquatable<ulong>, IComparable<ulong>,
+        IEquatable<BigInteger>, IComparable<BigInteger>
     {
+        public int CompareTo(BigInteger other)
+        {
+            return CompareTo((Rational) other);
+        }
+
+        public int CompareTo(int other)
+        {
+            return CompareTo((Rational) other);
+        }
+
+        public int CompareTo(long other)
+        {
+            return CompareTo((Rational) other);
+        }
+
+        public int CompareTo(Rational other)
+        {
+            if (Sign == other.Sign)
+            {
+                if (Sign >= 0)
+                    return (Numerator * other.Denominator).CompareTo(other.Numerator * Denominator);
+
+                return -BigInteger.Abs(Numerator * other.Denominator).CompareTo(BigInteger.Abs(other.Numerator * Denominator));
+            }
+
+            if (Sign > other.Sign)
+                return 1;
+
+            return -1;
+        }
+
+        public int CompareTo(uint other)
+        {
+            return CompareTo((Rational) other);
+        }
+
+        public int CompareTo(ulong other)
+        {
+            return CompareTo((Rational) other);
+        }
+
         public bool Equals(BigInteger other)
         {
             return Equals((Rational) other);
@@ -27,7 +74,7 @@ namespace Rationals
 
         public bool Equals(Rational other)
         {
-            return Numerator * other.Denominator == other.Numerator * Denominator;
+            return (Numerator * other.Denominator).Equals(other.Numerator * Denominator);
         }
 
         public bool Equals(uint other)
@@ -40,35 +87,22 @@ namespace Rationals
             return Equals((Rational) other);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object other)
         {
-            if (!(obj is Rational))
+            if (!(other is Rational))
             {
-                if (obj is int ||
-                    obj is uint ||
-                    obj is long ||
-                    obj is ulong ||
-                    obj is BigInteger)
+                if (other is int ||
+                    other is uint ||
+                    other is long ||
+                    other is ulong ||
+                    other is BigInteger)
                 {
-                    return Equals((Rational) obj);
+                    return Equals((Rational) other);
                 }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
 
-            return Equals((Rational) obj);
-        }
-
-        public static bool operator ==(Rational left, Rational right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(Rational left, Rational right)
-        {
-            return !(left == right);
+            return Equals((Rational) other);
         }
 
         public override int GetHashCode()

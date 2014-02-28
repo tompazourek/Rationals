@@ -13,6 +13,60 @@ namespace RationalTests
     public class ComparisonsTests
     {
         [Test]
+        public void Comparisons1()
+        {
+            // arrange
+            var a = new Rational(1, 3);
+            var b = new Rational(1, 2);
+            var c = new Rational(2, 4);
+
+            // assert
+            Assert.IsTrue(a < b);
+            Assert.IsTrue(a < c);
+            Assert.IsFalse(a > b);
+            Assert.IsFalse(a > c);
+
+            Assert.IsFalse(b < a);
+            Assert.IsFalse(c < a);
+            Assert.IsTrue(b > a);
+            Assert.IsTrue(c > a);
+
+            Assert.IsTrue(a <= b);
+            Assert.IsTrue(a <= c);
+            Assert.IsFalse(a >= b);
+            Assert.IsFalse(a >= c);
+
+            Assert.IsFalse(b <= a);
+            Assert.IsFalse(c <= a);
+            Assert.IsTrue(b >= a);
+            Assert.IsTrue(c >= a);
+
+            Assert.IsTrue(b <= c);
+            Assert.IsTrue(b >= c);
+            Assert.IsTrue(c <= b);
+            Assert.IsTrue(c >= b);
+        }
+
+        [Test]
+        public void Comparisons2()
+        {
+            // arrange
+            var a = new Rational(32);
+            var b = new Rational(2, -1);
+
+            // assert
+            Assert.IsTrue(a > b);
+            Assert.IsTrue(a >= b);
+            Assert.IsFalse(a < b);
+            Assert.IsFalse(a <= b);
+
+            Assert.IsFalse(b > a);
+            Assert.IsFalse(b >= a);
+            Assert.IsTrue(b < a);
+            Assert.IsTrue(b <= a);
+        }
+
+        [Test]
         public void Equality1()
         {
             // arrange
@@ -131,6 +185,34 @@ namespace RationalTests
 
             // assert
             Assert.AreEqual(p.GetHashCode(), q.GetHashCode());
+        }
+
+        [Test]
+        public void Sorting_ListSort()
+        {
+            // arrange
+            var rationals = new List<Rational> { 2, 32, -1, 0, 2, (Rational) 4 / 5, (Rational) 3 / 4, (Rational) 2 / -1, 32 / 2, 64 / 4, (Rational) 2 / 3 };
+
+            // action
+            rationals.Sort();
+
+            // assert
+            var expected = new[] { -2, -1, 0, (Rational) 2 / 3, (Rational) 3 / 4, (Rational) 4 / 5, 2, 2, 16, 16, 32 };
+            CollectionAssert.AreEqual(expected, rationals);
+        }
+
+        [Test]
+        public void Sorting_OrderBy()
+        {
+            // arrange
+            var rationals = new List<Rational> { (Rational)2 / 3, (Rational)4 / 3, (Rational)0 / 2, (Rational)0 / 3, 1, (Rational)4 / 10, -1, (Rational)2 / -3, -(Rational)4 / 3, (Rational)0 / -2, -(Rational)0 / 3, -(Rational)4 / 10, -1 };
+
+            // action
+            var sorted = rationals.OrderBy(x => x).ToList();
+
+            // assert
+            var expected = new[] { -(Rational)4 / 3, -1, -1, -(Rational)2 / 3, -(Rational)2 / 5, 0, 0, 0, 0, (Rational)2 / 5, (Rational)2 / 3, 1, (Rational)4 / 3 };
+            CollectionAssert.AreEqual(expected, sorted);
         }
     }
 }

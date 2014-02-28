@@ -43,5 +43,35 @@ namespace Rationals
         {
             return p - One;
         }
+
+        public static bool operator ==(Rational left, Rational right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Rational left, Rational right)
+        {
+            return !left.Equals(right);
+        }
+
+        public static bool operator <(Rational left, Rational right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        public static bool operator >(Rational left, Rational right)
+        {
+            return left.CompareTo(right) > 0;
+        }
+
+        public static bool operator <=(Rational left, Rational right)
+        {
+            return left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator >=(Rational left, Rational right)
+        {
+            return left.CompareTo(right) >= 0;
+        }
     }
 }
