@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Rationals;
-using System.Numerics;
 
 namespace RationalTests
 {
@@ -73,7 +72,7 @@ namespace RationalTests
         {
             // arrange
             var p = new Rational(4, 2);
-            var q = 2;
+            int q = 2;
 
             // assert
             Assert.IsTrue(p == q);
@@ -84,7 +83,7 @@ namespace RationalTests
         {
             // arrange
             var p = new Rational(4, 2);
-            var q = 2;
+            int q = 2;
 
             // assert
             Assert.IsTrue(p.Equals(q));
@@ -95,7 +94,7 @@ namespace RationalTests
         {
             // arrange
             var p = new Rational(4, 2);
-            var q = "hello";
+            string q = "hello";
 
             // assert
             Assert.IsFalse(p.Equals(q));
@@ -113,17 +112,6 @@ namespace RationalTests
         }
 
         [Test]
-        public void GetHashCode_Same()
-        {
-            // arrange
-            var p = new Rational(4, -2);
-            var q = new Rational(-2, 1);
-
-            // assert
-            Assert.AreEqual(p.GetHashCode(), q.GetHashCode());
-        }
-
-        [Test]
         public void GetHashCode_Different()
         {
             // arrange
@@ -132,6 +120,17 @@ namespace RationalTests
 
             // assert
             Assert.AreNotEqual(p.GetHashCode(), q.GetHashCode());
+        }
+
+        [Test]
+        public void GetHashCode_Same()
+        {
+            // arrange
+            var p = new Rational(4, -2);
+            var q = new Rational(-2, 1);
+
+            // assert
+            Assert.AreEqual(p.GetHashCode(), q.GetHashCode());
         }
     }
 }

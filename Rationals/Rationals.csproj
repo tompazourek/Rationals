@@ -45,9 +45,10 @@
     <Compile Include="Base.cs" />
     <Compile Include="Canonical.cs" />
     <Compile Include="Comparisons.cs" />
+    <Compile Include="ExtendedProperties.cs" />
     <Compile Include="Formatting.cs" />
     <Compile Include="ImplicitConversions.cs" />
-    <Compile Include="IntegerFractionParts.cs" />
+    <Compile Include="WholeAndFraction.cs" />
     <Compile Include="Operations.cs" />
     <Compile Include="PredefinedRationals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

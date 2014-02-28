@@ -25,7 +25,7 @@ namespace Rationals
 
                 if (_denominator.Sign < 0)
                     gcd = BigInteger.Negate(gcd); // ensures that canonical form is either positive or has minus in numerator
-                
+
                 var canonical = new Rational(_numerator / gcd, _denominator / gcd);
                 return canonical;
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -16,8 +17,8 @@ namespace Rationals
         /// <returns></returns>
         public static Rational Invert(Rational p)
         {
-            var numerator = p.Denominator;
-            var denominator = p.Numerator;
+            BigInteger numerator = p.Denominator;
+            BigInteger denominator = p.Numerator;
             var result = new Rational(numerator, denominator);
             return result;
         }
@@ -40,8 +41,8 @@ namespace Rationals
             if (left.IsZero)
                 return right;
 
-            var numerator = left.Numerator * right.Denominator + left.Denominator * right.Numerator;
-            var denominator = left.Denominator * right.Denominator;
+            BigInteger numerator = left.Numerator * right.Denominator + left.Denominator * right.Numerator;
+            BigInteger denominator = left.Denominator * right.Denominator;
             var sum = new Rational(ref numerator, ref denominator);
             return sum;
         }
@@ -49,7 +50,7 @@ namespace Rationals
         public static Rational operator -(Rational p)
         {
             if (p.IsZero)
-                return Rational.Zero;
+                return Zero;
 
             BigInteger numerator;
             BigInteger denominator;
@@ -75,8 +76,8 @@ namespace Rationals
             if (left.IsZero)
                 return -right;
 
-            var numerator = left.Numerator * right.Denominator - left.Denominator * right.Numerator;
-            var denominator = left.Denominator * right.Denominator;
+            BigInteger numerator = left.Numerator * right.Denominator - left.Denominator * right.Numerator;
+            BigInteger denominator = left.Denominator * right.Denominator;
             var difference = new Rational(ref numerator, ref denominator);
             return difference;
         }
@@ -84,10 +85,10 @@ namespace Rationals
         public static Rational operator *(Rational left, Rational right)
         {
             if (left.IsZero || right.IsZero)
-                return Rational.Zero;
+                return Zero;
 
-            var numerator = left.Numerator * right.Numerator;
-            var denominator = left.Denominator * right.Denominator;
+            BigInteger numerator = left.Numerator * right.Numerator;
+            BigInteger denominator = left.Denominator * right.Denominator;
             var product = new Rational(ref numerator, ref denominator);
             return product;
         }
@@ -98,10 +99,10 @@ namespace Rationals
                 throw new DivideByZeroException();
 
             if (left.IsZero)
-                return Rational.Zero;
-            
-            var numerator = left.Numerator * right.Denominator;
-            var denominator = left.Denominator * right.Numerator;
+                return Zero;
+
+            BigInteger numerator = left.Numerator * right.Denominator;
+            BigInteger denominator = left.Denominator * right.Numerator;
             var quotient = new Rational(ref numerator, ref denominator);
             return quotient;
         }

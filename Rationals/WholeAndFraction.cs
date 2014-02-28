@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -10,17 +11,20 @@ namespace Rationals
     public partial struct Rational
     {
         /// <summary>
-        /// Integral part of the rational number
-        /// <seealso cref="FractionPart"/>.
+        /// Whole part of the rational number, see also <seealso cref="FractionPart"/>.
         /// </summary>
-        public BigInteger IntegerPart
+        /// <example>
+        /// 4/3 = 1 + 1/3;
+        /// -10/4 = -3 + 2/4
+        /// </example>
+        public BigInteger WholePart
         {
             get
             {
                 if (IsZero)
                     return 0;
 
-                BigInteger integerPart;
+                BigInteger wholePart;
                 if (Sign > 0)
                 {
                     if (Numerator < Denominator)
@@ -29,24 +33,27 @@ namespace Rationals
                     if (IsOne)
                         return 1;
 
-                    integerPart = Numerator / Denominator;
-                    return integerPart;
+                    wholePart = Numerator / Denominator;
+                    return wholePart;
                 }
 
                 BigInteger remainder;
-                integerPart = BigInteger.DivRem(Numerator, Denominator, out remainder);
+                wholePart = BigInteger.DivRem(Numerator, Denominator, out remainder);
 
                 if (remainder != 0)
-                    integerPart--;
+                    wholePart--;
 
-                return integerPart;
+                return wholePart;
             }
         }
 
         /// <summary>
-        /// Fractional part of the rational number
-        /// <seealso cref="IntegerPart"/>.
+        /// Fractional part of the rational number, see also <seealso cref="WholePart"/>.
         /// </summary>
+        /// <example>
+        /// 4/3 = 1 + 1/3;
+        /// -10/4 = -3 + 2/4
+        /// </example>
         public Rational FractionPart
         {
             get
@@ -60,7 +67,7 @@ namespace Rationals
                         return 0;
                 }
 
-                var fractionPart = this - IntegerPart;
+                Rational fractionPart = this - WholePart;
                 return fractionPart;
             }
         }

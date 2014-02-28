@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -9,6 +10,36 @@ namespace Rationals
 {
     public partial struct Rational : IEquatable<Rational>, IEquatable<int>, IEquatable<uint>, IEquatable<long>, IEquatable<ulong>, IEquatable<BigInteger>
     {
+        public bool Equals(BigInteger other)
+        {
+            return Equals((Rational) other);
+        }
+
+        public bool Equals(int other)
+        {
+            return Equals((Rational) other);
+        }
+
+        public bool Equals(long other)
+        {
+            return Equals((Rational) other);
+        }
+
+        public bool Equals(Rational other)
+        {
+            return Numerator * other.Denominator == other.Numerator * Denominator;
+        }
+
+        public bool Equals(uint other)
+        {
+            return Equals((Rational) other);
+        }
+
+        public bool Equals(ulong other)
+        {
+            return Equals((Rational) other);
+        }
+
         public override bool Equals(object obj)
         {
             if (!(obj is Rational))
@@ -19,7 +50,7 @@ namespace Rationals
                     obj is ulong ||
                     obj is BigInteger)
                 {
-                    return Equals((Rational)obj);
+                    return Equals((Rational) obj);
                 }
                 else
                 {
@@ -27,37 +58,7 @@ namespace Rationals
                 }
             }
 
-            return Equals((Rational)obj);
-        }
-
-        public bool Equals(int other)
-        {
-            return Equals((Rational)other);
-        }
-
-        public bool Equals(uint other)
-        {
-            return Equals((Rational)other);
-        }
-
-        public bool Equals(long other)
-        {
-            return Equals((Rational)other);
-        }
-
-        public bool Equals(ulong other)
-        {
-            return Equals((Rational)other);
-        }
-
-        public bool Equals(BigInteger other)
-        {
-            return Equals((Rational)other);
-        }
-
-        public bool Equals(Rational other)
-        {
-            return Numerator * other.Denominator == other.Numerator * Denominator;
+            return Equals((Rational) obj);
         }
 
         public static bool operator ==(Rational left, Rational right)
@@ -72,7 +73,7 @@ namespace Rationals
 
         public override int GetHashCode()
         {
-            var canonical = CanonicalForm;
+            Rational canonical = CanonicalForm;
             unchecked
             {
                 int hash = 27;

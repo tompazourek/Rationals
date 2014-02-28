@@ -20,7 +20,7 @@ namespace RationalTests
             var rational = new Rational(new BigInteger(3), new BigInteger(4));
 
             // action
-            var formatted = rational.ToString();
+            string formatted = rational.ToString();
 
             // assert
             Assert.AreEqual("3/4", formatted);

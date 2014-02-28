@@ -36,24 +36,6 @@ namespace Rationals
             _denominator = denominator;
         }
 
-        public bool IsZero
-        {
-            get { return _numerator.IsZero; }
-        }
-
-        public bool IsOne
-        {
-            get { return _numerator == _denominator; }
-        }
-
-        /// <summary>
-        /// Gets a number that indicates the sign (negative, positive, or zero) of the rational number
-        /// </summary>
-        public int Sign
-        {
-            get { return _numerator.Sign * _denominator.Sign; }
-        }
-
         public BigInteger Numerator
         {
             get { return _numerator; }

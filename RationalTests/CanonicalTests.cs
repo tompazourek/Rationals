@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Rationals;
-using System.Numerics;
 
 namespace RationalTests
 {
@@ -18,9 +18,24 @@ namespace RationalTests
         {
             // arrange
             var rational = new Rational(2, 4);
-            
+
             // action
-            var canonical = rational.CanonicalForm;
+            Rational canonical = rational.CanonicalForm;
+
+            // assert
+            Assert.AreEqual(new BigInteger(1), canonical.Numerator);
+            Assert.AreEqual(new BigInteger(2), canonical.Denominator);
+        }
+
+
+        [Test]
+        public void CanonicalForm_BothNegative()
+        {
+            // arrange
+            var rational = new Rational(-2, -4);
+
+            // action
+            Rational canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(1), canonical.Numerator);
@@ -34,40 +49,11 @@ namespace RationalTests
             var rational = new Rational(4, 3);
 
             // action
-            var canonical = rational.CanonicalForm;
+            Rational canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(4), canonical.Numerator);
             Assert.AreEqual(new BigInteger(3), canonical.Denominator);
-        }
-
-        [Test]
-        public void CanonicalForm_NegativeNumerator()
-        {
-            // arrange
-            var rational = new Rational(-2, 4);
-
-            // action
-            var canonical = rational.CanonicalForm;
-
-            // assert
-            Assert.AreEqual(new BigInteger(-1), canonical.Numerator);
-            Assert.AreEqual(new BigInteger(2), canonical.Denominator);
-        }
-
-
-        [Test]
-        public void CanonicalForm_BothNegative()
-        {
-            // arrange
-            var rational = new Rational(-2, -4);
-
-            // action
-            var canonical = rational.CanonicalForm;
-
-            // assert
-            Assert.AreEqual(new BigInteger(1), canonical.Numerator);
-            Assert.AreEqual(new BigInteger(2), canonical.Denominator);
         }
 
         [Test]
@@ -77,7 +63,21 @@ namespace RationalTests
             var rational = new Rational(2, -4);
 
             // action
-            var canonical = rational.CanonicalForm;
+            Rational canonical = rational.CanonicalForm;
+
+            // assert
+            Assert.AreEqual(new BigInteger(-1), canonical.Numerator);
+            Assert.AreEqual(new BigInteger(2), canonical.Denominator);
+        }
+
+        [Test]
+        public void CanonicalForm_NegativeNumerator()
+        {
+            // arrange
+            var rational = new Rational(-2, 4);
+
+            // action
+            Rational canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(-1), canonical.Numerator);
@@ -91,7 +91,7 @@ namespace RationalTests
             var rational = new Rational(0, -4);
 
             // action
-            var canonical = rational.CanonicalForm;
+            Rational canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(0), canonical.Numerator);
