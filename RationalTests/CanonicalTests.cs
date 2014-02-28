@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Rationals;
+using System.Numerics;
 
 namespace RationalTests
 {
@@ -22,7 +23,8 @@ namespace RationalTests
             var canonical = rational.CanonicalForm;
 
             // assert
-            Assert.AreEqual(new Rational(1, 2), canonical);
+            Assert.AreEqual(new BigInteger(1), canonical.Numerator);
+            Assert.AreEqual(new BigInteger(2), canonical.Denominator);
         }
 
         [Test]
@@ -35,7 +37,8 @@ namespace RationalTests
             var canonical = rational.CanonicalForm;
 
             // assert
-            Assert.AreEqual(rational, canonical);
+            Assert.AreEqual(new BigInteger(4), canonical.Numerator);
+            Assert.AreEqual(new BigInteger(3), canonical.Denominator);
         }
 
         [Test]
@@ -48,7 +51,8 @@ namespace RationalTests
             var canonical = rational.CanonicalForm;
 
             // assert
-            Assert.AreEqual(new Rational(-1, 2), canonical);
+            Assert.AreEqual(new BigInteger(-1), canonical.Numerator);
+            Assert.AreEqual(new BigInteger(2), canonical.Denominator);
         }
 
 
@@ -62,7 +66,8 @@ namespace RationalTests
             var canonical = rational.CanonicalForm;
 
             // assert
-            Assert.AreEqual(new Rational(1, 2), canonical);
+            Assert.AreEqual(new BigInteger(1), canonical.Numerator);
+            Assert.AreEqual(new BigInteger(2), canonical.Denominator);
         }
 
         [Test]
@@ -75,7 +80,8 @@ namespace RationalTests
             var canonical = rational.CanonicalForm;
 
             // assert
-            Assert.AreEqual(new Rational(-1, 2), canonical);
+            Assert.AreEqual(new BigInteger(-1), canonical.Numerator);
+            Assert.AreEqual(new BigInteger(2), canonical.Denominator);
         }
 
         [Test]
@@ -88,7 +94,8 @@ namespace RationalTests
             var canonical = rational.CanonicalForm;
 
             // assert
-            Assert.AreEqual(new Rational(0, 1), canonical);
+            Assert.AreEqual(new BigInteger(0), canonical.Numerator);
+            Assert.AreEqual(new BigInteger(1), canonical.Denominator);
         }
     }
 }
