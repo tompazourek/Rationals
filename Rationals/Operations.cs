@@ -43,8 +43,7 @@ namespace Rationals
             var numerator = left.Numerator * right.Denominator + left.Denominator * right.Numerator;
             var denominator = left.Denominator * right.Denominator;
             var sum = new Rational(ref numerator, ref denominator);
-            var result = sum.CanonicalForm;
-            return result;
+            return sum;
         }
 
         public static Rational operator -(Rational p)
@@ -78,9 +77,8 @@ namespace Rationals
 
             var numerator = left.Numerator * right.Denominator - left.Denominator * right.Numerator;
             var denominator = left.Denominator * right.Denominator;
-            var sum = new Rational(ref numerator, ref denominator);
-            var result = sum.CanonicalForm;
-            return result;
+            var difference = new Rational(ref numerator, ref denominator);
+            return difference;
         }
 
         public static Rational operator *(Rational left, Rational right)
@@ -90,9 +88,8 @@ namespace Rationals
 
             var numerator = left.Numerator * right.Numerator;
             var denominator = left.Denominator * right.Denominator;
-            var sum = new Rational(ref numerator, ref denominator);
-            var result = sum.CanonicalForm;
-            return result;
+            var product = new Rational(ref numerator, ref denominator);
+            return product;
         }
 
         public static Rational operator /(Rational left, Rational right)
@@ -105,9 +102,8 @@ namespace Rationals
             
             var numerator = left.Numerator * right.Denominator;
             var denominator = left.Denominator * right.Numerator;
-            var sum = new Rational(ref numerator, ref denominator);
-            var result = sum.CanonicalForm;
-            return result;
+            var quotient = new Rational(ref numerator, ref denominator);
+            return quotient;
         }
     }
 }

@@ -17,60 +17,56 @@ namespace RationalTests
         public void Addition1()
         {
             // arrange
-            var left = new Rational(1, 2);
-            var right = new Rational(1, 4);
+            var left = (Rational)1/2;
+            var right = (Rational)1/4;
 
             // action
             var sum = left + right;
 
             // assert
-            Assert.AreEqual(new BigInteger(3), sum.Numerator);
-            Assert.AreEqual(new BigInteger(4), sum.Denominator);
+            Assert.AreEqual((Rational)3/4, sum);
         }
 
         [Test]
         public void Addition2()
         {
             // arrange
-            var left = new Rational(1, 2);
-            var right = new Rational(0, 4);
+            var left = (Rational)1/2;
+            var right = (Rational)0/4;
 
             // action
             var sum = left + right;
 
             // assert
-            Assert.AreEqual(new BigInteger(1), sum.Numerator);
-            Assert.AreEqual(new BigInteger(2), sum.Denominator);
+            Assert.AreEqual((Rational)1/2, sum);
         }
 
         [Test]
         public void Addition3()
         {
             // arrange
-            var left = new Rational(32, 16);
-            var right = new Rational(4, 8);
+            var left = (Rational)32/16;
+            var right = (Rational)4/8;
 
             // action
             var sum = left + right;
 
             // assert
-            Assert.AreEqual(new BigInteger(5), sum.Numerator);
-            Assert.AreEqual(new BigInteger(2), sum.Denominator);
+            Assert.AreEqual((Rational)5/2, sum);
         }
 
         [Test]
         public void Addition4()
         {
             // arrange
-            var left = new Rational(32, 16);
-            var right = new Rational(-4, 8);
+            var left = (Rational)32/16;
+            var right = -(Rational)4/8;
 
             // action
             var sum = left + right;
 
             // assert
-            Assert.AreEqual(new BigInteger(3), sum.Numerator);
-            Assert.AreEqual(new BigInteger(2), sum.Denominator);
+            Assert.AreEqual((Rational)3/2, sum);
         }
 
         [Test]
@@ -83,8 +79,7 @@ namespace RationalTests
             var q = -p;
 
             // assert
-            Assert.AreEqual(new BigInteger(-1), q.Numerator);
-            Assert.AreEqual(new BigInteger(2), q.Denominator);
+            Assert.AreEqual(-(Rational)1/2, q);
         }
 
         [Test]
@@ -97,8 +92,7 @@ namespace RationalTests
             var q = -p;
 
             // assert
-            Assert.AreEqual(new BigInteger(1), q.Numerator);
-            Assert.AreEqual(new BigInteger(2), q.Denominator);
+            Assert.AreEqual((Rational)1/2, q);
         }
 
         [Test]
@@ -111,8 +105,7 @@ namespace RationalTests
             var q = -p;
 
             // assert
-            Assert.AreEqual(new BigInteger(1), q.Numerator);
-            Assert.AreEqual(new BigInteger(2), q.Denominator);
+            Assert.AreEqual((Rational)1/2, q);
         }
 
         [Test]
@@ -125,8 +118,7 @@ namespace RationalTests
             var q = -p;
 
             // assert
-            Assert.AreEqual(new BigInteger(-1), q.Numerator);
-            Assert.AreEqual(new BigInteger(2), q.Denominator);
+            Assert.AreEqual(-(Rational)1/2, q);
         }
 
         [Test]
