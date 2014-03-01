@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,5 +38,29 @@ namespace Rationals
         /// Indicates whether the value of the rational number is a power of two.
         /// </summary>
         public bool IsPowerOfTwo { get { return _numerator.IsPowerOfTwo && _denominator.IsPowerOfTwo; } }
+
+        /// <summary>
+        /// Represents the exponent of 10 if the number was written in scientific notation.
+        /// </summary>
+        /// <example>
+        /// Magnitude of 0 is 0.<br />
+        /// Magnitude of 5 is 0.<br />
+        /// Magnitude of 12 is 1.<br />
+        /// Magnitude of 3 988 222 is 6.<br />
+        /// Magnitude of 0.2223 is -1.<br />
+        /// Magnitude of 0.04 is -2.<br />
+        /// </example>
+        public int Magnitude
+        {
+            get
+            {
+                if (IsZero)
+                    return 0;
+
+                double numLog = BigInteger.Log10(BigInteger.Abs(_numerator));
+                double denLog = BigInteger.Log10(BigInteger.Abs(_denominator));
+                return (int)Math.Floor(numLog - denLog);
+            }
+        }
     }
 }

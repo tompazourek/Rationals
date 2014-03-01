@@ -84,5 +84,29 @@ namespace RationalTests
             var expected = new[] { 1, 2, 4, 8, 16, (Rational)1 / 2, (Rational)4 / 16, 64 };
             CollectionAssert.AreEqual(expected, powers);
         }
+
+        [Test]
+        [TestCase(1, 1, 0)]
+        [TestCase(2, 1, 0)]
+        [TestCase(0, 1, 0)]
+        [TestCase(10, 1, 1)]
+        [TestCase(11, 1, 1)]
+        [TestCase(11, 2, 0)]
+        [TestCase(1, 2, -1)]
+        [TestCase(1, 10, -1)]
+        [TestCase(1, 11, -2)]
+        [TestCase(2654111, 1, 6)]
+        [TestCase(1, 2654111, -7)]
+        public void Magnitude(int numerator, int denominator, int expectedMagnitude)
+        {
+            // arrange
+            var rational = new Rational(numerator, denominator);
+
+            // action
+            var magnitude = rational.Magnitude;
+
+            // assert
+            Assert.AreEqual(expectedMagnitude, magnitude);
+        }
     }
 }

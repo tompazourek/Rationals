@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,15 +11,47 @@ namespace Rationals
 {
     public partial struct Rational : IFormattable
     {
-        public override string ToString()
+        /// <summary>
+        ///     Enumerates significant digits of the rational number.
+        ///     Omits leading and trailing zeros (only exception is number zero).
+        /// </summary>
+        /// <remarks>
+        ///     To see the right magnitude, see <seealso cref="Magnitude" /> (e.g. for writing in scientific notation).
+        /// </remarks>
+        public IEnumerable<char> Digits
         {
-            if (_denominator.IsOne)
-                return _numerator.ToString();
+            get
+            {
+                BigInteger numerator = BigInteger.Abs(Numerator);
+                BigInteger denominator = BigInteger.Abs(Denominator);
+                bool removeLeadingZeros = true;
+                bool returnedAny = false;
+                while (numerator > 0)
+                {
+                    BigInteger rem;
+                    BigInteger divided = BigInteger.DivRem(numerator, denominator, out rem);
 
-            if (_numerator.IsZero)
-                return 0.ToString(CultureInfo.InvariantCulture);
+                    string digits = divided.ToString(CultureInfo.InvariantCulture);
 
-            return string.Format(CultureInfo.InvariantCulture, "{0}/{1}", _numerator, _denominator);
+                    if (rem == 0)
+                        digits = digits.TrimEnd('0'); // remove trailing zeros
+
+                    foreach (char digit in digits)
+                    {
+                        if (removeLeadingZeros && digit == '0')
+                            continue;
+
+                        yield return digit;
+                        removeLeadingZeros = false;
+                        returnedAny = true;
+                    }
+
+                    numerator = rem * 10;
+                }
+
+                if (!returnedAny)
+                    yield return '0';
+            }
         }
 
         public string ToString(string format, IFormatProvider formatProvider)
@@ -33,8 +66,8 @@ namespace Rationals
 
                 case "W": // as whole + fractional part
                     {
-                        var whole = WholePart;
-                        var fraction = FractionPart;
+                        BigInteger whole = WholePart;
+                        Rational fraction = FractionPart;
                         if (whole.IsZero)
                             return fraction.ToString();
 
@@ -48,6 +81,17 @@ namespace Rationals
                 default:
                     throw new FormatException(String.Format("The {0} format string is not supported.", format));
             }
+        }
+
+        public override string ToString()
+        {
+            if (_denominator.IsOne)
+                return _numerator.ToString();
+
+            if (_numerator.IsZero)
+                return 0.ToString(CultureInfo.InvariantCulture);
+
+            return string.Format(CultureInfo.InvariantCulture, "{0}/{1}", _numerator, _denominator);
         }
     }
 }

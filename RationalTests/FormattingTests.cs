@@ -52,5 +52,25 @@ namespace RationalTests
             // assert
             Assert.AreEqual("2 + 1/7", formatted);
         }
+
+        [Test]
+        [TestCase(200, 1, "2")]
+        [TestCase(1, 2, "5")]
+        [TestCase(1, 3, "3333333333")]
+        [TestCase(-213, 31, "6870967741")]
+        [TestCase(0, 1, "0")]
+        [TestCase(1, 10000, "1")]
+        public void Digits_Take10(int numerator, int denominator, string expectedDigits)
+        {
+            // arrange
+            var rational = new Rational(numerator, denominator);
+
+            // action
+            var digits = new string(rational.Digits.Take(10).ToArray());
+
+            // assert
+            Assert.AreEqual(expectedDigits, digits);
+        }
+
     }
 }
