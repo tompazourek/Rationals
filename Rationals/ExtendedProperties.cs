@@ -15,7 +15,7 @@ namespace Rationals
         /// </summary>
         public bool IsZero
         {
-            get { return _numerator.IsZero; }
+            get { return Numerator.IsZero; }
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace Rationals
         /// </summary>
         public bool IsOne
         {
-            get { return _numerator == _denominator; }
+            get { return Numerator == Denominator; }
         }
 
         /// <summary>
@@ -31,13 +31,13 @@ namespace Rationals
         /// </summary>
         public int Sign
         {
-            get { return _numerator.Sign * _denominator.Sign; }
+            get { return Numerator.Sign * Denominator.Sign; }
         }
 
         /// <summary>
         /// Indicates whether the value of the rational number is a power of two.
         /// </summary>
-        public bool IsPowerOfTwo { get { return _numerator.IsPowerOfTwo && _denominator.IsPowerOfTwo; } }
+        public bool IsPowerOfTwo { get { return Numerator.IsPowerOfTwo && Denominator.IsPowerOfTwo; } }
 
         /// <summary>
         /// Represents the exponent of 10 if the number was written in scientific notation.
@@ -57,8 +57,8 @@ namespace Rationals
                 if (IsZero)
                     return 0;
 
-                double numLog = BigInteger.Log10(BigInteger.Abs(_numerator));
-                double denLog = BigInteger.Log10(BigInteger.Abs(_denominator));
+                double numLog = BigInteger.Log10(BigInteger.Abs(Numerator));
+                double denLog = BigInteger.Log10(BigInteger.Abs(Denominator));
                 return (int)Math.Floor(numLog - denLog);
             }
         }

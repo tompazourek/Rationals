@@ -85,13 +85,13 @@ namespace Rationals
 
         public override string ToString()
         {
-            if (_denominator.IsOne)
-                return _numerator.ToString();
+            if (Denominator.IsOne)
+                return Numerator.ToString();
 
-            if (_numerator.IsZero)
+            if (Numerator.IsZero)
                 return 0.ToString(CultureInfo.InvariantCulture);
 
-            return string.Format(CultureInfo.InvariantCulture, "{0}/{1}", _numerator, _denominator);
+            return string.Format(CultureInfo.InvariantCulture, "{0}/{1}", Numerator, Denominator);
         }
     }
 }

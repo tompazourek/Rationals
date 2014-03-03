@@ -43,7 +43,7 @@ namespace Rationals
 
         public BigInteger Denominator
         {
-            get { return _denominator; }
+            get { return _denominator.IsZero ? 1 : _denominator; }
         }
     }
 }

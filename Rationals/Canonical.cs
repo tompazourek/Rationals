@@ -18,15 +18,15 @@ namespace Rationals
         {
             get
             {
-                if (_numerator.IsZero)
+                if (Numerator.IsZero)
                     return Zero;
 
-                BigInteger gcd = BigInteger.GreatestCommonDivisor(_numerator, _denominator);
+                BigInteger gcd = BigInteger.GreatestCommonDivisor(Numerator, Denominator);
 
-                if (_denominator.Sign < 0)
+                if (Denominator.Sign < 0)
                     gcd = BigInteger.Negate(gcd); // ensures that canonical form is either positive or has minus in numerator
 
-                var canonical = new Rational(_numerator / gcd, _denominator / gcd);
+                var canonical = new Rational(Numerator / gcd, Denominator / gcd);
                 return canonical;
             }
         }
