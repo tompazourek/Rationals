@@ -3,6 +3,8 @@ Rationals
 
 *Implementation of rational number arithmetics for .NET.*
 
+[![Build status](https://ci.appveyor.com/api/projects/status/8w3d71q8fr65gntb)](https://ci.appveyor.com/project/tompazourek/rationals)
+
 ```csharp
 Rational left = (Rational) 1 / 2;
 Rational right = (Rational) 1 / 4;
