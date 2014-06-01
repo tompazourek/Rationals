@@ -11,11 +11,11 @@ using System.Text;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("RationalTests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Tests of rational number arithmetics.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RationalTests")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("Rationals")]
+[assembly: AssemblyCopyright("Copyright © Tomáš Pažourek 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -40,5 +40,8 @@ using System.Text;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.1.0.0")]
+[assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: AssemblyInformationalVersion("0.1.0")]
+
+[assembly: CLSCompliant(true)]
