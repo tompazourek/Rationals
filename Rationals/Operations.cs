@@ -1,10 +1,19 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2014
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Rationals
 {
@@ -142,7 +151,7 @@ namespace Rationals
 
             if (number.IsOne)
                 return number;
-            
+
             if (number.IsZero)
             {
                 if (exponent < 0)
@@ -150,7 +159,7 @@ namespace Rationals
 
                 return number;
             }
-               
+
             if (exponent > 0)
             {
                 var numerator = BigInteger.Pow(number.Numerator, exponent);

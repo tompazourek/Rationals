@@ -1,11 +1,20 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2014
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information

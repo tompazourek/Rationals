@@ -1,10 +1,19 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2014
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Rationals
 {
@@ -13,7 +22,7 @@ namespace Rationals
         public static explicit operator decimal(Rational rational)
         {
             if (rational < 0)
-                return -(decimal)(-rational);
+                return -(decimal) (-rational);
 
             decimal result = 0;
             var numerator = rational.Numerator;
@@ -29,11 +38,11 @@ namespace Rationals
                 {
                     if (divided >= 5)
                         result += previousScale; // round up last digit
-                    
+
                     break;
                 }
 
-                result += (decimal)divided * scale;
+                result += (decimal) divided * scale;
 
                 Debug.WriteLine(result);
                 numerator = rem * 10;
@@ -46,12 +55,12 @@ namespace Rationals
 
         public static explicit operator double(Rational rational)
         {
-            return (double)(decimal) rational;
+            return (double) (decimal) rational;
         }
 
         public static explicit operator float(Rational rational)
         {
-            return (float)(decimal)rational;
+            return (float) (decimal) rational;
         }
     }
 }
