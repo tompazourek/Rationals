@@ -19,6 +19,7 @@ namespace Rationals
 {
     public partial struct Rational
     {
+        [CLSCompliant(false)]
         public static implicit operator Rational(sbyte n)
         {
             return n != 0 ? new Rational(n) : Zero;
@@ -34,6 +35,7 @@ namespace Rationals
             return n != 0 ? new Rational(n) : Zero;
         }
 
+        [CLSCompliant(false)]
         public static implicit operator Rational(ushort n)
         {
             return n != 0 ? new Rational(n) : Zero;
@@ -44,6 +46,7 @@ namespace Rationals
             return n != 0 ? new Rational(n) : Zero;
         }
 
+        [CLSCompliant(false)]
         public static implicit operator Rational(uint n)
         {
             return n != 0 ? new Rational(n) : Zero;
@@ -54,6 +57,7 @@ namespace Rationals
             return n != 0 ? new Rational(n) : Zero;
         }
 
+        [CLSCompliant(false)]
         public static implicit operator Rational(ulong n)
         {
             return n != 0 ? new Rational(n) : Zero;

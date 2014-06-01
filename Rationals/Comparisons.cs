@@ -65,6 +65,7 @@ namespace Rationals
             return -1;
         }
 
+        [CLSCompliant(false)]
         public int CompareTo(sbyte other)
         {
             return CompareTo((Rational) other);
@@ -75,16 +76,19 @@ namespace Rationals
             return CompareTo((Rational) other);
         }
 
+        [CLSCompliant(false)]
         public int CompareTo(uint other)
         {
             return CompareTo((Rational) other);
         }
 
+        [CLSCompliant(false)]
         public int CompareTo(ulong other)
         {
             return CompareTo((Rational) other);
         }
 
+        [CLSCompliant(false)]
         public int CompareTo(ushort other)
         {
             return CompareTo((Rational) other);
@@ -115,6 +119,7 @@ namespace Rationals
             return (Numerator * other.Denominator).Equals(other.Numerator * Denominator);
         }
 
+        [CLSCompliant(false)]
         public bool Equals(sbyte other)
         {
             return Equals((Rational) other);
@@ -125,16 +130,19 @@ namespace Rationals
             return Equals((Rational) other);
         }
 
+        [CLSCompliant(false)]
         public bool Equals(uint other)
         {
             return Equals((Rational) other);
         }
 
+        [CLSCompliant(false)]
         public bool Equals(ulong other)
         {
             return Equals((Rational) other);
         }
 
+        [CLSCompliant(false)]
         public bool Equals(ushort other)
         {
             return Equals((Rational) other);
