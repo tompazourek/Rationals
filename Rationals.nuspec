@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+    <metadata>
+        <id>Rationals</id>
+        <version>1.0.0</version>
+        <title>Rationals</title>
+        <authors>Tomáš Pažourek</authors>
+        <licenseUrl>https://raw.githubusercontent.com/tompazourek/Rationals/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/tompazourek/Rationals</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/tompazourek/Rationals/master/assets/logo_64.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Implementation of rational number arithmetics for .NET
+
+Supported features:
+
+- implicit conversions - rationals integrate seamlessly with other number types
+- unlimited precision - rationals use BigInteger inside
+- canonical form - each rational can have its canonical form (irreducible fraction where denominator is always positive)
+- comparison & equality
+- multiple formatting options - ToString("C") (canonical form), ToString("W") (whole + fractional part), or normal fraction format
+
+Example usage:
+
+Rational left = (Rational) 1 / 2;
+
+Rational right = (Rational) 1 / 4;
+
+Rational sum = left + right; // equals to: 3 / 4
+
+</description>
+        <summary>Implementation of rational number arithmetics for .NET</summary>
+        <copyright>Tomáš Pažourek, 2014</copyright>
+        <tags>rational numbers, biginterger, rationals, q, bigrational</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Numerics" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="Rationals\bin\Release\Rationals.dll" target="lib\net40\Rationals.dll" />
+        <file src="Rationals\bin\Release\Rationals.pdb" target="lib\net40\Rationals.pdb" />
+        <file src="Rationals\bin\Release\Rationals.xml" target="lib\net40\Rationals.xml" />
+    </files>
+</package>
