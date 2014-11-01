@@ -16,7 +16,7 @@ Supported features:
 - implicit conversions - rationals integrate seamlessly with other number types
 - unlimited precision - rationals use BigInteger inside
 - canonical form - each rational can have its canonical form (irreducible fraction where denominator is always positive)
-- comparison & equality
+- comparison &amp; equality
 - multiple formatting options - ToString("C") (canonical form), ToString("W") (whole + fractional part), or normal fraction format
 
 Example usage:
