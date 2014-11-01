@@ -1,5 +1,5 @@
-Rationals
-=========
+![Rationals logo](https://raw.githubusercontent.com/tompazourek/Rationals/master/assets/logo_32.png) Rationals .NET
+==============
 
 *Implementation of rational number arithmetics for .NET.*
 
@@ -12,9 +12,20 @@ Rational right = (Rational) 1 / 4;
 Rational sum = left + right; // equals to: 3 / 4
 ```
 
+Download
+--------
+
+Binaries of the last build can be downloaded on the [AppVeyor CI page of the project](https://ci.appveyor.com/project/tompazourek/rationals/build/artifacts).
+
+The library is also [published on NuGet.org](https://www.nuget.org/packages/Rationals/), install using:
+
+```
+PM> Install-Package Rationals
+```
+
+
 Supported features
 ------------------
-
 
 - **implicit conversions** - rationals integrate seamlessly with other number types
 - **unlimited precision** - rationals use `BigInteger` inside
