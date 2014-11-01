@@ -1,4 +1,4 @@
-![Rationals logo](https://raw.githubusercontent.com/tompazourek/Rationals/master/assets/logo_32.png) Rationals .NET
+![Rationals logo](https://raw.githubusercontent.com/tompazourek/Rationals/master/assets/logo_64.png) Rationals .NET
 ==============
 
 *Implementation of rational number arithmetics for .NET.*
