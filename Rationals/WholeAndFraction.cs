@@ -33,21 +33,25 @@ namespace Rationals
                 if (IsZero)
                     return 0;
 
+                // ensure that minus is only in numerator, if negative
+                var num = Sign > 0 ? BigInteger.Abs(Numerator) : -BigInteger.Abs(Numerator);
+                var den = BigInteger.Abs(Denominator);
+
                 BigInteger wholePart;
                 if (Sign > 0)
                 {
-                    if (Numerator < Denominator)
+                    if (num < den)
                         return 0;
 
                     if (IsOne)
                         return 1;
 
-                    wholePart = Numerator / Denominator;
+                    wholePart = num / den;
                     return wholePart;
                 }
 
                 BigInteger remainder;
-                wholePart = BigInteger.DivRem(Numerator, Denominator, out remainder);
+                wholePart = BigInteger.DivRem(num, den, out remainder);
 
                 if (remainder != 0)
                     wholePart--;
@@ -67,9 +71,13 @@ namespace Rationals
         {
             get
             {
+                // ensure that minus is only in numerator, if negative
+                var num = Sign > 0 ? BigInteger.Abs(Numerator) : -BigInteger.Abs(Numerator);
+                var den = BigInteger.Abs(Denominator);
+
                 if (Sign > 0)
                 {
-                    if (Numerator < Denominator)
+                    if (num < den)
                         return this;
 
                     if (IsOne)

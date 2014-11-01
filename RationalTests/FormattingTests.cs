@@ -14,42 +14,68 @@ namespace RationalTests
     public class FormattingTests
     {
         [Test]
-        public void Format()
+        [TestCase(3, 4, "3/4")]
+        [TestCase(3, -4, "3/-4")]
+        [TestCase(-3, -4, "-3/-4")]
+        [TestCase(6, 2, "6/2")]
+        [TestCase(12, 1, "12")]
+        [TestCase(12, -1, "12/-1")]
+        [TestCase(0, 50, "0")]
+        public void Format(long numerator, long denominator, string expectedResult)
         {
             // arrange
-            var rational = new Rational(new BigInteger(3), new BigInteger(4));
+            var rational = new Rational(numerator, denominator);
 
             // action
-            string formatted = rational.ToString();
+            string result = rational.ToString();
 
             // assert
-            Assert.AreEqual("3/4", formatted);
+            Assert.AreEqual(expectedResult, result);
         }
 
         [Test]
-        public void Format_C()
+        [TestCase(3, 4, "3/4")]
+        [TestCase(3, -4, "-3/4")]
+        [TestCase(-3, -4, "3/4")]
+        [TestCase(6, 2, "3")]
+        [TestCase(12, 1, "12")]
+        [TestCase(12, -1, "-12")]
+        [TestCase(0, 50, "0")]
+        public void Format_C(long numerator, long denominator, string expectedResult)
         {
             // arrange
-            var rational = new Rational(new BigInteger(14), new BigInteger(7));
+            var rational = new Rational(numerator, denominator);
 
             // action
-            string formatted = rational.ToString("C", CultureInfo.CurrentCulture);
+            string result = rational.ToString("C");
 
             // assert
-            Assert.AreEqual("2", formatted);
+            Assert.AreEqual(expectedResult, result);
         }
 
         [Test]
-        public void Format_W()
+        [TestCase(15, 7, "2 + 1/7")]
+        [TestCase(-15, 7, "-3 + 6/7")]
+        [TestCase(3, 4, "3/4")]
+        [TestCase(3, -4, "-1 + 1/4")]
+        [TestCase(-3, -4, "3/4")]
+        [TestCase(6, 2, "3")]
+        [TestCase(12, 1, "12")]
+        [TestCase(12, -1, "-12")]
+        [TestCase(0, 50, "0")]
+        [TestCase(4, 3, "1 + 1/3")]
+        [TestCase(4, -3, "-2 + 2/3")]
+        [TestCase(-4, -3, "1 + 1/3")]
+        public void Format_W(long numerator, long denominator, string expectedResult)
         {
             // arrange
-            var rational = new Rational(new BigInteger(15), new BigInteger(7));
+            var rational = new Rational(numerator, denominator);
 
             // action
-            string formatted = rational.ToString("W", CultureInfo.CurrentCulture);
+            string result = rational.ToString("W");
 
             // assert
-            Assert.AreEqual("2 + 1/7", formatted);
+            Assert.AreEqual(expectedResult, result);
         }
 
         [Test]

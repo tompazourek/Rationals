@@ -21,6 +21,8 @@ namespace RationalTests
         [TestCase(456, 456, 0, 1)]
         [TestCase(45, 9, 0, 1)]
         [TestCase(45, 10, 5, 10)]
+        [TestCase(-4, -3, 1, 3)]
+        [TestCase(-3, -4, 3, 4)]
         public void FractionPart(int numerator, int denominator, int fractionPartNumerator, int fractionPartDenominator)
         {
             // arrange
@@ -39,6 +41,8 @@ namespace RationalTests
         [TestCase(456, 456)]
         [TestCase(45, 9)]
         [TestCase(45, 10)]
+        [TestCase(-4, -3)]
+        [TestCase(-3, -4)]
         public void WholeAndFraction_Sum(int numerator, int denominator)
         {
             // arrange
@@ -61,6 +65,8 @@ namespace RationalTests
         [TestCase(456, 456, 1)]
         [TestCase(45, 9, 5)]
         [TestCase(45, 10, 4)]
+        [TestCase(-4, -3, 1)]
+        [TestCase(-3, -4, 0)]
         public void WholePart(int numerator, int denominator, int wholePart)
         {
             // arrange

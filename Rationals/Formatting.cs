@@ -63,10 +63,23 @@ namespace Rationals
             }
         }
 
+        /// <summary>
+        /// Formats rational number to string
+        /// </summary>
+        /// <param name="format">F for normal fraction, C for canonical fraction, W for whole+fractional</param>
+        /// <param name="formatProvider">Ignored, custom format providers are not supported</param>
         public string ToString(string format, IFormatProvider formatProvider)
         {
+            return ToString(format);
+        }
+
+        /// <summary>
+        /// Formats rational number to string
+        /// </summary>
+        /// <param name="format">F for normal fraction, C for canonical fraction, W for whole+fractional</param>
+        public string ToString(string format)
+        {
             if (string.IsNullOrEmpty(format)) format = "F";
-            if (formatProvider == null) formatProvider = CultureInfo.CurrentCulture;
 
             switch (format.ToUpperInvariant())
             {
@@ -76,14 +89,14 @@ namespace Rationals
                 case "W": // as whole + fractional part
                     {
                         BigInteger whole = WholePart;
-                        Rational fraction = FractionPart;
+                        Rational fraction = FractionPart.CanonicalForm;
                         if (whole.IsZero)
                             return fraction.ToString();
 
                         if (fraction.IsZero)
                             return whole.ToString();
 
-                        return string.Format(formatProvider, "{0} + {1}", whole, fraction);
+                        return string.Format(CultureInfo.InvariantCulture, "{0} + {1}", whole, fraction);
                     }
                 case "C": // in canonical form
                     return CanonicalForm.ToString();
@@ -102,5 +115,6 @@ namespace Rationals
 
             return string.Format(CultureInfo.InvariantCulture, "{0}/{1}", Numerator, Denominator);
         }
+
     }
 }

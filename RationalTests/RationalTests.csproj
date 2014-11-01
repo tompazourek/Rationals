@@ -55,6 +55,7 @@
     <Compile Include="BaseTests.cs" />
     <Compile Include="CanonicalTests.cs" />
     <Compile Include="ComparisonsTests.cs" />
+    <Compile Include="ParsingTests.cs" />
     <Compile Include="ExplicitFloatingPointConversionsTests.cs" />
     <Compile Include="ExtendedPropertiesTests.cs" />
     <Compile Include="WholeAndFractionTests.cs" />
