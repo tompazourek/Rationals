@@ -30,7 +30,7 @@ Rational sum = left + right; // equals to: 3 / 4
 </description>
         <summary>Implementation of rational number arithmetics for .NET</summary>
         <copyright>Tomáš Pažourek, 2014</copyright>
-        <tags>rational numbers, biginterger, rationals, q, bigrational</tags>
+        <tags>rational numbers, biginteger, rationals, q, bigrational, arbitrary precision</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework="" />
             <frameworkAssembly assemblyName="System.Core" targetFramework="" />
