@@ -1,11 +1,11 @@
-version: 1.2.0.{build}-alpha1
+version: 1.2.0.{build}
 configuration: Release
 assembly_info:
   patch: true
   file: AssemblyInfo.*
   assembly_version: 1.0.0.0
   assembly_file_version: '{version}'
-  assembly_informational_version: 1.2.0-alpha1
+  assembly_informational_version: 1.2.0
 build:
   verbosity: minimal
 after_build:
