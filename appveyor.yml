@@ -1,0 +1,17 @@
+version: 1.1.1.{build}
+configuration: Release
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: 1.0.0.0
+  assembly_file_version: '{version}'
+  assembly_informational_version: 1.1.1
+build:
+  verbosity: minimal
+after_build:
+- cmd: nuget pack Rationals.nuspec
+artifacts:
+- path: Rationals\bin\$(configuration)
+  name: Rationals
+- path: Rationals*.nupkg
+  name: Rationals
