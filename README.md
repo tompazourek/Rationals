@@ -1,7 +1,7 @@
 ![Rationals logo](https://raw.githubusercontent.com/tompazourek/Rationals/master/assets/logo_64.png) Rationals .NET
 ==============
 
-*Implementation of rational number arithmetics for .NET.*
+*Implementation of rational number arithmetics for .NET, written in C#.*
 
 [![Build status](https://ci.appveyor.com/api/projects/status/8w3d71q8fr65gntb)](https://ci.appveyor.com/project/tompazourek/rationals)
 
@@ -32,4 +32,5 @@ Supported features
 - **canonical form** - each rational can have its canonical form (irreducible fraction where denominator is always positive)
 - **comparison & equality**
 - **separate whole and fractional part** - any rational number can be separated into a whole part (integer quotient aka result of integer division) and fractional part (reminder of the integral division aka result of modulo operation)
+- **continued fraction expansion** - expand rational numbers to continued fraction (sequence of coefficients), construct rational numbers from sequence of continued fraction coefficients
 - **multiple formatting options** - `ToString("C")` (canonical form), `ToString("W")` (whole + fractional part), or normal fraction format

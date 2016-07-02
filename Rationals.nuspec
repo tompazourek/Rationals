@@ -9,7 +9,7 @@
         <projectUrl>https://github.com/tompazourek/Rationals</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/tompazourek/Rationals/master/assets/logo_64.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Implementation of rational number arithmetics for .NET
+        <description>Implementation of rational number arithmetics for .NET, written in C#
 
 Supported features:
 
@@ -19,6 +19,7 @@ Supported features:
 - separate whole and fractional part - any rational number can be separated into a whole part (integer quotient aka result of integer division) and fractional part (reminder of the integral division aka result of modulo operation)
 - comparison &amp; equality
 - multiple formatting options - ToString("C") (canonical form), ToString("W") (whole + fractional part), or normal fraction format
+- continued fraction expansion - expand rational numbers to continued fraction (sequence of coefficients), construct rational numbers from sequence of continued fraction coefficients
 
 Example usage:
 
@@ -30,8 +31,8 @@ Rational sum = left + right; // equals to: 3 / 4
 
 </description>
         <summary>Implementation of rational number arithmetics for .NET</summary>
-        <copyright>Tomáš Pažourek, 2014</copyright>
-        <tags>rational numbers, biginteger, rationals, q, bigrational, arbitrary precision</tags>
+        <copyright>Tomáš Pažourek, 2016</copyright>
+        <tags>rational numbers, biginteger, rationals, q, bigrational, arbitrary precision, fractional, fraction, continued fraction</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework="" />
             <frameworkAssembly assemblyName="System.Core" targetFramework="" />

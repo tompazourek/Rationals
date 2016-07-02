@@ -55,6 +55,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseTests.cs" />
+    <Compile Include="ContinuedFractionsTests.cs" />
     <Compile Include="CanonicalTests.cs" />
     <Compile Include="ComparisonsTests.cs" />
     <Compile Include="ParsingTests.cs" />
