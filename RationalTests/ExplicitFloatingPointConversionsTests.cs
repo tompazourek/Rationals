@@ -25,6 +25,154 @@ namespace RationalTests
         private const double doubleDelta = 1.0E-15d;
         private const float floatDelta = 1.0E-6f;
 
+        [TestCase(0.5, 1, 2)]
+        [TestCase(-0.5, -1, 2)]
+        [TestCase(0.0, 0, 1)]
+        [TestCase(-0.0, 0, 1)]
+        [TestCase(1.33, 133, 100)]
+        [TestCase(-1.33, -133, 100)]
+        [TestCase(213213.2132132432, 64057990991, 300441)]
+        [TestCase(-213213.2132132432, -64057990991, 300441)]
+        [TestCase(3.45, 69, 20)]
+        [TestCase(-3.45, -69, 20)]
+        public void FromDouble(double input, long expectedNumerator, long expectedDenominator)
+        {
+            // action
+            var rational = (Rational) input;
+
+            // assert
+            Assert.AreEqual((Rational) expectedNumerator / expectedDenominator, rational);
+        }
+
+        [TestCase(double.NegativeInfinity)]
+        [TestCase(double.PositiveInfinity)]
+        [TestCase(double.NaN)]
+        [TestCase(double.Epsilon)]
+        public void FromDouble_Throws(double input)
+        {
+            // ReSharper disable once UnusedVariable
+            Assert.Throws<OverflowException>(() =>
+            {
+                var x = (Rational) input;
+            });
+        }
+
+        [TestCase(0.5f, 1, 2)]
+        [TestCase(-0.5f, -1, 2)]
+        [TestCase(0.0f, 0, 1)]
+        [TestCase(-0.0f, 0, 1)]
+        [TestCase(1.33f, 133, 100)]
+        [TestCase(-1.33f, -133, 100)]
+        [TestCase(9843.55f, 196871, 20)]
+        [TestCase(-9843.55f, -196871, 20)]
+        [TestCase(3.45f, 69, 20)]
+        [TestCase(-3.45f, -69, 20)]
+        public void FromFloat(float input, long expectedNumerator, long expectedDenominator)
+        {
+            // action
+            var rational = (Rational) input;
+
+            // assert
+            Assert.AreEqual((Rational) expectedNumerator / expectedDenominator, rational);
+        }
+
+        [TestCase(float.NegativeInfinity)]
+        [TestCase(float.PositiveInfinity)]
+        [TestCase(float.NaN)]
+        [TestCase(float.Epsilon)]
+        public void FromFloat_Throws(float input)
+        {
+            // ReSharper disable once UnusedVariable
+            Assert.Throws<OverflowException>(() =>
+            {
+                var x = (Rational) input;
+            });
+        }
+
+        [TestCase("0.5", 1, 2)]
+        [TestCase("-0.5", -1, 2)]
+        [TestCase("0.0", 0, 1)]
+        [TestCase("-0.0", 0, 1)]
+        [TestCase("1.33", 133, 100)]
+        [TestCase("-1.33", -133, 100)]
+        [TestCase("9843.55", 196871, 20)]
+        [TestCase("-9843.55", -196871, 20)]
+        [TestCase("3.45", 69, 20)]
+        [TestCase("-3.45", -69, 20)]
+        public void FromDecimal(string inputStr, long expectedNumerator, long expectedDenominator)
+        {
+            // arrange
+            var input = decimal.Parse(inputStr);
+
+            // action
+            var rational = (Rational) input;
+
+            // assert
+            Assert.AreEqual((Rational) expectedNumerator / expectedDenominator, rational);
+        }
+
+        [Test]
+        public void FromDecimal_MaxValue()
+        {
+            // ReSharper disable once UnusedVariable
+            Assert.DoesNotThrow(() =>
+            {
+                var x = (Rational) decimal.MaxValue;
+            });
+        }
+
+        [Test]
+        public void FromDecimal_MinValue()
+        {
+            // ReSharper disable once UnusedVariable
+            Assert.DoesNotThrow(() =>
+            {
+                var x = (Rational) decimal.MinValue;
+            });
+        }
+
+
+        [Test]
+        public void FromDouble_MaxValue_Throws()
+        {
+            // ReSharper disable once UnusedVariable
+            Assert.Throws<OverflowException>(() =>
+            {
+                var x = (Rational) double.MaxValue;
+            });
+        }
+
+        [Test]
+        public void FromDouble_MinValue_Throws()
+        {
+            // ReSharper disable once UnusedVariable
+            Assert.Throws<OverflowException>(() =>
+            {
+                var x = (Rational) double.MinValue;
+            });
+        }
+
+
+        [Test]
+        public void FromFloat_MaxValue()
+        {
+            // ReSharper disable once UnusedVariable
+            Assert.DoesNotThrow(() =>
+            {
+                var x = (Rational) float.MaxValue;
+            });
+        }
+
+        [Test]
+        public void FromFloat_MinValue()
+        {
+            // ReSharper disable once UnusedVariable
+            Assert.DoesNotThrow(() =>
+            {
+                var x = (Rational) float.MinValue;
+            });
+        }
+
         [Test]
         public void ToDecimal1()
         {

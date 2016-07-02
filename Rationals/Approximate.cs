@@ -42,9 +42,23 @@ namespace Rationals
             }
         }
 
+        private static float TruncateFloat(float d)
+        {
+            if (d.Equals(float.PositiveInfinity))
+                return float.PositiveInfinity;
+
+            if (d.Equals(float.NegativeInfinity))
+                return float.NegativeInfinity;
+
+            if (d.Equals(float.NaN))
+                return float.NaN;
+
+            return (int) d;
+        }
+
         private static IEnumerable<BigInteger> ExpandToContinuedFraction(float d)
         {
-            float wholePart = (int) d;
+            float wholePart = TruncateFloat(d);
             var fractionPart = d - wholePart;
             yield return (BigInteger) wholePart;
 
@@ -53,7 +67,7 @@ namespace Rationals
             {
                 d = 1f / fractionPart;
 
-                wholePart = (int) d;
+                wholePart = TruncateFloat(d);
                 fractionPart = d - wholePart;
                 yield return (BigInteger) wholePart;
             }

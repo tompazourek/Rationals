@@ -61,5 +61,20 @@ namespace Rationals
         {
             return (float) (decimal) rational;
         }
+
+        public static explicit operator Rational(decimal num)
+        {
+            return Approximate(num);
+        }
+
+        public static explicit operator Rational(double num)
+        {
+            return Approximate(num);
+        }
+
+        public static explicit operator Rational(float num)
+        {
+            return Approximate(num);
+        }
     }
 }
