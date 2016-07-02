@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>Rationals</id>
-        <version>1.1.0</version>
+        <version>1.1.1-alpha1</version>
         <title>Rationals</title>
         <authors>Tomáš Pažourek</authors>
         <licenseUrl>https://raw.githubusercontent.com/tompazourek/Rationals/master/LICENSE</licenseUrl>
