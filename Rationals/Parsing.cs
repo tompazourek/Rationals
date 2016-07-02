@@ -77,5 +77,38 @@ namespace Rationals
 
             return false;
         }
+
+        public static Rational ParseDecimal(string s, decimal tolerance = 0)
+        {
+            Rational result;
+            if (!TryParseDecimal(s, out result))
+            {
+                throw new FormatException("Cannot parse string as Rational, the input is in incorrect format.");
+            }
+
+            return result;
+        }
+
+        public static bool TryParseDecimal(string s, out Rational result, decimal tolerance = 0)
+        {
+            decimal d;
+
+            if (!decimal.TryParse(s, out d))
+            {
+                result = default(Rational);
+                return false;
+            }
+
+            try
+            {
+                result = Approximate(d, tolerance);
+                return true;
+            }
+            catch (Exception)
+            {
+                result = default(Rational);
+                return false;
+            }
+        }
     }
 }

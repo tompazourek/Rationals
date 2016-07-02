@@ -50,5 +50,26 @@ namespace RationalTests
             Assert.AreEqual(expectedSuccess, success);
             Assert.AreEqual(expectedResult, result);
         }
+
+        [TestCase(@"0.75", 0, true, 3, 4)]
+        [TestCase(@"0A75", 0, false, 0, 0)]
+        [TestCase(@"1.33333333333", 0.0000001, true, 4, 3)]
+        [TestCase(@"1.33", 0, true, 133, 100)]
+        [TestCase(@"  Hello, I am dog!  ", 0, false, 0, 0)]
+        [TestCase(@"", 0, false, 0, 0)]
+        [TestCase(@"-1", 0, true, -1, 1)]
+        public void ParseDecimal(string input, double tolerance, bool expectedSuccess, long numerator, long denominator)
+        {
+            // arrange
+            var expectedResult = expectedSuccess ? (Rational)numerator / denominator : default(Rational);
+            Rational result;
+
+            // action
+            var success = Rational.TryParseDecimal(input, out result, (decimal)tolerance);
+
+            // assert
+            Assert.AreEqual(expectedSuccess, success);
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
