@@ -1,4 +1,14 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2016
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -19,7 +29,7 @@ namespace RationalTests
             var rational = new Rational(2, 4);
 
             // action
-            Rational canonical = rational.CanonicalForm;
+            var canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(1), canonical.Numerator);
@@ -34,7 +44,7 @@ namespace RationalTests
             var rational = new Rational(-2, -4);
 
             // action
-            Rational canonical = rational.CanonicalForm;
+            var canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(1), canonical.Numerator);
@@ -48,7 +58,7 @@ namespace RationalTests
             var rational = new Rational(4, 3);
 
             // action
-            Rational canonical = rational.CanonicalForm;
+            var canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(4), canonical.Numerator);
@@ -62,7 +72,7 @@ namespace RationalTests
             var rational = new Rational(2, -4);
 
             // action
-            Rational canonical = rational.CanonicalForm;
+            var canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(-1), canonical.Numerator);
@@ -76,7 +86,7 @@ namespace RationalTests
             var rational = new Rational(-2, 4);
 
             // action
-            Rational canonical = rational.CanonicalForm;
+            var canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(-1), canonical.Numerator);
@@ -90,7 +100,7 @@ namespace RationalTests
             var rational = new Rational(0, -4);
 
             // action
-            Rational canonical = rational.CanonicalForm;
+            var canonical = rational.CanonicalForm;
 
             // assert
             Assert.AreEqual(new BigInteger(0), canonical.Numerator);

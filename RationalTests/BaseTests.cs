@@ -1,4 +1,14 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2016
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -19,8 +29,8 @@ namespace RationalTests
             var rational = new Rational(new BigInteger(1), new BigInteger(2));
 
             // action
-            BigInteger numerator = rational.Numerator;
-            BigInteger denominator = rational.Denominator;
+            var numerator = rational.Numerator;
+            var denominator = rational.Denominator;
 
             // assert
             Assert.AreEqual(new BigInteger(1), numerator);
@@ -30,6 +40,7 @@ namespace RationalTests
         [Test]
         public void Constructor_DenominatorZero()
         {
+            // ReSharper disable once ObjectCreationAsStatement
             Assert.Catch(() => new Rational(new BigInteger(1), new BigInteger(0)));
         }
 
@@ -40,8 +51,8 @@ namespace RationalTests
             var rational = new Rational(3);
 
             // action
-            BigInteger numerator = rational.Numerator;
-            BigInteger denominator = rational.Denominator;
+            var numerator = rational.Numerator;
+            var denominator = rational.Denominator;
 
             // assert
             Assert.AreEqual(new BigInteger(3), numerator);
@@ -55,8 +66,8 @@ namespace RationalTests
             var rational = new Rational(0);
 
             // action
-            BigInteger numerator = rational.Numerator;
-            BigInteger denominator = rational.Denominator;
+            var numerator = rational.Numerator;
+            var denominator = rational.Denominator;
 
             // assert
             Assert.AreEqual(new BigInteger(0), numerator);

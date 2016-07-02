@@ -1,4 +1,14 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2016
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -30,17 +40,15 @@ namespace RationalTests
         public void Parse(string input, bool expectedSuccess, long numerator, long denominator)
         {
             // arrange
-            bool success = false;
-            Rational expectedResult = expectedSuccess ? (Rational) numerator / denominator : default(Rational);
+            var expectedResult = expectedSuccess ? (Rational) numerator / denominator : default(Rational);
             Rational result;
 
             // action
-            success = Rational.TryParse(input, out result);
+            var success = Rational.TryParse(input, out result);
 
             // assert
             Assert.AreEqual(expectedSuccess, success);
             Assert.AreEqual(expectedResult, result);
         }
-
     }
 }

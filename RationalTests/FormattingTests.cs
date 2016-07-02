@@ -1,7 +1,16 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2016
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -13,6 +22,25 @@ namespace RationalTests
     [TestFixture]
     public class FormattingTests
     {
+        [Test]
+        [TestCase(200, 1, "2")]
+        [TestCase(1, 2, "5")]
+        [TestCase(1, 3, "3333333333")]
+        [TestCase(-213, 31, "6870967741")]
+        [TestCase(0, 1, "0")]
+        [TestCase(1, 10000, "1")]
+        public void Digits_Take10(int numerator, int denominator, string expectedDigits)
+        {
+            // arrange
+            var rational = new Rational(numerator, denominator);
+
+            // action
+            var digits = new string(rational.Digits.Take(10).ToArray());
+
+            // assert
+            Assert.AreEqual(expectedDigits, digits);
+        }
+
         [Test]
         [TestCase(3, 4, "3/4")]
         [TestCase(3, -4, "3/-4")]
@@ -27,7 +55,7 @@ namespace RationalTests
             var rational = new Rational(numerator, denominator);
 
             // action
-            string result = rational.ToString();
+            var result = rational.ToString();
 
             // assert
             Assert.AreEqual(expectedResult, result);
@@ -47,7 +75,7 @@ namespace RationalTests
             var rational = new Rational(numerator, denominator);
 
             // action
-            string result = rational.ToString("C");
+            var result = rational.ToString("C");
 
             // assert
             Assert.AreEqual(expectedResult, result);
@@ -72,30 +100,10 @@ namespace RationalTests
             var rational = new Rational(numerator, denominator);
 
             // action
-            string result = rational.ToString("W");
+            var result = rational.ToString("W");
 
             // assert
             Assert.AreEqual(expectedResult, result);
         }
-
-        [Test]
-        [TestCase(200, 1, "2")]
-        [TestCase(1, 2, "5")]
-        [TestCase(1, 3, "3333333333")]
-        [TestCase(-213, 31, "6870967741")]
-        [TestCase(0, 1, "0")]
-        [TestCase(1, 10000, "1")]
-        public void Digits_Take10(int numerator, int denominator, string expectedDigits)
-        {
-            // arrange
-            var rational = new Rational(numerator, denominator);
-
-            // action
-            var digits = new string(rational.Digits.Take(10).ToArray());
-
-            // assert
-            Assert.AreEqual(expectedDigits, digits);
-        }
-
     }
 }

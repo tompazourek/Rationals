@@ -1,4 +1,14 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2016
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -19,7 +29,7 @@ namespace RationalTests
         public void ToDecimal1()
         {
             // arrange
-            Rational rational = (Rational) 1 / 2;
+            var rational = (Rational) 1 / 2;
             const decimal d = (decimal) 1 / 2;
 
             // action
@@ -47,7 +57,8 @@ namespace RationalTests
         public void ToDecimal3()
         {
             // arrange
-            var rational = new Rational(BigInteger.Parse("999999999999999999999999999999"), BigInteger.Parse("10000000000000000000000000000"));
+            var rational = new Rational(BigInteger.Parse("999999999999999999999999999999"),
+                BigInteger.Parse("10000000000000000000000000000"));
             const decimal d = 99.9999999999999999999999999999M;
 
             // action
@@ -61,7 +72,7 @@ namespace RationalTests
         public void ToDecimal4()
         {
             // arrange
-            Rational rational = -(Rational) 1 / 6;
+            var rational = -(Rational) 1 / 6;
             const decimal d = -(decimal) 1 / 6;
 
             // action
@@ -75,7 +86,7 @@ namespace RationalTests
         public void ToDecimal5()
         {
             // arrange
-            Rational rational = (Rational) 4 / -3;
+            var rational = (Rational) 4 / -3;
             const decimal d = (decimal) 4 / -3;
 
             // action
@@ -89,7 +100,7 @@ namespace RationalTests
         public void ToDouble1()
         {
             // arrange
-            Rational rational = (Rational) 1 / 2;
+            var rational = (Rational) 1 / 2;
             const double d = (double) 1 / 2;
 
             // action
@@ -117,7 +128,8 @@ namespace RationalTests
         public void ToDouble3()
         {
             // arrange
-            var rational = new Rational(BigInteger.Parse("999999999999999999999999999999"), BigInteger.Parse("100000000000000000000000000000"));
+            var rational = new Rational(BigInteger.Parse("999999999999999999999999999999"),
+                BigInteger.Parse("100000000000000000000000000000"));
             const double d = 9.99999999999999999999999999999d;
 
             // action
@@ -131,7 +143,7 @@ namespace RationalTests
         public void ToDouble4()
         {
             // arrange
-            Rational rational = -(Rational) 1 / 6;
+            var rational = -(Rational) 1 / 6;
             const double d = -(double) 1 / 6;
 
             // action
@@ -145,7 +157,7 @@ namespace RationalTests
         public void ToDouble5()
         {
             // arrange
-            Rational rational = (Rational) 4 / -3;
+            var rational = (Rational) 4 / -3;
             const double d = (double) 4 / -3;
 
             // action
@@ -160,11 +172,11 @@ namespace RationalTests
         public void ToFloat1()
         {
             // arrange
-            Rational rational = (Rational)1 / 2;
-            const float d = (float)1 / 2;
+            var rational = (Rational) 1 / 2;
+            const float d = (float) 1 / 2;
 
             // action
-            var converted = (float)rational;
+            var converted = (float) rational;
 
             // assert
             Assert.AreEqual(d, converted, floatDelta);
@@ -178,7 +190,7 @@ namespace RationalTests
             const float d = 1.274605329821339747580867376182701966618626893951518748813482f;
 
             // action
-            var converted = (float)rational;
+            var converted = (float) rational;
 
             // assert
             Assert.AreEqual(d, converted, floatDelta);
@@ -188,11 +200,12 @@ namespace RationalTests
         public void ToFloat3()
         {
             // arrange
-            var rational = new Rational(BigInteger.Parse("999999999999999999999999999999"), BigInteger.Parse("100000000000000000000000000000"));
+            var rational = new Rational(BigInteger.Parse("999999999999999999999999999999"),
+                BigInteger.Parse("100000000000000000000000000000"));
             const float d = 9.99999999999999999999999999999f;
 
             // action
-            var converted = (float)rational;
+            var converted = (float) rational;
 
             // assert
             Assert.AreEqual(d, converted, floatDelta);
@@ -202,11 +215,11 @@ namespace RationalTests
         public void ToFloat4()
         {
             // arrange
-            Rational rational = -(Rational)1 / 6;
-            const float d = -(float)1 / 6;
+            var rational = -(Rational) 1 / 6;
+            const float d = -(float) 1 / 6;
 
             // action
-            var converted = (float)rational;
+            var converted = (float) rational;
 
             // assert
             Assert.AreEqual(d, converted, floatDelta);
@@ -216,11 +229,11 @@ namespace RationalTests
         public void ToFloat5()
         {
             // arrange
-            Rational rational = (Rational)4 / -3;
-            const float d = (float)4 / -3;
+            var rational = (Rational) 4 / -3;
+            const float d = (float) 4 / -3;
 
             // action
-            var converted = (float)rational;
+            var converted = (float) rational;
 
             // assert
             Assert.AreEqual(d, converted, floatDelta);

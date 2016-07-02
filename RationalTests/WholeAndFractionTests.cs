@@ -1,4 +1,14 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2016
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -26,7 +36,7 @@ namespace RationalTests
         public void FractionPart(int numerator, int denominator, int fractionPartNumerator, int fractionPartDenominator)
         {
             // arrange
-            Rational p = (Rational) numerator / denominator;
+            var p = (Rational) numerator / denominator;
 
             // assert
             Assert.AreEqual(new Rational(fractionPartNumerator, fractionPartDenominator), p.FractionPart);
@@ -46,11 +56,11 @@ namespace RationalTests
         public void WholeAndFraction_Sum(int numerator, int denominator)
         {
             // arrange
-            Rational p = (Rational) numerator / denominator;
+            var p = (Rational) numerator / denominator;
 
             // action
-            BigInteger wholePart = p.WholePart;
-            Rational fractionPart = p.FractionPart;
+            var wholePart = p.WholePart;
+            var fractionPart = p.FractionPart;
 
             // assert
             Assert.AreEqual(p, wholePart + fractionPart);
@@ -70,7 +80,7 @@ namespace RationalTests
         public void WholePart(int numerator, int denominator, int wholePart)
         {
             // arrange
-            Rational p = (Rational) numerator / denominator;
+            var p = (Rational) numerator / denominator;
 
             // assert
             Assert.AreEqual((BigInteger) wholePart, p.WholePart);

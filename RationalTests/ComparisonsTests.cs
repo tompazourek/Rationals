@@ -1,7 +1,18 @@
-﻿using System;
+﻿#region License
+
+// Copyright (C) Tomáš Pažourek, 2016
+// All rights reserved.
+// 
+// Distributed under MIT license as a part of project Rationals.
+// https://github.com/tompazourek/Rationals
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using NUnit.Framework;
 using Rationals;
@@ -190,13 +201,26 @@ namespace RationalTests
         public void Sorting_ListSort()
         {
             // arrange
-            var rationals = new List<Rational> { 2, 32, -1, 0, 2, (Rational) 4 / 5, (Rational) 3 / 4, (Rational) 2 / -1, 32 / 2, 64 / 4, (Rational) 2 / 3 };
+            var rationals = new List<Rational>
+            {
+                2,
+                32,
+                -1,
+                0,
+                2,
+                (Rational) 4 / 5,
+                (Rational) 3 / 4,
+                (Rational) 2 / -1,
+                32 / 2,
+                64 / 4,
+                (Rational) 2 / 3
+            };
 
             // action
             rationals.Sort();
 
             // assert
-            var expected = new[] { -2, -1, 0, (Rational) 2 / 3, (Rational) 3 / 4, (Rational) 4 / 5, 2, 2, 16, 16, 32 };
+            var expected = new[] {-2, -1, 0, (Rational) 2 / 3, (Rational) 3 / 4, (Rational) 4 / 5, 2, 2, 16, 16, 32};
             CollectionAssert.AreEqual(expected, rationals);
         }
 
@@ -204,13 +228,32 @@ namespace RationalTests
         public void Sorting_OrderBy()
         {
             // arrange
-            var rationals = new List<Rational> { (Rational)2 / 3, (Rational)4 / 3, (Rational)0 / 2, (Rational)0 / 3, 1, (Rational)4 / 10, -1, (Rational)2 / -3, -(Rational)4 / 3, (Rational)0 / -2, -(Rational)0 / 3, -(Rational)4 / 10, -1 };
+            var rationals = new List<Rational>
+            {
+                (Rational) 2 / 3,
+                (Rational) 4 / 3,
+                (Rational) 0 / 2,
+                (Rational) 0 / 3,
+                1,
+                (Rational) 4 / 10,
+                -1,
+                (Rational) 2 / -3,
+                -(Rational) 4 / 3,
+                (Rational) 0 / -2,
+                -(Rational) 0 / 3,
+                -(Rational) 4 / 10,
+                -1
+            };
 
             // action
             var sorted = rationals.OrderBy(x => x).ToList();
 
             // assert
-            var expected = new[] { -(Rational)4 / 3, -1, -1, -(Rational)2 / 3, -(Rational)2 / 5, 0, 0, 0, 0, (Rational)2 / 5, (Rational)2 / 3, 1, (Rational)4 / 3 };
+            var expected = new[]
+            {
+                -(Rational) 4 / 3, -1, -1, -(Rational) 2 / 3, -(Rational) 2 / 5, 0, 0, 0, 0, (Rational) 2 / 5,
+                (Rational) 2 / 3, 1, (Rational) 4 / 3
+            };
             CollectionAssert.AreEqual(expected, sorted);
         }
     }
