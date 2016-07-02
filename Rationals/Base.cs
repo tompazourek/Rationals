@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -20,7 +20,6 @@ namespace Rationals
     public partial struct Rational
     {
         private readonly BigInteger _denominator;
-        private readonly BigInteger _numerator;
 
         public Rational(BigInteger whole)
             : this(whole, 1)
@@ -32,7 +31,7 @@ namespace Rationals
             if (denominator == 0)
                 throw new DivideByZeroException("Denominator cannot be zero.");
 
-            _numerator = numerator;
+            Numerator = numerator;
             _denominator = denominator;
         }
 
@@ -41,18 +40,12 @@ namespace Rationals
             if (denominator == 0)
                 throw new DivideByZeroException("Denominator cannot be zero.");
 
-            _numerator = numerator;
+            Numerator = numerator;
             _denominator = denominator;
         }
 
-        public BigInteger Numerator
-        {
-            get { return _numerator; }
-        }
+        public BigInteger Numerator { get; }
 
-        public BigInteger Denominator
-        {
-            get { return _denominator.IsZero ? 1 : _denominator; }
-        }
+        public BigInteger Denominator => _denominator.IsZero ? 1 : _denominator;
     }
 }

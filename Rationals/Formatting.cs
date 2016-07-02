@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -21,31 +21,31 @@ namespace Rationals
     public partial struct Rational : IFormattable
     {
         /// <summary>
-        ///     Enumerates significant digits of the rational number.
-        ///     Omits leading and trailing zeros (only exception is number zero).
+        /// Enumerates significant digits of the rational number.
+        /// Omits leading and trailing zeros (only exception is number zero).
         /// </summary>
         /// <remarks>
-        ///     To see the right magnitude, see <seealso cref="Magnitude" /> (e.g. for writing in scientific notation).
+        /// To see the right magnitude, see <seealso cref="Magnitude" /> (e.g. for writing in scientific notation).
         /// </remarks>
         public IEnumerable<char> Digits
         {
             get
             {
-                BigInteger numerator = BigInteger.Abs(Numerator);
-                BigInteger denominator = BigInteger.Abs(Denominator);
-                bool removeLeadingZeros = true;
-                bool returnedAny = false;
+                var numerator = BigInteger.Abs(Numerator);
+                var denominator = BigInteger.Abs(Denominator);
+                var removeLeadingZeros = true;
+                var returnedAny = false;
                 while (numerator > 0)
                 {
                     BigInteger rem;
-                    BigInteger divided = BigInteger.DivRem(numerator, denominator, out rem);
+                    var divided = BigInteger.DivRem(numerator, denominator, out rem);
 
-                    string digits = divided.ToString(CultureInfo.InvariantCulture);
+                    var digits = divided.ToString(CultureInfo.InvariantCulture);
 
                     if (rem == 0)
                         digits = digits.TrimEnd('0'); // remove trailing zeros
 
-                    foreach (char digit in digits)
+                    foreach (var digit in digits)
                     {
                         if (removeLeadingZeros && digit == '0')
                             continue;
@@ -87,21 +87,21 @@ namespace Rationals
                     return ToString();
 
                 case "W": // as whole + fractional part
-                    {
-                        BigInteger whole = WholePart;
-                        Rational fraction = FractionPart.CanonicalForm;
-                        if (whole.IsZero)
-                            return fraction.ToString();
+                {
+                    var whole = WholePart;
+                    var fraction = FractionPart.CanonicalForm;
+                    if (whole.IsZero)
+                        return fraction.ToString();
 
-                        if (fraction.IsZero)
-                            return whole.ToString();
+                    if (fraction.IsZero)
+                        return whole.ToString();
 
-                        return string.Format(CultureInfo.InvariantCulture, "{0} + {1}", whole, fraction);
-                    }
+                    return string.Format(CultureInfo.InvariantCulture, "{0} + {1}", whole, fraction);
+                }
                 case "C": // in canonical form
                     return CanonicalForm.ToString();
                 default:
-                    throw new FormatException(String.Format("The {0} format string is not supported.", format));
+                    throw new FormatException($"The {format} format string is not supported.");
             }
         }
 
@@ -115,6 +115,5 @@ namespace Rationals
 
             return string.Format(CultureInfo.InvariantCulture, "{0}/{1}", Numerator, Denominator);
         }
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -20,7 +20,7 @@ namespace Rationals
     public partial struct Rational
     {
         /// <summary>
-        /// Whole part of the rational number, see also <seealso cref="FractionPart"/>.
+        /// Whole part of the rational number, see also <seealso cref="FractionPart" />.
         /// </summary>
         /// <example>
         /// 4/3 = 1 + 1/3;
@@ -61,7 +61,7 @@ namespace Rationals
         }
 
         /// <summary>
-        /// Fractional part of the rational number, see also <seealso cref="WholePart"/>.
+        /// Fractional part of the rational number, see also <seealso cref="WholePart" />.
         /// </summary>
         /// <example>
         /// 4/3 = 1 + 1/3;
@@ -84,7 +84,7 @@ namespace Rationals
                         return 0;
                 }
 
-                Rational fractionPart = this - WholePart;
+                var fractionPart = this - WholePart;
                 return fractionPart;
             }
         }

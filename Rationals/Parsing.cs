@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -20,8 +20,12 @@ namespace Rationals
 {
     public partial struct Rational
     {
-        private static readonly Regex FractionFormat = new Regex(@"^\s*(?<Numerator>-?\d+)/(?<Denominator>-?\d+)\s*$", RegexOptions.Compiled | RegexOptions.CultureInvariant);
-        private static readonly Regex WholeFractionalFormat = new Regex(@"^\s*(?<Whole>-?\d+)\s*[+]\s*(?<Numerator>-?\d+)/(?<Denominator>-?\d+)\s*$", RegexOptions.Compiled | RegexOptions.CultureInvariant);
+        private static readonly Regex FractionFormat = new Regex(@"^\s*(?<Numerator>-?\d+)/(?<Denominator>-?\d+)\s*$",
+            RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
+        private static readonly Regex WholeFractionalFormat =
+            new Regex(@"^\s*(?<Whole>-?\d+)\s*[+]\s*(?<Numerator>-?\d+)/(?<Denominator>-?\d+)\s*$",
+                RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
         public static Rational Parse(string s)
         {
@@ -40,7 +44,7 @@ namespace Rationals
 
             try
             {
-                Match match = FractionFormat.Match(s);
+                var match = FractionFormat.Match(s);
                 if (match.Success)
                 {
                     var numerator = BigInteger.Parse(match.Groups["Numerator"].Value);
@@ -73,6 +77,5 @@ namespace Rationals
 
             return false;
         }
-
     }
 }

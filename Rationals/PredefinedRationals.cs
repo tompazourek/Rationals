@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 
 namespace Rationals

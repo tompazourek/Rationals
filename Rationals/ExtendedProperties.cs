@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -22,34 +22,22 @@ namespace Rationals
         /// <summary>
         /// True if the number is equal to zero
         /// </summary>
-        public bool IsZero
-        {
-            get { return Numerator.IsZero; }
-        }
+        public bool IsZero => Numerator.IsZero;
 
         /// <summary>
         /// True if the number is equal to one
         /// </summary>
-        public bool IsOne
-        {
-            get { return Numerator == Denominator; }
-        }
+        public bool IsOne => Numerator == Denominator;
 
         /// <summary>
         /// Gets a number that indicates the sign (negative, positive, or zero) of the rational number
         /// </summary>
-        public int Sign
-        {
-            get { return Numerator.Sign * Denominator.Sign; }
-        }
+        public int Sign => Numerator.Sign * Denominator.Sign;
 
         /// <summary>
         /// Indicates whether the value of the rational number is a power of two.
         /// </summary>
-        public bool IsPowerOfTwo
-        {
-            get { return Numerator.IsPowerOfTwo && Denominator.IsPowerOfTwo; }
-        }
+        public bool IsPowerOfTwo => Numerator.IsPowerOfTwo && Denominator.IsPowerOfTwo;
 
         /// <summary>
         /// Represents the exponent of 10 if the number was written in scientific notation.
@@ -69,8 +57,8 @@ namespace Rationals
                 if (IsZero)
                     return 0;
 
-                double numLog = BigInteger.Log10(BigInteger.Abs(Numerator));
-                double denLog = BigInteger.Log10(BigInteger.Abs(Denominator));
+                var numLog = BigInteger.Log10(BigInteger.Abs(Numerator));
+                var denLog = BigInteger.Log10(BigInteger.Abs(Denominator));
                 return (int) Math.Floor(numLog - denLog);
             }
         }

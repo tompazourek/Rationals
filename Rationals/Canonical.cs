@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -30,10 +30,11 @@ namespace Rationals
                 if (Numerator.IsZero)
                     return Zero;
 
-                BigInteger gcd = BigInteger.GreatestCommonDivisor(Numerator, Denominator);
+                var gcd = BigInteger.GreatestCommonDivisor(Numerator, Denominator);
 
                 if (Denominator.Sign < 0)
-                    gcd = BigInteger.Negate(gcd); // ensures that canonical form is either positive or has minus in numerator
+                    gcd = BigInteger.Negate(gcd);
+                // ensures that canonical form is either positive or has minus in numerator
 
                 var canonical = new Rational(Numerator / gcd, Denominator / gcd);
                 return canonical;

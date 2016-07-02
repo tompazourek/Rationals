@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -26,8 +26,8 @@ namespace Rationals
         /// <returns></returns>
         public static Rational Invert(Rational p)
         {
-            BigInteger numerator = p.Denominator;
-            BigInteger denominator = p.Numerator;
+            var numerator = p.Denominator;
+            var denominator = p.Numerator;
             var result = new Rational(numerator, denominator);
             return result;
         }
@@ -72,8 +72,8 @@ namespace Rationals
             if (left.IsZero)
                 return right;
 
-            BigInteger numerator = left.Numerator * right.Denominator + left.Denominator * right.Numerator;
-            BigInteger denominator = left.Denominator * right.Denominator;
+            var numerator = left.Numerator * right.Denominator + left.Denominator * right.Numerator;
+            var denominator = left.Denominator * right.Denominator;
             var sum = new Rational(ref numerator, ref denominator);
             return sum;
         }
@@ -92,8 +92,8 @@ namespace Rationals
             if (left.IsZero)
                 return -right;
 
-            BigInteger numerator = left.Numerator * right.Denominator - left.Denominator * right.Numerator;
-            BigInteger denominator = left.Denominator * right.Denominator;
+            var numerator = left.Numerator * right.Denominator - left.Denominator * right.Numerator;
+            var denominator = left.Denominator * right.Denominator;
             var difference = new Rational(ref numerator, ref denominator);
             return difference;
         }
@@ -109,8 +109,8 @@ namespace Rationals
             if (left.IsZero || right.IsZero)
                 return Zero;
 
-            BigInteger numerator = left.Numerator * right.Numerator;
-            BigInteger denominator = left.Denominator * right.Denominator;
+            var numerator = left.Numerator * right.Numerator;
+            var denominator = left.Denominator * right.Denominator;
             var product = new Rational(ref numerator, ref denominator);
             return product;
         }
@@ -129,8 +129,8 @@ namespace Rationals
             if (left.IsZero)
                 return Zero;
 
-            BigInteger numerator = left.Numerator * right.Denominator;
-            BigInteger denominator = left.Denominator * right.Numerator;
+            var numerator = left.Numerator * right.Denominator;
+            var denominator = left.Denominator * right.Numerator;
             var quotient = new Rational(ref numerator, ref denominator);
             return quotient;
         }

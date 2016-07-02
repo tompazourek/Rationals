@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -56,7 +56,9 @@ namespace Rationals
                 if (Sign >= 0)
                     return (Numerator * other.Denominator).CompareTo(other.Numerator * Denominator);
 
-                return -BigInteger.Abs(Numerator * other.Denominator).CompareTo(BigInteger.Abs(other.Numerator * Denominator));
+                return
+                    -BigInteger.Abs(Numerator * other.Denominator)
+                        .CompareTo(BigInteger.Abs(other.Numerator * Denominator));
             }
 
             if (Sign > other.Sign)
@@ -150,34 +152,32 @@ namespace Rationals
 
         public override bool Equals(object other)
         {
-            if (!(other is Rational))
-            {
-                if (other is short ||
-                    other is ushort ||
-                    other is sbyte ||
-                    other is byte ||
-                    other is int ||
-                    other is uint ||
-                    other is long ||
-                    other is ulong ||
-                    other is BigInteger)
-                {
-                    return Equals((Rational) other);
-                }
-                return false;
-            }
+            if (other is Rational)
+                return Equals((Rational) other);
 
-            return Equals((Rational) other);
+            if (other is short ||
+                other is ushort ||
+                other is sbyte ||
+                other is byte ||
+                other is int ||
+                other is uint ||
+                other is long ||
+                other is ulong ||
+                other is BigInteger)
+                // ReSharper disable once PossibleInvalidCastException
+                return Equals((Rational) other);
+
+            return false;
         }
 
         public override int GetHashCode()
         {
-            Rational canonical = CanonicalForm;
+            var canonical = CanonicalForm;
             unchecked
             {
-                int hash = 27;
-                hash = (13 * hash) + canonical.Numerator.GetHashCode();
-                hash = (13 * hash) + canonical.Denominator.GetHashCode();
+                var hash = 27;
+                hash = 13 * hash + canonical.Numerator.GetHashCode();
+                hash = 13 * hash + canonical.Denominator.GetHashCode();
                 return hash;
             }
         }

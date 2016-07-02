@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) Tomáš Pažourek, 2014
+// Copyright (C) Tomáš Pažourek, 2016
 // All rights reserved.
 // 
 // Distributed under MIT license as a part of project Rationals.
@@ -22,7 +22,7 @@ namespace Rationals
         public static explicit operator decimal(Rational rational)
         {
             if (rational < 0)
-                return -(decimal) (-rational);
+                return -(decimal) -rational;
 
             decimal result = 0;
             var numerator = rational.Numerator;
