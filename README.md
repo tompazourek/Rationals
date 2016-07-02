@@ -31,4 +31,5 @@ Supported features
 - **unlimited precision** - rationals use `BigInteger` inside
 - **canonical form** - each rational can have its canonical form (irreducible fraction where denominator is always positive)
 - **comparison & equality**
+- **separate whole and fractional part** - any rational number can be separated into a whole part (integer quotient aka result of integer division) and fractional part (reminder of the integral division aka result of modulo operation)
 - **multiple formatting options** - `ToString("C")` (canonical form), `ToString("W")` (whole + fractional part), or normal fraction format
