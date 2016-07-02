@@ -46,6 +46,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Approximate.cs" />
     <Compile Include="Base.cs" />
     <Compile Include="Canonical.cs" />
     <Compile Include="Comparisons.cs" />

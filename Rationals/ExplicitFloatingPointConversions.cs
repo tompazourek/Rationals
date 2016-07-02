@@ -44,7 +44,6 @@ namespace Rationals
 
                 result += (decimal) divided * scale;
 
-                Debug.WriteLine(result);
                 numerator = rem * 10;
                 previousScale = scale;
                 scale /= 10;

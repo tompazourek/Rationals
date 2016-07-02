@@ -54,6 +54,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="ApproximateTests.cs" />
     <Compile Include="BaseTests.cs" />
     <Compile Include="ContinuedFractionsTests.cs" />
     <Compile Include="CanonicalTests.cs" />
