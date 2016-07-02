@@ -33,4 +33,5 @@ Supported features
 - **comparison & equality**
 - **separate whole and fractional part** - any rational number can be separated into a whole part (integer quotient aka result of integer division) and fractional part (reminder of the integral division aka result of modulo operation)
 - **continued fraction expansion** - expand rational numbers to continued fraction (sequence of coefficients), construct rational numbers from sequence of continued fraction coefficients
+- **rational number approximation** - approximate floating point numbers (decimal, double, float) as rational numbers with customizable tolerance
 - **multiple formatting options** - `ToString("C")` (canonical form), `ToString("W")` (whole + fractional part), or normal fraction format

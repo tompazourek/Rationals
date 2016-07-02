@@ -20,6 +20,7 @@ Supported features:
 - comparison &amp; equality
 - multiple formatting options - ToString("C") (canonical form), ToString("W") (whole + fractional part), or normal fraction format
 - continued fraction expansion - expand rational numbers to continued fraction (sequence of coefficients), construct rational numbers from sequence of continued fraction coefficients
+- rational number approximation - approximate floating point numbers (decimal, double, float) as rational numbers with customizable tolerance
 
 Example usage:
 
