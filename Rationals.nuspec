@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>Rationals</id>
-        <version>1.2.0</version>
+        <version>1.2.1</version>
         <title>Rationals</title>
         <authors>Tomáš Pažourek</authors>
         <licenseUrl>https://raw.githubusercontent.com/tompazourek/Rationals/master/LICENSE</licenseUrl>
@@ -41,8 +41,11 @@ Rational sum = left + right; // equals to: 3 / 4
         </frameworkAssemblies>
     </metadata>
     <files>
-        <file src="Rationals\bin\Release\Rationals.dll" target="lib\net461\Rationals.dll" />
-        <file src="Rationals\bin\Release\Rationals.pdb" target="lib\net461\Rationals.pdb" />
-        <file src="Rationals\bin\Release\Rationals.xml" target="lib\net461\Rationals.xml" />
+        <file src="Rationals\bin\Release\Rationals.dll" target="lib\net46\Rationals.dll" />
+        <file src="Rationals\bin\Release\Rationals.pdb" target="lib\net46\Rationals.pdb" />
+        <file src="Rationals\bin\Release\Rationals.xml" target="lib\net46\Rationals.xml" />
+        <file src="NETStandard\bin\Release\Rationals.dll" target="lib\netstandard1.4\Rationals.dll" />
+        <file src="NETStandard\bin\Release\Rationals.pdb" target="lib\netstandard1.4\Rationals.pdb" />
+        <file src="NETStandard\bin\Release\Rationals.xml" target="lib\netstandard1.4\Rationals.xml" />
     </files>
 </package>
