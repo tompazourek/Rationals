@@ -16,7 +16,7 @@ using Rationals;
 
 namespace RationalTests
 {
-    [TestFixture]
+    [TestFixture(Category = "Explicit Floating Point Conversions")]
     public class ExplicitFloatingPointConversionsTests
     {
         private const double doubleDelta = 1.0E-15d;

@@ -14,7 +14,7 @@ using Rationals;
 
 namespace RationalTests
 {
-    [TestFixture]
+    [TestFixture(Category = "Parsing")]
     public class ParsingTests
     {
         [TestCase(@"3/4", true, 3, 4)]
