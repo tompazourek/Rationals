@@ -312,7 +312,6 @@ namespace RationalTests
             Assert.AreEqual(d, converted, doubleDelta);
         }
 
-
         [Test]
         public void ToFloat1()
         {

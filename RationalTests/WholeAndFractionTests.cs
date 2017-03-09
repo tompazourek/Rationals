@@ -14,7 +14,7 @@ using Rationals;
 
 namespace RationalTests
 {
-    [TestFixture(Category ="Whole and Fraction")]
+    [TestFixture(Category = "Whole and Fraction")]
     public class WholeAndFractionTests
     {
         [Test]

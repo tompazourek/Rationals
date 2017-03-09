@@ -13,7 +13,7 @@ using Rationals;
 
 namespace RationalTests
 {
-    [TestFixture(Category ="Operations")]
+    [TestFixture(Category = "Operations")]
     public class OperationsTests
     {
         [Test]
