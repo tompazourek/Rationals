@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Numerics;
-using System.Text;
+using System.Globalization;
 using NUnit.Framework;
 using Rationals;
 
@@ -77,8 +73,8 @@ namespace RationalTests
             int expectedDenominator)
         {
             // arrange
-            var input = decimal.Parse(inputStr);
-            var tolerance = decimal.Parse(toleranceStr);
+            var input = decimal.Parse(inputStr, CultureInfo.InvariantCulture);
+            var tolerance = decimal.Parse(toleranceStr, CultureInfo.InvariantCulture);
 
             // action
             var rational = Rational.Approximate(input, tolerance);
