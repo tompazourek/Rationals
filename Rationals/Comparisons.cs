@@ -68,7 +68,6 @@ namespace Rationals
                 return CompareTo((ulong)obj);
             }
 
-
             if (obj is Rational)
             {
                 return CompareTo((Rational)obj);
