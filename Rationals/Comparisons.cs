@@ -9,15 +9,12 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Numerics;
-using System.Text;
 
 namespace Rationals
 {
     public partial struct Rational :
+        IComparable,
         IEquatable<Rational>, IComparable<Rational>,
         IEquatable<sbyte>, IComparable<sbyte>,
         IEquatable<byte>, IComparable<byte>,
@@ -29,6 +26,62 @@ namespace Rationals
         IEquatable<ulong>, IComparable<ulong>,
         IEquatable<BigInteger>, IComparable<BigInteger>
     {
+        public int CompareTo(object obj)
+        {
+            if (obj is sbyte)
+            {
+                return CompareTo((sbyte)obj);
+            }
+
+            if (obj is byte)
+            {
+                return CompareTo((byte)obj);
+            }
+
+            if (obj is short)
+            {
+                return CompareTo((short)obj);
+            }
+
+            if (obj is ushort)
+            {
+                return CompareTo((ushort)obj);
+            }
+
+            if (obj is int)
+            {
+                return CompareTo((int)obj);
+            }
+
+            if (obj is uint)
+            {
+                return CompareTo((uint)obj);
+            }
+
+            if (obj is long)
+            {
+                return CompareTo((long)obj);
+            }
+
+            if (obj is ulong)
+            {
+                return CompareTo((ulong)obj);
+            }
+
+
+            if (obj is Rational)
+            {
+                return CompareTo((Rational)obj);
+            }
+
+            if (obj is BigInteger)
+            {
+                return CompareTo((BigInteger)obj);
+            }      
+
+            return ReferenceEquals(obj, this) ? 0 :  -1;
+        }
+
         public int CompareTo(BigInteger other)
         {
             return CompareTo((Rational) other);
