@@ -131,7 +131,6 @@ namespace RationalTests
             });
         }
 
-
         [Test]
         public void FromDouble_MaxValue_Throws()
         {
