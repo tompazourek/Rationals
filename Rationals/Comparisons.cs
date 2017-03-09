@@ -229,8 +229,8 @@ namespace Rationals
             unchecked
             {
                 var hash = 27;
-                hash = 13 * hash + canonical.Numerator.GetHashCode();
-                hash = 13 * hash + canonical.Denominator.GetHashCode();
+                hash = (13 * hash) + canonical.Numerator.GetHashCode();
+                hash = (13 * hash) + canonical.Denominator.GetHashCode();
                 return hash;
             }
         }
