@@ -46,7 +46,7 @@ namespace RationalTests
         {
             // arrange
             var rationals = new[]
-            {1, 0, -1, (Rational) 5 / 4, 2, -2, 4, 8, 16, (Rational) 1 / 2, (Rational) 4 / 16, 64, (Rational) 1024 / 3};
+            { 1, 0, -1, (Rational) 5 / 4, 2, -2, 4, 8, 16, (Rational) 1 / 2, (Rational) 4 / 16, 64, (Rational) 1024 / 3 };
 
             // action
             var powers = rationals.Where(x => x.IsPowerOfTwo).ToList();
