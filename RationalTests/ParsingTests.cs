@@ -8,12 +8,7 @@
 
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Numerics;
-using System.Text;
+using System.Globalization;
 using NUnit.Framework;
 using Rationals;
 
@@ -44,7 +39,7 @@ namespace RationalTests
             Rational result;
 
             // action
-            var success = Rational.TryParse(input, out result);
+            var success = Rational.TryParse(input, NumberStyles.Float, CultureInfo.InvariantCulture, out result);
 
             // assert
             Assert.AreEqual(expectedSuccess, success);
@@ -65,7 +60,7 @@ namespace RationalTests
             Rational result;
 
             // action
-            var success = Rational.TryParseDecimal(input, out result, (decimal)tolerance);
+            var success = Rational.TryParseDecimal(input, NumberStyles.Float, CultureInfo.InvariantCulture, out result, (decimal)tolerance);
 
             // assert
             Assert.AreEqual(expectedSuccess, success);

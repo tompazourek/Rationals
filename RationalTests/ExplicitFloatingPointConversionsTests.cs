@@ -9,11 +9,8 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+using System.Globalization;
 using System.Numerics;
-using System.Text;
 using NUnit.Framework;
 using Rationals;
 
@@ -102,7 +99,7 @@ namespace RationalTests
         public void FromDecimal(string inputStr, long expectedNumerator, long expectedDenominator)
         {
             // arrange
-            var input = decimal.Parse(inputStr);
+            var input = decimal.Parse(inputStr, CultureInfo.InvariantCulture);
 
             // action
             var rational = (Rational) input;
