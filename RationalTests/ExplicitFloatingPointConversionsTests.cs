@@ -19,7 +19,7 @@ using Rationals;
 
 namespace RationalTests
 {
-    [TestFixture]
+    [TestFixture(Category = "Explicit Floating Point Conversions")]
     public class ExplicitFloatingPointConversionsTests
     {
         private const double doubleDelta = 1.0E-15d;
@@ -130,7 +130,6 @@ namespace RationalTests
                 var x = (Rational) decimal.MinValue;
             });
         }
-
 
         [Test]
         public void FromDouble_MaxValue_Throws()
@@ -314,7 +313,6 @@ namespace RationalTests
             // assert
             Assert.AreEqual(d, converted, doubleDelta);
         }
-
 
         [Test]
         public void ToFloat1()

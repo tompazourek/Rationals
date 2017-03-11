@@ -8,18 +8,13 @@
 
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Numerics;
-using System.Text;
 using NUnit.Framework;
 using Rationals;
 
 namespace RationalTests
 {
-    [TestFixture]
+    [TestFixture(Category = "Canonical Form")]
     public class CanonicalTests
     {
         [Test]
