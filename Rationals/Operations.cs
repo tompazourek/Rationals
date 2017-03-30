@@ -175,5 +175,46 @@ namespace Rationals
                 return result;
             }
         }
+
+        /// <summary>
+        /// Root of the rational number to the given integer radix
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="radix"></param>
+        /// <returns></returns>
+        public static Rational Root(Rational number, int radix)
+        {
+            if (radix == 1)
+                return number;
+
+            if (radix == 0)
+                throw new InvalidOperationException("Cannot use zero radix.");
+
+            if (number.IsOne)
+                return number;
+
+            if (number.IsZero)
+            {
+                if (radix < 0)
+                    throw new DivideByZeroException("Cannot root zero to negative exponent.");
+
+                return number;
+            }
+
+            if (radix > 0)
+            {
+                var numerator = BigIntegerRoot(number.Numerator, radix);
+                var denominator = BigIntegerRoot(number.Denominator, radix);
+                var result = new Rational(ref numerator, ref denominator);
+                return result;
+            }
+            else
+            {
+                var numerator = BigIntegerRoot(number.Denominator, -radix);
+                var denominator = BigIntegerRoot(number.Numerator, -radix);
+                var result = new Rational(ref numerator, ref denominator);
+                return result;
+            }
+        }
     }
 }
