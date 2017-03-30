@@ -686,5 +686,72 @@ namespace RationalTests
             // assert
             Assert.IsTrue(double.IsNaN(result));
         }
+
+        [Test]
+        public void Root1()
+        {
+            // arrange
+            var value = (Rational)25 / 16;
+            const int radix = 2;
+
+            // action
+            var result = Rational.Root(value, radix);
+
+            // assert
+            Assert.AreEqual((Rational)5 / 4, result);
+        }
+
+        [Test]
+        public void Root2()
+        {
+            // arrange
+            var value = (Rational)16 / 25;
+            const int radix = -2;
+
+            // action
+            var result = Rational.Root(value, radix);
+
+            // assert
+            Assert.AreEqual((Rational)5 / 4, result);
+        }
+
+        [Test]
+        public void Root3()
+        {
+            // arrange
+            var value = (Rational)5 / -4;
+            const int radix = 1;
+
+            // action
+            var result = Rational.Root(value, radix);
+
+            // assert
+            Assert.AreEqual((Rational)5 / -4, result);
+        }
+
+        [Test]
+        public void Root4()
+        {
+            // arrange
+            var value = Rational.Zero;
+            const int radix = 0;
+
+            // action
+            Assert.Throws<InvalidOperationException>(() => Rational.Root(value, radix));
+        }
+
+        [Test]
+        public void Root5()
+        {
+            // arrange
+            var value = -(Rational)100 / 4;
+            const int radix = 2;
+
+            // action
+            var result = Rational.Root(value, radix);
+
+            // assert
+            Assert.AreEqual((Rational)10 / 2, result);
+        }
     }
 }
