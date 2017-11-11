@@ -3,7 +3,6 @@ using Xunit;
 
 namespace Rationals.Tests
 {
-    [Trait("Category", "Parsing")]
     public class ParsingTests
     {
         [Theory]

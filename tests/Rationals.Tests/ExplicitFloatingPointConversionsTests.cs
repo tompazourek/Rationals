@@ -5,7 +5,6 @@ using Xunit;
 
 namespace Rationals.Tests
 {
-    [Trait("Category", "Explicit Floating Point Conversions")]
     public class ExplicitFloatingPointConversionsTests
     {
         private const int doublePrecision = 14;
@@ -15,7 +14,6 @@ namespace Rationals.Tests
         [InlineData(0.5, 1, 2)]
         [InlineData(-0.5, -1, 2)]
         [InlineData(0.0, 0, 1)]
-        [InlineData(-0.0, 0, 1)]
         [InlineData(1.33, 133, 100)]
         [InlineData(-1.33, -133, 100)]
         [InlineData(213213.2132132432, 64057990991, 300441)]
@@ -49,7 +47,6 @@ namespace Rationals.Tests
         [InlineData(0.5f, 1, 2)]
         [InlineData(-0.5f, -1, 2)]
         [InlineData(0.0f, 0, 1)]
-        [InlineData(-0.0f, 0, 1)]
         [InlineData(1.33f, 133, 100)]
         [InlineData(-1.33f, -133, 100)]
         [InlineData(9843.55f, 196871, 20)]

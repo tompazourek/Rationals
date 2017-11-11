@@ -15,7 +15,6 @@ namespace Rationals.Tests
         [InlineData(-2.5f, 0f, -5, 2)]
         [InlineData(-1f, 0f, -1, 1)]
         [InlineData(1f, 0f, 1, 1)]
-        [Trait("Category", "Approximation")]
         public void ApproximateFloat(float input, float tolerance, int expectedNumerator, int expectedDenominator)
         {
             // action
@@ -34,7 +33,6 @@ namespace Rationals.Tests
         [InlineData(-2.5d, 0d, -5, 2)]
         [InlineData(-1d, 0d, -1, 1)]
         [InlineData(1d, 0d, 1, 1)]
-        [Trait("Category", "Approximation")]
         public void ApproximateDouble(double input, double tolerance, int expectedNumerator, int expectedDenominator)
         {
             // action
@@ -55,7 +53,6 @@ namespace Rationals.Tests
         [InlineData(312689, 99532, 2.92E-11)]
         [InlineData(833719, 265381, 8.72E-12)]
         [InlineData(1146408, 364913, 1.62E-12)]
-        [Trait("Category", "Approximation")]
         public void ApproximatePI(int expectedNumerator, int expectedDenominator, double tolerance)
         {
             // action
@@ -74,7 +71,6 @@ namespace Rationals.Tests
         [InlineData("-2.5", "0", -5, 2)]
         [InlineData("-1", "0", -1, 1)]
         [InlineData("1", "0", 1, 1)]
-        [Trait("Category", "Approximation")]
         public void ApproximateDecimal(string inputStr, string toleranceStr, int expectedNumerator, int expectedDenominator)
         {
             // arrange

@@ -7,7 +7,6 @@ namespace Rationals.Tests
     public class BaseTests
     {
         [Fact]
-        [Trait("Category", "BaseTests")]
         public void Constructor()
         {
             // arrange
@@ -23,14 +22,12 @@ namespace Rationals.Tests
         }
 
         [Fact]
-        [Trait("Category", "BaseTests")]
         public void Constructor_DenominatorZero()
         {
             Assert.Throws<DivideByZeroException>(() => new Rational(new BigInteger(1), new BigInteger(0)));
         }
 
         [Fact]
-        [Trait("Category", "BaseTests")]
         public void Constructor_Whole()
         {
             // arrange
@@ -46,7 +43,6 @@ namespace Rationals.Tests
         }
 
         [Fact]
-        [Trait("Category", "BaseTests")]
         public void Constructor_WholeZero()
         {
             // arrange

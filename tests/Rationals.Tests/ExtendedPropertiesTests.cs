@@ -3,7 +3,6 @@ using Xunit;
 
 namespace Rationals.Tests
 {
-    [Trait("Category", "Extended Properties")]
     public class ExtendedPropertiesTests
     {
         [Theory]

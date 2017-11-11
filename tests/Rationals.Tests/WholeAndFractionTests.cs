@@ -2,7 +2,6 @@
 
 namespace Rationals.Tests
 {
-    [Trait("Category", "Whole and Fraction")]
     public class WholeAndFractionTests
     {
         [Theory]

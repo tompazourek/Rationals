@@ -4,7 +4,6 @@ using Xunit;
 
 namespace Rationals.Tests
 {
-    [Trait("Category", "Comparisons")]
     public class ComparisonsTests
     {
         [Fact]

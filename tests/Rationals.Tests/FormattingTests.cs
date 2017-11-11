@@ -3,7 +3,6 @@ using Xunit;
 
 namespace Rationals.Tests
 {
-    [Trait("Category", "Formatting")]
     public class FormattingTests
     {
         [Theory]

@@ -3,7 +3,6 @@ using Xunit;
 
 namespace Rationals.Tests
 {
-    [Trait("Category", "Operations")]
     public class OperationsTests
     {
         [Fact]

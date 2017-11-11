@@ -3,7 +3,6 @@ using Xunit;
 
 namespace Rationals.Tests
 {
-    [Trait("Category", "Implicit Conversion")]
     public class ImplicitConversionTests
     {
         [Fact]

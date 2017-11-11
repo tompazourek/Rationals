@@ -6,7 +6,6 @@ namespace Rationals.Tests
     public class CanonicalTests
     {
         [Fact]
-        [Trait("Category", "Canonical Form")]
         public void CanonicalForm()
         {
             // arrange
@@ -21,7 +20,6 @@ namespace Rationals.Tests
         }
 
         [Fact]
-        [Trait("Category", "Canonical Form")]
         public void CanonicalForm_BothNegative()
         {
             // arrange
@@ -36,7 +34,6 @@ namespace Rationals.Tests
         }
 
         [Fact]
-        [Trait("Category", "Canonical Form")]
         public void CanonicalForm_Irreducible()
         {
             // arrange
@@ -51,7 +48,6 @@ namespace Rationals.Tests
         }
 
         [Fact]
-        [Trait("Category", "Canonical Form")]
         public void CanonicalForm_NegativeDenominator()
         {
             // arrange
@@ -66,7 +62,6 @@ namespace Rationals.Tests
         }
 
         [Fact]
-        [Trait("Category", "Canonical Form")]
         public void CanonicalForm_NegativeNumerator()
         {
             // arrange
@@ -81,7 +76,6 @@ namespace Rationals.Tests
         }
 
         [Fact]
-        [Trait("Category", "Canonical Form")]
         public void CanonicalForm_ZeroNumerator()
         {
             // arrange
