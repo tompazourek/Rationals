@@ -16,8 +16,7 @@ namespace Rationals
             var previousScale = 0M;
             while (numerator > 0)
             {
-                BigInteger rem;
-                var divided = BigInteger.DivRem(numerator, denominator, out rem);
+                var divided = BigInteger.DivRem(numerator, denominator, out var rem);
 
                 if (scale == 0)
                 {

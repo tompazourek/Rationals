@@ -7,8 +7,8 @@ namespace Rationals.Tests
 {
     public class ExplicitFloatingPointConversionsTests
     {
-        private const int doublePrecision = 14;
-        private const int floatPrecision = 6;
+        private const int DoublePrecision = 14;
+        private const int FloatPrecision = 6;
 
         [Theory]
         [InlineData(0.5, 1, 2)]
@@ -230,7 +230,7 @@ namespace Rationals.Tests
             var converted = (double)rational;
 
             // assert
-            Assert.Equal(d, converted, doublePrecision);
+            Assert.Equal(d, converted, DoublePrecision);
         }
 
         [Fact]
@@ -244,7 +244,7 @@ namespace Rationals.Tests
             var converted = (double)rational;
 
             // assert
-            Assert.Equal(d, converted, doublePrecision);
+            Assert.Equal(d, converted, DoublePrecision);
         }
 
         [Fact]
@@ -259,7 +259,7 @@ namespace Rationals.Tests
             var converted = (double)rational;
 
             // assert
-            Assert.Equal(d, converted, doublePrecision);
+            Assert.Equal(d, converted, DoublePrecision);
         }
 
         [Fact]
@@ -273,7 +273,7 @@ namespace Rationals.Tests
             var converted = (double)rational;
 
             // assert
-            Assert.Equal(d, converted, doublePrecision);
+            Assert.Equal(d, converted, DoublePrecision);
         }
 
         [Fact]
@@ -287,7 +287,7 @@ namespace Rationals.Tests
             var converted = (double)rational;
 
             // assert
-            Assert.Equal(d, converted, doublePrecision);
+            Assert.Equal(d, converted, DoublePrecision);
         }
 
         [Fact]
@@ -301,7 +301,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, floatPrecision);
+            Assert.Equal(d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -315,7 +315,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, floatPrecision);
+            Assert.Equal(d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -330,7 +330,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, floatPrecision);
+            Assert.Equal(d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -344,7 +344,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, floatPrecision);
+            Assert.Equal(d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -358,7 +358,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, floatPrecision);
+            Assert.Equal(d, converted, FloatPrecision);
         }
     }
 }

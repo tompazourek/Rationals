@@ -36,9 +36,7 @@ namespace Rationals
 
         private static Rational Parse(string value, NumberStyles style, NumberFormatInfo info)
         {
-            Rational result;
-
-            if (!TryParse(value, style, info, out result))
+            if (!TryParse(value, style, info, out var result))
             {
                 throw new FormatException("Cannot parse string as Rational, the input is in incorrect format.");
             }
@@ -86,8 +84,7 @@ namespace Rationals
                 return false;
             }
 
-            BigInteger justWhole;
-            if (BigInteger.TryParse(value, style, info, out justWhole))
+            if (BigInteger.TryParse(value, style, info, out var justWhole))
             {
                 result = new Rational(justWhole);
                 return true;
@@ -98,28 +95,27 @@ namespace Rationals
 
         public static Rational ParseDecimal(string value, decimal tolerance = 0)
         {
-            return ParseDecimal(value, NumberStyles.Float, NumberFormatInfo.CurrentInfo, tolerance);
+            return ParseDecimal(value, NumberStyles.Float, NumberFormatInfo.CurrentInfo);
         }
 
         public static Rational ParseDecimal(string value, NumberStyles style, decimal tolerance = 0)
         {
-            return ParseDecimal(value, style, NumberFormatInfo.CurrentInfo, tolerance);
+            return ParseDecimal(value, style, NumberFormatInfo.CurrentInfo);
         }
 
         public static Rational ParseDecimal(string value, IFormatProvider provider, decimal tolerance = 0)
         {
-            return ParseDecimal(value, NumberStyles.Float, NumberFormatInfo.GetInstance(provider), tolerance);
+            return ParseDecimal(value, NumberStyles.Float, NumberFormatInfo.GetInstance(provider));
         }
 
         public static Rational ParseDecimal(string value, NumberStyles style, IFormatProvider provider, decimal tolerance = 0)
         {
-            return ParseDecimal(value, style, NumberFormatInfo.GetInstance(provider), tolerance);
+            return ParseDecimal(value, style, NumberFormatInfo.GetInstance(provider));
         }
 
-        private static Rational ParseDecimal(string value, NumberStyles style, NumberFormatInfo info, decimal tolerance = 0)
+        private static Rational ParseDecimal(string value, NumberStyles style, NumberFormatInfo info)
         {
-            Rational result;
-            if (!TryParseDecimal(value, style, info, out result))
+            if (!TryParseDecimal(value, style, info, out var result))
             {
                 throw new FormatException("Cannot parse string as Rational, the input is in incorrect format.");
             }
@@ -139,9 +135,7 @@ namespace Rationals
 
         private static bool TryParseDecimal(string value, NumberStyles style, NumberFormatInfo info, out Rational result, decimal tolerance = 0)
         {
-            decimal d;
-
-            if (!decimal.TryParse(value, style, info, out d))
+            if (!decimal.TryParse(value, style, info, out var d))
             {
                 result = default(Rational);
                 return false;

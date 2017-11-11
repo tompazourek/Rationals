@@ -6,10 +6,8 @@ namespace Rationals
     public partial struct Rational
     {
         /// <summary>
-        /// Multiplicative inverse of the rational number
+        /// Multiplicative inverse of the rational number.
         /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
         public static Rational Invert(Rational p)
         {
             var numerator = p.Denominator;
@@ -19,10 +17,8 @@ namespace Rationals
         }
 
         /// <summary>
-        /// Additive inverse of the rational number
+        /// Additive inverse of the rational number.
         /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
         public static Rational Negate(Rational p)
         {
             if (p.IsZero)
@@ -47,9 +43,6 @@ namespace Rationals
         /// <summary>
         /// Returns the sum of the two numbers.
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
         public static Rational Add(Rational left, Rational right)
         {
             if (right.IsZero)
@@ -67,9 +60,6 @@ namespace Rationals
         /// <summary>
         /// Subtracts one number from another and returns result.
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
         public static Rational Subtract(Rational left, Rational right)
         {
             if (right.IsZero)
@@ -87,9 +77,6 @@ namespace Rationals
         /// <summary>
         /// Returns product of the two numbers.
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
         public static Rational Multiply(Rational left, Rational right)
         {
             if (left.IsZero || right.IsZero)
@@ -104,9 +91,6 @@ namespace Rationals
         /// <summary>
         /// Divides one number by another and returns result.
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
         public static Rational Divide(Rational left, Rational right)
         {
             if (right.IsZero)
@@ -122,11 +106,8 @@ namespace Rationals
         }
 
         /// <summary>
-        /// Exponentiation of the rational number to the given integer exponent
+        /// Exponentiation of the rational number to the given integer exponent.
         /// </summary>
-        /// <param name="number"></param>
-        /// <param name="exponent"></param>
-        /// <returns></returns>
         public static Rational Pow(Rational number, int exponent)
         {
             if (exponent == 1)
@@ -163,10 +144,8 @@ namespace Rationals
         }
 
         /// <summary>
-        /// Gets the absolute value of the rational number
+        /// Gets the absolute value of the rational number.
         /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
         public static Rational Abs(Rational p)
         {
             if (p.IsZero)
@@ -179,10 +158,8 @@ namespace Rationals
         }
 
         /// <summary>
-        /// Returns the base 10 logarithm of a rational number
+        /// Returns the base 10 logarithm of a rational number.
         /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
         public static double Log10(Rational p)
         {
             if (p.IsZero)
@@ -193,10 +170,8 @@ namespace Rationals
         }
 
         /// <summary>
-        /// Returns the natural (base e) logarithm of a rational number
+        /// Returns the natural (base e) logarithm of a rational number.
         /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
         public static double Log(Rational p)
         {
             if (p.IsZero)
@@ -207,11 +182,8 @@ namespace Rationals
         }
 
         /// <summary>
-        /// Returns the logarithm of a rational number
+        /// Returns the logarithm of a rational number.
         /// </summary>
-        /// <param name="p"></param>
-        /// <param name="baseValue"></param>
-        /// <returns></returns>
         public static double Log(Rational p, double baseValue)
         {
             if (p.IsZero)
@@ -222,12 +194,42 @@ namespace Rationals
         }
 
         /// <summary>
-        /// Root of the rational number to the given integer radix
+        /// Root of the rational number as double.
         /// </summary>
-        /// <param name="number"></param>
-        /// <param name="radix"></param>
-        /// <returns></returns>
-        public static Rational Root(Rational number, int radix)
+        public static double Root(Rational number, double radix)
+        {
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            if (radix == 1)
+                return (double)number;
+
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            if (radix == 0)
+                throw new InvalidOperationException("Cannot use zero radix.");
+
+            if (number.IsOne)
+                return 1;
+
+            if (number.IsZero)
+            {
+                if (radix < 0)
+                    throw new DivideByZeroException("Cannot root zero to negative exponent.");
+
+                return 0;
+            }
+
+            if (number < 0)
+            {
+                throw new InvalidOperationException("Cannot compute root of negative number.");
+            }
+
+            var result = Math.Pow((double)number, 1 / radix);
+            return result;
+        }
+
+        /// <summary>
+        /// Root of the rational number to the given integer radix (experimental).
+        /// </summary>
+        public static Rational RationalRoot(Rational number, int radix)
         {
             if (radix == 1)
                 return number;
@@ -244,6 +246,11 @@ namespace Rationals
                     throw new DivideByZeroException("Cannot root zero to negative exponent.");
 
                 return number;
+            }
+
+            if (number < 0)
+            {
+                throw new InvalidOperationException("Cannot compute root of negative number.");
             }
 
             if (radix > 0)

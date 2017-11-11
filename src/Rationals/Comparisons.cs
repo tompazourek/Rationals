@@ -18,57 +18,57 @@ namespace Rationals
     {
         public int CompareTo(object obj)
         {
-            if (obj is sbyte)
+            if (obj is sbyte @sbyte)
             {
-                return CompareTo((sbyte)obj);
+                return CompareTo(@sbyte);
             }
 
-            if (obj is byte)
+            if (obj is byte b)
             {
-                return CompareTo((byte)obj);
+                return CompareTo(b);
             }
 
-            if (obj is short)
+            if (obj is short s)
             {
-                return CompareTo((short)obj);
+                return CompareTo(s);
             }
 
-            if (obj is ushort)
+            if (obj is ushort @ushort)
             {
-                return CompareTo((ushort)obj);
+                return CompareTo(@ushort);
             }
 
-            if (obj is int)
+            if (obj is int i)
             {
-                return CompareTo((int)obj);
+                return CompareTo(i);
             }
 
-            if (obj is uint)
+            if (obj is uint u)
             {
-                return CompareTo((uint)obj);
+                return CompareTo(u);
             }
 
-            if (obj is long)
+            if (obj is long l)
             {
-                return CompareTo((long)obj);
+                return CompareTo(l);
             }
 
-            if (obj is ulong)
+            if (obj is ulong @ulong)
             {
-                return CompareTo((ulong)obj);
+                return CompareTo(@ulong);
             }
 
-            if (obj is Rational)
+            if (obj is Rational rational)
             {
-                return CompareTo((Rational)obj);
+                return CompareTo(rational);
             }
 
-            if (obj is BigInteger)
+            if (obj is BigInteger integer)
             {
-                return CompareTo((BigInteger)obj);
+                return CompareTo(integer);
             }
 
-            return ReferenceEquals(obj, this) ? 0 : -1;
+            return -1;
         }
 
         public int CompareTo(BigInteger other)
@@ -194,8 +194,8 @@ namespace Rationals
 
         public override bool Equals(object other)
         {
-            if (other is Rational)
-                return Equals((Rational)other);
+            if (other is Rational rational)
+                return Equals(rational);
 
             if (other is short ||
                 other is ushort ||

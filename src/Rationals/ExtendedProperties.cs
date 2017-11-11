@@ -6,17 +6,17 @@ namespace Rationals
     public partial struct Rational
     {
         /// <summary>
-        /// True if the number is equal to zero
+        /// True if the number is equal to zero.
         /// </summary>
         public bool IsZero => Numerator.IsZero;
 
         /// <summary>
-        /// True if the number is equal to one
+        /// True if the number is equal to one.
         /// </summary>
         public bool IsOne => Numerator == Denominator;
 
         /// <summary>
-        /// Gets a number that indicates the sign (negative, positive, or zero) of the rational number
+        /// Gets a number that indicates the sign (negative, positive, or zero) of the rational number.
         /// </summary>
         public int Sign => Numerator.Sign * Denominator.Sign;
 

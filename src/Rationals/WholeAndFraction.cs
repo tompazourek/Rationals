@@ -35,8 +35,7 @@ namespace Rationals
                     return wholePart;
                 }
 
-                BigInteger remainder;
-                wholePart = BigInteger.DivRem(num, den, out remainder);
+                wholePart = BigInteger.DivRem(num, den, out var remainder);
 
                 if (remainder != 0)
                     wholePart--;

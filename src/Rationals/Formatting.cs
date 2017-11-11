@@ -24,8 +24,7 @@ namespace Rationals
                 var returnedAny = false;
                 while (numerator > 0)
                 {
-                    BigInteger rem;
-                    var divided = BigInteger.DivRem(numerator, denominator, out rem);
+                    var divided = BigInteger.DivRem(numerator, denominator, out var rem);
 
                     var digits = divided.ToString(CultureInfo.InvariantCulture);
 

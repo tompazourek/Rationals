@@ -387,7 +387,6 @@ namespace Rationals.Tests
             Assert.Equal(-(Rational)4 / 3, result);
         }
 
-
         [Fact]
         public void Subtraction4()
         {
@@ -676,6 +675,70 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void RationalRoot1()
+        {
+            // arrange
+            var value = (Rational)25 / 16;
+            const int radix = 2;
+
+            // action
+            var result = Rational.RationalRoot(value, radix);
+
+            // assert
+            Assert.Equal((Rational)5 / 4, result);
+        }
+
+        [Fact]
+        public void RationalRoot2()
+        {
+            // arrange
+            var value = (Rational)16 / 25;
+            const int radix = -2;
+
+            // action
+            var result = Rational.RationalRoot(value, radix);
+
+            // assert
+            Assert.Equal((Rational)5 / 4, result);
+        }
+
+        [Fact]
+        public void RationalRoot3()
+        {
+            // arrange
+            var value = (Rational)5 / -4;
+            const int radix = 1;
+
+            // action
+            var result = Rational.RationalRoot(value, radix);
+
+            // assert
+            Assert.Equal((Rational)5 / -4, result);
+        }
+
+        [Fact]
+        public void RationalRoot4()
+        {
+            // arrange
+            var value = Rational.Zero;
+            const int radix = 0;
+
+            // action
+            Assert.Throws<InvalidOperationException>(() => Rational.RationalRoot(value, radix));
+        }
+
+        [Fact]
+        public void RationalRoot5()
+        {
+            // arrange
+            var value = -(Rational)100 / 4;
+            const int radix = 2;
+
+            // action
+            Assert.Throws<InvalidOperationException>(() => Rational.RationalRoot(value, radix));
+        }
+
+        [Fact]
         public void Root1()
         {
             // arrange
@@ -686,7 +749,7 @@ namespace Rationals.Tests
             var result = Rational.Root(value, radix);
 
             // assert
-            Assert.Equal((Rational)5 / 4, result);
+            Assert.Equal((double)5 / 4, result);
         }
 
         [Fact]
@@ -700,7 +763,7 @@ namespace Rationals.Tests
             var result = Rational.Root(value, radix);
 
             // assert
-            Assert.Equal((Rational)5 / 4, result);
+            Assert.Equal((double)5 / 4, result);
         }
 
         [Fact]
@@ -714,7 +777,7 @@ namespace Rationals.Tests
             var result = Rational.Root(value, radix);
 
             // assert
-            Assert.Equal((Rational)5 / -4, result);
+            Assert.Equal((double)5 / -4, result);
         }
 
         [Fact]
@@ -736,10 +799,7 @@ namespace Rationals.Tests
             const int radix = 2;
 
             // action
-            var result = Rational.Root(value, radix);
-
-            // assert
-            Assert.Equal((Rational)10 / 2, result);
+            Assert.Throws<InvalidOperationException>(() => Rational.Root(value, radix));
         }
     }
 }
