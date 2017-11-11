@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.4;net46;netstandard2.0;net47</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.1</Version>
+    <AssemblyVersion>0.0.0.1</AssemblyVersion>
+    <FileVersion>0.0.0.1</FileVersion>
+    <Authors>Tomáš Pažourek</Authors>
+    <Company></Company>
+    <Product />
+    <Copyright>Tomáš Pažourek</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/tompazourek/Rationals/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/tompazourek/Rationals</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tompazourek/Rationals</RepositoryUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/tompazourek/Rationals/master/assets/logo_64.png</PackageIconUrl>
+    <PackageTags>rational numbers, biginteger, rationals, q, bigrational, arbitrary precision, fractional, fraction, continued fraction</PackageTags>
+    <Description>Implementation of rational number arithmetics for .NET, written in C#
+
+Supported features:
+
+- implicit conversions - rationals integrate seamlessly with other number types
+- unlimited precision - rationals use BigInteger inside
+- canonical form - each rational can have its canonical form (irreducible fraction where denominator is always positive)
+- separate whole and fractional part - any rational number can be separated into a whole part (integer quotient aka result of integer division) and fractional part (reminder of the integral division aka result of modulo operation)
+- comparison &amp;amp; equality
+- multiple formatting options - ToString("C") (canonical form), ToString("W") (whole + fractional part), or normal fraction format
+- continued fraction expansion - expand rational numbers to continued fraction (sequence of coefficients), construct rational numbers from sequence of continued fraction coefficients
+- rational number approximation - approximate floating point numbers (decimal, double, float) as rational numbers with customizable tolerance
+
+Example usage:
+
+Rational left = (Rational) 1 / 2;
+
+Rational right = (Rational) 1 / 4;
+
+Rational sum = left + right; // equals to: 3 / 4
+</Description>
+  </PropertyGroup>
+
+</Project>
