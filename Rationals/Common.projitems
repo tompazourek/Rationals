@@ -9,6 +9,7 @@
     <Import_RootNamespace>Rationals</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Operations.Root.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Approximate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base.cs" />

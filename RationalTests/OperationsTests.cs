@@ -8,6 +8,7 @@
 
 #endregion
 
+using System;
 using NUnit.Framework;
 using Rationals;
 
@@ -424,6 +425,333 @@ namespace RationalTests
 
             // assert
             Assert.AreEqual(Rational.Zero, result);
+        }
+
+        [Test]
+        public void Absolute1()
+        {
+            // arrange
+            var p = new Rational(1, 2);
+
+            // action
+            var q = -p;
+
+            // assert
+            Assert.AreEqual((Rational)1 / 2, Rational.Abs(q));
+        }
+
+        [Test]
+        public void Absolute2()
+        {
+            // arrange
+            var p = new Rational(-1, 2);
+
+            // action
+            var q = -p;
+
+            // assert
+            Assert.AreEqual((Rational)1 / 2, Rational.Abs(q));
+        }
+
+        [Test]
+        public void Absolute3()
+        {
+            // arrange
+            var p = new Rational(1, -2);
+
+            // action
+            var q = -p;
+
+            // assert
+            Assert.AreEqual((Rational) 1 / 2, Rational.Abs(q));
+        }
+
+        [Test]
+        public void Absolute4()
+        {
+            // arrange
+            var p = new Rational(-1, -2);
+
+            // action
+            var q = -p;
+
+            // assert
+            Assert.AreEqual((Rational) 1 / 2, Rational.Abs(q));
+        }
+
+        [Test]
+        public void Absolute5()
+        {
+            // arrange
+            var p = new Rational(0, 10);
+
+            // action
+            var q = -p;
+
+            // assert
+            Assert.AreEqual(p, Rational.Abs(q));
+        }
+
+        [Test]
+        public void Base10Logarithm1()
+        {
+            // arrange
+            var value = (Rational)(5.0 / 4.0);
+
+            // action
+            var result = Rational.Log10(value);
+
+            // assert
+            Assert.AreEqual(33439844.0 / 345060773.0, result, 0.0000001);
+        }
+
+        [Test]
+        public void Base10Logarithm2()
+        {
+            // arrange
+            var value = (Rational)(12.0 / 4.0);
+
+            // action
+            var result = Rational.Log10(value);
+
+            // assert
+            Assert.AreEqual(53565241.0 / 112267564.0, result, 0.0000001);
+        }
+
+        [Test]
+        public void Base10Logarithm3()
+        {
+            // arrange
+            var value = (Rational)(10.0 / 4.0);
+
+            // action
+            var result = Rational.Log10(value);
+
+            // assert
+            Assert.AreEqual(29241489.0 / 73482154.0, result, 0.0000001);
+        }
+
+        [Test]
+        public void Base10Logarithm4()
+        {
+            // arrange
+            var value = Rational.Zero;
+
+            // action
+            var result = Rational.Log10(value);
+
+            // assert
+            Assert.IsTrue(double.IsNaN(result));
+        }
+
+        [Test]
+        public void Base10Logarithm5()
+        {
+            // arrange
+            var value = (Rational)25 / -2;
+
+            // action
+            var result = Rational.Log10(value);
+
+            // assert
+            Assert.IsTrue(double.IsNaN(result));
+        }
+
+        [Test]
+        public void NaturalLogarithm1()
+        {
+            // arrange
+            var value = (Rational)(5.0 / 4.0);
+
+            // action
+            var result = Rational.Log(value);
+
+            // assert
+            Assert.AreEqual(231848159.0 / 1039009004.0, result, 0.0000001);
+        }
+
+        [Test]
+        public void NaturalLogarithm2()
+        {
+            // arrange
+            var value = (Rational)(12.0 / 4.0);
+
+            // action
+            var result = Rational.Log(value);
+
+            // assert
+            Assert.AreEqual(210545501.0 / 191646774.0, result, 0.0000001);
+        }
+
+        [Test]
+        public void NaturalLogarithm3()
+        {
+            // arrange
+            var value = (Rational)(10.0 / 4.0);
+
+            // action
+            var result = Rational.Log(value);
+
+            // assert
+            Assert.AreEqual(96543057.0 / 105362909.0, result, 0.0000001);
+        }
+
+        [Test]
+        public void NaturalLogarithm4()
+        {
+            // arrange
+            var value = Rational.Zero;
+
+            // action
+            var result = Rational.Log(value);
+
+            // assert
+            Assert.IsTrue(double.IsNaN(result));
+        }
+
+        [Test]
+        public void NaturalLogarithm5()
+        {
+            // arrange
+            var value = (Rational)25 / -2;
+
+            // action
+            var result = Rational.Log(value);
+
+            // assert
+            Assert.IsTrue(double.IsNaN(result));
+        }
+
+        [Test]
+        public void Logarithm1()
+        {
+            // arrange
+            var value = (Rational)(5.0 / 4.0);
+
+            // action
+            var result = Rational.Log(value, 2);
+
+            // assert
+            Assert.AreEqual(33439844.0 / 103873643.0, result, 0.0000001);
+        }
+
+        [Test]
+        public void Logarithm2()
+        {
+            // arrange
+            var value = (Rational)(12.0 / 4.0);
+
+            // action
+            var result = Rational.Log(value, 2);
+
+            // assert
+            Assert.AreEqual(102225496.0 / 64497107.0, result, 0.0000001);
+        }
+
+        [Test]
+        public void Logarithm3()
+        {
+            // arrange
+            var value = (Rational)(10.0 / 4.0);
+
+            // action
+            var result = Rational.Log(value, 2);
+
+            // assert
+            Assert.AreEqual(78830509.0 / 59632978.0, result, 0.0000001);
+        }
+
+        [Test]
+        public void Logarithm4()
+        {
+            // arrange
+            var value = Rational.Zero;
+
+            // action
+            var result = Rational.Log(value, 2);
+
+            // assert
+            Assert.IsTrue(double.IsNaN(result));
+        }
+
+        [Test]
+        public void Logarithm5()
+        {
+            // arrange
+            var value = (Rational)25 / -2;
+
+            // action
+            var result = Rational.Log(value, 2);
+
+            // assert
+            Assert.IsTrue(double.IsNaN(result));
+        }
+
+        [Test]
+        public void Root1()
+        {
+            // arrange
+            var value = (Rational)25 / 16;
+            const int radix = 2;
+
+            // action
+            var result = Rational.Root(value, radix);
+
+            // assert
+            Assert.AreEqual((Rational)5 / 4, result);
+        }
+
+        [Test]
+        public void Root2()
+        {
+            // arrange
+            var value = (Rational)16 / 25;
+            const int radix = -2;
+
+            // action
+            var result = Rational.Root(value, radix);
+
+            // assert
+            Assert.AreEqual((Rational)5 / 4, result);
+        }
+
+        [Test]
+        public void Root3()
+        {
+            // arrange
+            var value = (Rational)5 / -4;
+            const int radix = 1;
+
+            // action
+            var result = Rational.Root(value, radix);
+
+            // assert
+            Assert.AreEqual((Rational)5 / -4, result);
+        }
+
+        [Test]
+        public void Root4()
+        {
+            // arrange
+            var value = Rational.Zero;
+            const int radix = 0;
+
+            // action
+            Assert.Throws<InvalidOperationException>(() => Rational.Root(value, radix));
+        }
+
+        [Test]
+        public void Root5()
+        {
+            // arrange
+            var value = -(Rational)100 / 4;
+            const int radix = 2;
+
+            // action
+            var result = Rational.Root(value, radix);
+
+            // assert
+            Assert.AreEqual((Rational)10 / 2, result);
         }
     }
 }
