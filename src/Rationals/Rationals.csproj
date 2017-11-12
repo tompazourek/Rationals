@@ -14,7 +14,7 @@
     <PackageProjectUrl>https://github.com/tompazourek/Rationals</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tompazourek/Rationals</RepositoryUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/tompazourek/Rationals/master/assets/logo_64.png</PackageIconUrl>
-    <PackageTags>rational numbers, biginteger, rationals, q, bigrational, arbitrary precision, fractional, fraction, continued fraction</PackageTags>
+    <PackageTags>arbitrary-precision biginteger bigrational c-sharp coefficients continued-fractions fraction fractional rational-numbers rational-number-arithmetic rationals</PackageTags>
     <Description>Implementation of rational number arithmetic for .NET with arbitrary precision.
 
 Supported features:
