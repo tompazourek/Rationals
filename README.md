@@ -1,7 +1,7 @@
 ![Rationals logo](https://raw.githubusercontent.com/tompazourek/Rationals/master/assets/logo_64.png) Rationals .NET
 ==============
 
-*Implementation of rational number arithmetics for .NET, written in C#.*
+*Implementation of rational number arithmetic for .NET with arbitrary precision.*
 
 [![Build status](https://ci.appveyor.com/api/projects/status/8w3d71q8fr65gntb)](https://ci.appveyor.com/project/tompazourek/rationals)
 
