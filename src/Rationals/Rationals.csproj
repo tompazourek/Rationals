@@ -38,6 +38,7 @@ Rational sum = left + right; // equals to: 3 / 4
 </Description>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>https://github.com/tompazourek/Rationals/releases</PackageReleaseNotes>
+    <PackageId>Rationals</PackageId>
   </PropertyGroup>
 
 </Project>
