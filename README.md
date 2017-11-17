@@ -3,7 +3,9 @@
 
 *Implementation of rational number arithmetic for .NET with arbitrary precision.*
 
-[![Build status](https://ci.appveyor.com/api/projects/status/8w3d71q8fr65gntb?svg=true)](https://ci.appveyor.com/project/tompazourek/rationals)
+[![Build status](https://img.shields.io/appveyor/ci/tompazourek/rationals.svg)](https://ci.appveyor.com/project/tompazourek/rationals)
+[![Tests](https://img.shields.io/appveyor/tests/tompazourek/rationals.svg)](https://ci.appveyor.com/project/tompazourek/rationals/build/tests)
+[![NuGet downloads](https://img.shields.io/nuget/dt/Rationals.svg)](https://www.nuget.org/packages/Rationals/)
 
 ```csharp
 Rational left = (Rational) 1 / 2;
