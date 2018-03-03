@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.4;net46;netstandard2.0;net47</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.0.1</Version>
     <AssemblyVersion>0.0.0.1</AssemblyVersion>
     <FileVersion>0.0.0.1</FileVersion>
@@ -40,6 +39,12 @@ Rational sum = left + right; // equals to: 3 / 4
     <PackageReleaseNotes>https://github.com/tompazourek/Rationals/releases</PackageReleaseNotes>
     <PackageId>Rationals</PackageId>
     <DocumentationFile>/bin/$(Configuration)/Rationals.xml</DocumentationFile>
+    <Deterministic>True</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <PathMap>$(MSBuildProjectDirectory)=/</PathMap>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
