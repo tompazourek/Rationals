@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Numerics;
 
@@ -8,6 +9,7 @@ namespace Rationals
     /// <summary>
     /// Rational number.
     /// </summary>
+    [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
     public partial struct Rational : IFormattable
     {
         /// <summary>
@@ -105,5 +107,7 @@ namespace Rationals
 
             return string.Format(CultureInfo.InvariantCulture, "{0}/{1}", Numerator, Denominator);
         }
+
+        private string DebuggerDisplay => Numerator + "/" + Denominator;
     }
 }
