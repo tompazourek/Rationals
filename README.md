@@ -233,7 +233,7 @@ Keep in mind that the result of this might be infinite. For example, for the rat
  
 ### Formatting
 
-Rational numbers can be formatted in three formats:
+Rational numbers can be formatted in three formats passed into the `.ToString()` method:
 
 - `"F"` (default, normal fraction)
 	- whole number will be formated as a whole number, e.g. `10/5` as `2`.
