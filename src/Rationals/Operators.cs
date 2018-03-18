@@ -1,70 +1,73 @@
 ﻿namespace Rationals
 {
+    /// <summary>
+    /// Rational number.
+    /// </summary>
     public partial struct Rational
     {
-        public static Rational operator +(Rational left, Rational right)
-        {
-            return Add(left, right);
-        }
+        /// <summary>
+        /// Overload of the + operator.
+        /// </summary>
+        public static Rational operator +(Rational left, Rational right) => Add(left, right);
 
-        public static Rational operator -(Rational p)
-        {
-            return Negate(p);
-        }
+        /// <summary>
+        /// Overload of the unary - operator.
+        /// </summary>
+        public static Rational operator -(Rational p) => Negate(p);
 
-        public static Rational operator -(Rational left, Rational right)
-        {
-            return Subtract(left, right);
-        }
+        /// <summary>
+        /// Overload of the binary - operator.
+        /// </summary>
+        public static Rational operator -(Rational left, Rational right) => Subtract(left, right);
 
-        public static Rational operator *(Rational left, Rational right)
-        {
-            return Multiply(left, right);
-        }
+        /// <summary>
+        /// Overload of the * operator.
+        /// </summary>
+        public static Rational operator *(Rational left, Rational right) => Multiply(left, right);
 
-        public static Rational operator /(Rational left, Rational right)
-        {
-            return Divide(left, right);
-        }
+        /// <summary>
+        /// Overload of the / operator.
+        /// </summary>
+        public static Rational operator /(Rational left, Rational right) => Divide(left, right);
 
-        public static Rational operator ++(Rational p)
-        {
-            return p + One;
-        }
+        /// <summary>
+        /// Overload of the ++ operator.
+        /// </summary>
+        public static Rational operator ++(Rational p) => p + One;
 
-        public static Rational operator --(Rational p)
-        {
-            return p - One;
-        }
+        /// <summary>
+        /// Overload of the -- operator.
+        /// </summary>
+        public static Rational operator --(Rational p) => p - One;
 
-        public static bool operator ==(Rational left, Rational right)
-        {
-            return left.Equals(right);
-        }
+        /// <summary>
+        /// Overload of the == operator.
+        /// </summary>
+        public static bool operator ==(Rational left, Rational right) => left.Equals(right);
 
-        public static bool operator !=(Rational left, Rational right)
-        {
-            return !left.Equals(right);
-        }
+        /// <summary>
+        /// Overload of the != operator.
+        /// </summary>
+        public static bool operator !=(Rational left, Rational right) => !left.Equals(right);
 
-        public static bool operator <(Rational left, Rational right)
-        {
-            return left.CompareTo(right) < 0;
-        }
+        /// <summary>
+        /// Overload of the &lt; operator.
+        /// </summary>
+        public static bool operator <(Rational left, Rational right) => left.CompareTo(right) < 0;
 
-        public static bool operator >(Rational left, Rational right)
-        {
-            return left.CompareTo(right) > 0;
-        }
+        /// <summary>
+        /// Overload of the &gt; operator.
+        /// </summary>
+        public static bool operator >(Rational left, Rational right) => left.CompareTo(right) > 0;
+        
+        /// <summary>
+        /// Overload of the &lt;= operator.
+        /// </summary>
+        public static bool operator <=(Rational left, Rational right) => left.CompareTo(right) <= 0;
 
-        public static bool operator <=(Rational left, Rational right)
-        {
-            return left.CompareTo(right) <= 0;
-        }
-
-        public static bool operator >=(Rational left, Rational right)
-        {
-            return left.CompareTo(right) >= 0;
-        }
+        /// <summary>
+        /// Overload of the &gt;= operator.
+        /// </summary>
+        public static bool operator >=(Rational left, Rational right) => left.CompareTo(right) >= 0;
     }
 }

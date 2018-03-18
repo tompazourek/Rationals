@@ -5,6 +5,9 @@ using System.Numerics;
 
 namespace Rationals
 {
+    /// <summary>
+    /// Rational number.
+    /// </summary>
     public partial struct Rational
     {
         private static IEnumerable<BigInteger> ExpandToContinuedFraction(decimal d)

@@ -2,6 +2,9 @@
 
 namespace Rationals
 {
+    /// <summary>
+    /// Rational number.
+    /// </summary>
     public partial struct Rational
     {
         /// <summary>

@@ -3,6 +3,9 @@ using System.Numerics;
 
 namespace Rationals
 {
+    /// <summary>
+    /// Rational number.
+    /// </summary>
     public partial struct Rational :
         IComparable,
         IEquatable<Rational>, IComparable<Rational>,
@@ -16,81 +19,49 @@ namespace Rationals
         IEquatable<ulong>, IComparable<ulong>,
         IEquatable<BigInteger>, IComparable<BigInteger>
     {
+        /// <inheritdoc />
         public int CompareTo(object obj)
         {
-            if (obj is sbyte @sbyte)
+            switch (obj)
             {
-                return CompareTo(@sbyte);
-            }
-
-            if (obj is byte b)
-            {
-                return CompareTo(b);
-            }
-
-            if (obj is short s)
-            {
-                return CompareTo(s);
-            }
-
-            if (obj is ushort @ushort)
-            {
-                return CompareTo(@ushort);
-            }
-
-            if (obj is int i)
-            {
-                return CompareTo(i);
-            }
-
-            if (obj is uint u)
-            {
-                return CompareTo(u);
-            }
-
-            if (obj is long l)
-            {
-                return CompareTo(l);
-            }
-
-            if (obj is ulong @ulong)
-            {
-                return CompareTo(@ulong);
-            }
-
-            if (obj is Rational rational)
-            {
-                return CompareTo(rational);
-            }
-
-            if (obj is BigInteger integer)
-            {
-                return CompareTo(integer);
+                case sbyte @sbyte:
+                    return CompareTo(@sbyte);
+                case byte b:
+                    return CompareTo(b);
+                case short s:
+                    return CompareTo(s);
+                case ushort @ushort:
+                    return CompareTo(@ushort);
+                case int i:
+                    return CompareTo(i);
+                case uint u:
+                    return CompareTo(u);
+                case long l:
+                    return CompareTo(l);
+                case ulong @ulong:
+                    return CompareTo(@ulong);
+                case Rational rational:
+                    return CompareTo(rational);
+                case BigInteger integer:
+                    return CompareTo(integer);
             }
 
             return -1;
         }
 
-        public int CompareTo(BigInteger other)
-        {
-            return CompareTo((Rational)other);
-        }
+        /// <inheritdoc />
+        public int CompareTo(BigInteger other) => CompareTo((Rational)other);
 
-        public int CompareTo(byte other)
-        {
-            return CompareTo((Rational)other);
-        }
+        /// <inheritdoc />
+        public int CompareTo(byte other) => CompareTo((Rational)other);
 
-        public int CompareTo(int other)
-        {
-            return CompareTo((Rational)other);
-        }
+        /// <inheritdoc />
+        public int CompareTo(int other) => CompareTo((Rational)other);
 
-        public int CompareTo(long other)
-        {
-            return CompareTo((Rational)other);
-        }
+        /// <inheritdoc />
+        public int CompareTo(long other) => CompareTo((Rational)other);
 
+        /// <inheritdoc />
         public int CompareTo(Rational other)
         {
             if (Sign == other.Sign)
@@ -109,109 +80,84 @@ namespace Rationals
             return -1;
         }
 
+        /// <inheritdoc />
         [CLSCompliant(false)]
-        public int CompareTo(sbyte other)
-        {
-            return CompareTo((Rational)other);
-        }
+        public int CompareTo(sbyte other) => CompareTo((Rational)other);
 
-        public int CompareTo(short other)
-        {
-            return CompareTo((Rational)other);
-        }
+        /// <inheritdoc />
+        public int CompareTo(short other) => CompareTo((Rational)other);
 
+        /// <inheritdoc />
         [CLSCompliant(false)]
-        public int CompareTo(uint other)
-        {
-            return CompareTo((Rational)other);
-        }
+        public int CompareTo(uint other) => CompareTo((Rational)other);
 
+        /// <inheritdoc />
         [CLSCompliant(false)]
-        public int CompareTo(ulong other)
-        {
-            return CompareTo((Rational)other);
-        }
+        public int CompareTo(ulong other) => CompareTo((Rational)other);
 
+        /// <inheritdoc />
         [CLSCompliant(false)]
-        public int CompareTo(ushort other)
-        {
-            return CompareTo((Rational)other);
-        }
+        public int CompareTo(ushort other) => CompareTo((Rational)other);
 
-        public bool Equals(BigInteger other)
-        {
-            return Equals((Rational)other);
-        }
+        /// <inheritdoc />
+        public bool Equals(BigInteger other) => Equals((Rational)other);
 
-        public bool Equals(byte other)
-        {
-            return Equals((Rational)other);
-        }
+        /// <inheritdoc />
+        public bool Equals(byte other) => Equals((Rational)other);
 
-        public bool Equals(int other)
-        {
-            return Equals((Rational)other);
-        }
+        /// <inheritdoc />
+        public bool Equals(int other) => Equals((Rational)other);
 
-        public bool Equals(long other)
-        {
-            return Equals((Rational)other);
-        }
+        /// <inheritdoc />
+        public bool Equals(long other) => Equals((Rational)other);
 
-        public bool Equals(Rational other)
-        {
-            return (Numerator * other.Denominator).Equals(other.Numerator * Denominator);
-        }
+        /// <inheritdoc />
+        public bool Equals(Rational other) => (Numerator * other.Denominator).Equals(other.Numerator * Denominator);
 
+        /// <inheritdoc />
         [CLSCompliant(false)]
-        public bool Equals(sbyte other)
-        {
-            return Equals((Rational)other);
-        }
+        public bool Equals(sbyte other) => Equals((Rational)other);
 
-        public bool Equals(short other)
-        {
-            return Equals((Rational)other);
-        }
+        /// <inheritdoc />
+        public bool Equals(short other) => Equals((Rational)other);
 
+        /// <inheritdoc />
         [CLSCompliant(false)]
-        public bool Equals(uint other)
-        {
-            return Equals((Rational)other);
-        }
+        public bool Equals(uint other) => Equals((Rational)other);
 
+        /// <inheritdoc />
         [CLSCompliant(false)]
-        public bool Equals(ulong other)
-        {
-            return Equals((Rational)other);
-        }
+        public bool Equals(ulong other) => Equals((Rational)other);
 
+        /// <inheritdoc />
         [CLSCompliant(false)]
-        public bool Equals(ushort other)
-        {
-            return Equals((Rational)other);
-        }
+        public bool Equals(ushort other) => Equals((Rational)other);
 
+        /// <inheritdoc />
         public override bool Equals(object other)
         {
             if (other is Rational rational)
                 return Equals(rational);
 
-            if (other is short ||
-                other is ushort ||
-                other is sbyte ||
-                other is byte ||
-                other is int ||
-                other is uint ||
-                other is long ||
-                other is ulong ||
-                other is BigInteger)
-                // ReSharper disable once PossibleInvalidCastException
-                return Equals((Rational)other);
+            switch (other)
+            {
+                case short _:
+                case ushort _:
+                case sbyte _:
+                case byte _:
+                case int _:
+                case uint _:
+                case long _:
+                case ulong _:
+                case BigInteger _:
+                    // ReSharper disable once PossibleInvalidCastException
+                    return Equals((Rational)other);
+            }
 
             return false;
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             var canonical = CanonicalForm;

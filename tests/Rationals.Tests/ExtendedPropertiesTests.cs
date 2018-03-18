@@ -30,6 +30,66 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void IsZero1()
+        {
+            // arrange
+            var p = new Rational(1, 4);
+
+            // assert
+            Assert.False(p.IsZero);
+        }
+        
+        [Fact]
+        public void IsZero2()
+        {
+            // arrange
+            var p = new Rational(0, 4);
+
+            // assert
+            Assert.True(p.IsZero);
+        }
+        
+        [Fact]
+        public void IsOne1()
+        {
+            // arrange
+            var p = new Rational(1, 4);
+
+            // assert
+            Assert.False(p.IsOne);
+        }
+        
+        [Fact]
+        public void IsOne2()
+        {
+            // arrange
+            var p = new Rational(0, 4);
+
+            // assert
+            Assert.False(p.IsOne);
+        }
+        
+        [Fact]
+        public void IsOne3()
+        {
+            // arrange
+            var p = new Rational(4, 4);
+
+            // assert
+            Assert.True(p.IsOne);
+        }
+        
+        [Fact]
+        public void IsOne4()
+        {
+            // arrange
+            var p = new Rational(5, 4);
+
+            // assert
+            Assert.False(p.IsOne);
+        }
+
+        [Fact]
         public void PowersOfTwo()
         {
             // arrange

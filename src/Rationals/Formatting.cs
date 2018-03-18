@@ -5,6 +5,9 @@ using System.Numerics;
 
 namespace Rationals
 {
+    /// <summary>
+    /// Rational number.
+    /// </summary>
     public partial struct Rational : IFormattable
     {
         /// <summary>
@@ -91,6 +94,7 @@ namespace Rationals
             }
         }
 
+        /// <inheritdoc />
         public override string ToString()
         {
             if (Denominator.IsOne)

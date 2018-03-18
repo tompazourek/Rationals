@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 
 namespace Rationals
 {
+    /// <summary>
+    /// Rational number.
+    /// </summary>
     public partial struct Rational
     {
         /// <summary>
@@ -19,6 +23,7 @@ namespace Rationals
         /// <summary>
         /// Additive inverse of the rational number.
         /// </summary>
+        [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Negate(Rational p)
         {
             if (p.IsZero)
@@ -43,6 +48,7 @@ namespace Rationals
         /// <summary>
         /// Returns the sum of the two numbers.
         /// </summary>
+        [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Add(Rational left, Rational right)
         {
             if (right.IsZero)
@@ -60,6 +66,7 @@ namespace Rationals
         /// <summary>
         /// Subtracts one number from another and returns result.
         /// </summary>
+        [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Subtract(Rational left, Rational right)
         {
             if (right.IsZero)
@@ -77,6 +84,7 @@ namespace Rationals
         /// <summary>
         /// Returns product of the two numbers.
         /// </summary>
+        [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Multiply(Rational left, Rational right)
         {
             if (left.IsZero || right.IsZero)
@@ -91,6 +99,7 @@ namespace Rationals
         /// <summary>
         /// Divides one number by another and returns result.
         /// </summary>
+        [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Divide(Rational left, Rational right)
         {
             if (right.IsZero)
