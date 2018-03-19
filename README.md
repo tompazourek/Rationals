@@ -226,7 +226,7 @@ Keep in mind that the result of this might be infinite. For example, for the rat
 ```csharp
 ((Rational) 200).Digits;                // 2
 ((Rational) 1/2).Digits;                // 5
-((Rational) 1/3).Digits.Take(10);       // 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
+((Rational) 1/3).Digits.Take(10);       // 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
 ((Rational) (-213)/31).Digits.Take(10); // 6, 8, 7, 0, 9, 6, 7, 7, 4, 1
 ((Rational) 0).Digits;                  // 0
 ```
