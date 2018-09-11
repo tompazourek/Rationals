@@ -20,7 +20,7 @@ namespace Rationals
             var denominator = rational.Denominator;
             var scale = 1M;
             var previousScale = 0M;
-            while (numerator > 0)
+            while (numerator != 0)
             {
                 var divided = BigInteger.DivRem(numerator, denominator, out var rem);
 
