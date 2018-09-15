@@ -20,6 +20,8 @@ namespace Rationals.Tests
         [InlineData(-213213.2132132432, -64057990991, 300441)]
         [InlineData(3.45, 69, 20)]
         [InlineData(-3.45, -69, 20)]
+        [InlineData(3.45, -69, -20)]
+        [InlineData(-3.45, 69, -20)]
         public void FromDouble(double input, long expectedNumerator, long expectedDenominator)
         {
             // action
@@ -53,6 +55,8 @@ namespace Rationals.Tests
         [InlineData(-9843.55f, -196871, 20)]
         [InlineData(3.45f, 69, 20)]
         [InlineData(-3.45f, -69, 20)]
+        [InlineData(3.45f, -69, -20)]
+        [InlineData(-3.45f, 69, -20)]
         public void FromFloat(float input, long expectedNumerator, long expectedDenominator)
         {
             // action
@@ -87,6 +91,8 @@ namespace Rationals.Tests
         [InlineData("-9843.55", -196871, 20)]
         [InlineData("3.45", 69, 20)]
         [InlineData("-3.45", -69, 20)]
+        [InlineData("3.45", -69, -20)]
+        [InlineData("-3.45", 69, -20)]
         public void FromDecimal(string inputStr, long expectedNumerator, long expectedDenominator)
         {
             // arrange
@@ -220,6 +226,34 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void ToDecimal6()
+        {
+            // arrange
+            var rational = (Rational)(-4) / 3;
+            const decimal d = (decimal)-4 / 3;
+
+            // action
+            var converted = (decimal)rational;
+
+            // assert
+            Assert.Equal(d, converted);
+        }
+
+        [Fact]
+        public void ToDecimal7()
+        {
+            // arrange
+            var rational = (Rational)(-4) / -3;
+            const decimal d = (decimal)-4 / -3;
+
+            // action
+            var converted = (decimal)rational;
+
+            // assert
+            Assert.Equal(d, converted);
+        }
+
+        [Fact]
         public void ToDouble1()
         {
             // arrange
@@ -291,6 +325,34 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void ToDouble6()
+        {
+            // arrange
+            var rational = (Rational)(-4) / 3;
+            const double d = (double)-4 / 3;
+
+            // action
+            var converted = (double)rational;
+
+            // assert
+            Assert.Equal(d, converted, DoublePrecision);
+        }
+
+        [Fact]
+        public void ToDouble7()
+        {
+            // arrange
+            var rational = (Rational)(-4) / -3;
+            const double d = (double)-4 / -3;
+
+            // action
+            var converted = (double)rational;
+
+            // assert
+            Assert.Equal(d, converted, DoublePrecision);
+        }
+
+        [Fact]
         public void ToFloat1()
         {
             // arrange
@@ -353,6 +415,34 @@ namespace Rationals.Tests
             // arrange
             var rational = (Rational)4 / -3;
             const float d = (float)4 / -3;
+
+            // action
+            var converted = (float)rational;
+
+            // assert
+            Assert.Equal(d, converted, FloatPrecision);
+        }
+
+        [Fact]
+        public void ToFloat6()
+        {
+            // arrange
+            var rational = (Rational)(-4) / 3;
+            const float d = (float)-4 / 3;
+
+            // action
+            var converted = (float)rational;
+
+            // assert
+            Assert.Equal(d, converted, FloatPrecision);
+        }
+
+        [Fact]
+        public void ToFloat7()
+        {
+            // arrange
+            var rational = (Rational)(-4) / -3;
+            const float d = (float)-4 / -3;
 
             // action
             var converted = (float)rational;
