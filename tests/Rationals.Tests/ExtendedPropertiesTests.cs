@@ -10,6 +10,8 @@ namespace Rationals.Tests
         [InlineData(2, 1, 0)]
         [InlineData(0, 1, 0)]
         [InlineData(10, 1, 1)]
+        [InlineData(100, 1, 2)]
+        [InlineData(1000, 1, 3)]
         [InlineData(11, 1, 1)]
         [InlineData(11, 2, 0)]
         [InlineData(1, 2, -1)]

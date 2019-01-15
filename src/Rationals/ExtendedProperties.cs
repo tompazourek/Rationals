@@ -46,9 +46,32 @@ namespace Rationals
                 if (IsZero)
                     return 0;
 
-                var numLog = BigInteger.Log10(BigInteger.Abs(Numerator));
-                var denLog = BigInteger.Log10(BigInteger.Abs(Denominator));
-                return (int)Math.Floor(numLog - denLog);
+                // thanks to 0jpq0 for this magnitude algorithm
+                // https://github.com/tompazourek/Rationals/issues/20#issue-398771661
+
+                var numeratorDigits = BigIntegerUtils.GetNumberOfDigits(Numerator);
+                var denominatorDigits = BigIntegerUtils.GetNumberOfDigits(Denominator);
+
+                var magnitude = numeratorDigits - denominatorDigits;
+
+                var numeratorAbs = BigInteger.Abs(Numerator);
+                var denominatorAbs = BigInteger.Abs(Denominator);
+
+                if (numeratorDigits > denominatorDigits)
+                {
+                    denominatorAbs *= BigInteger.Pow(10, numeratorDigits - denominatorDigits);
+                }
+                else if (numeratorDigits < denominatorDigits)
+                {
+                    numeratorAbs *= BigInteger.Pow(10, denominatorDigits - numeratorDigits);
+                }
+
+                if (numeratorAbs < denominatorAbs)
+                {
+                    magnitude--;
+                }
+
+                return magnitude;
             }
         }
     }
