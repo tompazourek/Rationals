@@ -23,7 +23,7 @@ The library is also [published on NuGet.org](https://www.nuget.org/packages/Rati
 PM> Install-Package Rationals
 ```
 
-The library can be used since .NET 4.6 or .NET Standard 1.4. It's also CLS compliant to allow use in VB.NET.
+The library can be used since .NET 4.0 or .NET Standard 1.3. It's also CLS compliant to allow use in VB.NET.
 
 
 ## Features
