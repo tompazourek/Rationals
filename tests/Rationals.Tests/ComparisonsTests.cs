@@ -82,6 +82,48 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void ComparisonsNaN1()
+        {
+            // arrange
+            var a = Rational.NaN;
+            var b = new Rational(3);
+
+            // assert
+            Assert.Equal(-1, a.CompareTo(b));
+            Assert.False(a > b);
+            Assert.False(a >= b);
+            Assert.True(a < b);
+            Assert.True(a <= b);
+
+            Assert.Equal(+1, b.CompareTo(a));
+            Assert.True(b > a);
+            Assert.True(b >= a);
+            Assert.False(b < a);
+            Assert.False(b <= a);
+        }
+
+        [Fact]
+        public void ComparisonsNaN2()
+        {
+            // arrange
+            var a = Rational.NaN;
+            var b = Rational.NaN;
+
+            // assert
+            Assert.Equal(0, a.CompareTo(b));
+            Assert.False(a > b);
+            Assert.True(a >= b);
+            Assert.False(a < b);
+            Assert.True(a <= b);
+
+            Assert.Equal(0, b.CompareTo(a));
+            Assert.False(b > a);
+            Assert.True(b >= a);
+            Assert.False(b < a);
+            Assert.True(b <= a);
+        }
+
+        [Fact]
         public void Equality1()
         {
             // arrange
@@ -145,6 +187,30 @@ namespace Rationals.Tests
 
             // assert
             Assert.True(p == q);
+        }
+
+        [Fact]
+        public void EqualityNaN1()
+        {
+            // arrange
+            var p = new Rational(4, 2);
+            var q = Rational.NaN;
+
+            // assert
+            Assert.True(p != q);
+            Assert.True(q != p);
+        }
+
+        [Fact]
+        public void EqualityNaN2()
+        {
+            // arrange
+            var p = Rational.NaN;
+            var q = Rational.NaN;
+
+            // assert
+            Assert.True(p == q);
+            Assert.True(q == p);
         }
 
         [Fact]
