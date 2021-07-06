@@ -66,12 +66,9 @@ namespace Rationals
         {
             if (Sign == other.Sign)
             {
-                if (Sign >= 0)
-                    return (Numerator * other.Denominator).CompareTo(other.Numerator * Denominator);
-
-                return
-                    -BigInteger.Abs(Numerator * other.Denominator)
-                        .CompareTo(BigInteger.Abs(other.Numerator * Denominator));
+                BigInteger adjDenominator = BigInteger.Abs(Denominator) * other.Denominator.Sign;
+                BigInteger adjOtherDenominator = BigInteger.Abs(other.Denominator) * Denominator.Sign;
+                return (Numerator * adjOtherDenominator).CompareTo(other.Numerator * adjDenominator);
             }
 
             if (Sign > other.Sign)

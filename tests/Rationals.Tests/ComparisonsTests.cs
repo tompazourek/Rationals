@@ -61,6 +61,27 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void ComparisonsNegativeDenominator()
+        {
+            // arrange
+            var a = new Rational(3);
+            var b = new Rational(-4, -1);
+
+            // assert
+            Assert.Equal(-1, a.CompareTo(b));
+            Assert.False(a > b);
+            Assert.False(a >= b);
+            Assert.True(a < b);
+            Assert.True(a <= b);
+
+            Assert.Equal(+1, b.CompareTo(a));
+            Assert.True(b > a);
+            Assert.True(b >= a);
+            Assert.False(b < a);
+            Assert.False(b <= a);
+        }
+
+        [Fact]
         public void Equality1()
         {
             // arrange
