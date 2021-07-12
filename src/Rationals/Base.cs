@@ -8,6 +8,9 @@ namespace Rationals
     /// </summary>
     public partial struct Rational
     {
+        private readonly BigInteger _numerator;
+        private readonly BigInteger _denominator;
+
         /// <summary>
         /// Constructs rational number out of a whole number.
         /// </summary>
@@ -21,8 +24,8 @@ namespace Rationals
             if (denominator == 0)
                 throw new DivideByZeroException("Denominator cannot be zero.");
 
-            Numerator = numerator;
-            Denominator = denominator;
+            _numerator = numerator;
+            _denominator = denominator;
         }
 
         /// <summary>
@@ -33,18 +36,25 @@ namespace Rationals
             if (denominator == 0)
                 throw new DivideByZeroException("Denominator cannot be zero.");
 
-            Numerator = numerator;
-            Denominator = denominator;
+            _numerator = numerator;
+            _denominator = denominator;
         }
 
         /// <summary>
         /// Numerator part of the rational number.
         /// </summary>
-        public BigInteger Numerator { get; }
+        public BigInteger Numerator
+        {
+            get => _numerator;
+        }
 
         /// <summary>
         /// Denominator part of the rational number.
         /// </summary>
-        public BigInteger Denominator { get; }
+        public BigInteger Denominator
+        {
+            // denominator can be 0 when an instance is created using default constructor
+            get => _denominator == 0 ? BigInteger.One : _denominator;
+        }
     }
 }

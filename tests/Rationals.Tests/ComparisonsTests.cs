@@ -262,5 +262,46 @@ namespace Rationals.Tests
             };
             Assert.Equal(expected, sorted);
         }
+
+        [Fact]
+        public void DefaultValue_IsZero()
+        {
+            Assert.True(default(Rational).IsZero);
+        }
+
+        [Fact]
+        public void DefaultValue_Not_IsOne()
+        {
+            Assert.False(default(Rational).IsOne);
+        }
+
+        [Fact]
+        public void DefaultValue_Numerator_0()
+        {
+            Assert.Equal(0, default(Rational).Numerator);
+        }
+
+        [Fact]
+        public void DefaultValue_Denominator_1()
+        {
+            Assert.Equal(1, default(Rational).Denominator);
+        }
+
+        [Fact]
+        public void DefaultValue_EqualTo0()
+        {
+            Assert.Equal(0, default(Rational));
+        }
+
+        [Fact]
+        public void DefaultValue_Not_EqualTo10_Left()
+        {
+            Assert.False(default(Rational) == 10);
+        }
+        [Fact]
+        public void DefaultValue_Not_EqualTo10_Right()
+        {
+            Assert.False(10 == default(Rational));
+        }
     }
 }
