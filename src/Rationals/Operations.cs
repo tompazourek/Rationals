@@ -14,6 +14,9 @@ namespace Rationals
         /// </summary>
         public static Rational Invert(Rational p)
         {
+            if (p.IsNaN)
+                return NaN;
+
             var numerator = p.Denominator;
             var denominator = p.Numerator;
             var result = new Rational(numerator, denominator);
@@ -26,6 +29,9 @@ namespace Rationals
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Negate(Rational p)
         {
+            if (p.IsNaN)
+                return NaN;
+
             if (p.IsZero)
                 return Zero;
 
@@ -51,6 +57,9 @@ namespace Rationals
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Add(Rational left, Rational right)
         {
+            if (left.IsNaN || right.IsNaN)
+                return NaN;
+
             if (right.IsZero)
                 return left;
 
@@ -69,6 +78,9 @@ namespace Rationals
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Subtract(Rational left, Rational right)
         {
+            if (left.IsNaN || right.IsNaN)
+                return NaN;
+
             if (right.IsZero)
                 return left;
 
@@ -87,6 +99,9 @@ namespace Rationals
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Multiply(Rational left, Rational right)
         {
+            if (left.IsNaN || right.IsNaN)
+                return NaN;
+
             if (left.IsZero || right.IsZero)
                 return Zero;
 
@@ -102,6 +117,9 @@ namespace Rationals
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public static Rational Divide(Rational left, Rational right)
         {
+            if (left.IsNaN || right.IsNaN)
+                return NaN;
+
             if (right.IsZero)
                 throw new DivideByZeroException();
 
@@ -119,6 +137,9 @@ namespace Rationals
         /// </summary>
         public static Rational Pow(Rational number, int exponent)
         {
+            if (number.IsNaN)
+                return NaN;
+
             if (exponent == 1)
                 return number;
 
@@ -157,6 +178,9 @@ namespace Rationals
         /// </summary>
         public static Rational Abs(Rational p)
         {
+            if (p.IsNaN)
+                return NaN;
+
             if (p.IsZero)
                 return Zero;
 
@@ -171,6 +195,9 @@ namespace Rationals
         /// </summary>
         public static double Log10(Rational p)
         {
+            if (p.IsNaN)
+                return double.NaN;
+
             if (p.IsZero)
                 return double.NaN;
 
@@ -183,6 +210,9 @@ namespace Rationals
         /// </summary>
         public static double Log(Rational p)
         {
+            if (p.IsNaN)
+                return double.NaN;
+
             if (p.IsZero)
                 return double.NaN;
 
@@ -195,6 +225,9 @@ namespace Rationals
         /// </summary>
         public static double Log(Rational p, double baseValue)
         {
+            if (p.IsNaN || double.IsNaN(baseValue))
+                return double.NaN;
+
             if (p.IsZero)
                 return double.NaN;
 
@@ -207,6 +240,9 @@ namespace Rationals
         /// </summary>
         public static double Root(Rational number, double radix)
         {
+            if (number.IsNaN || double.IsNaN(radix))
+                return double.NaN;
+
             // ReSharper disable once CompareOfFloatsByEqualityOperator
             if (radix == 1)
                 return (double)number;
@@ -240,6 +276,9 @@ namespace Rationals
         /// </summary>
         public static Rational RationalRoot(Rational number, int radix)
         {
+            if (number.IsNaN)
+                return NaN;
+
             if (radix == 1)
                 return number;
 

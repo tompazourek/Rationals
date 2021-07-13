@@ -62,6 +62,20 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void AdditionNaN()
+        {
+            // arrange
+            var left = (Rational)32 / 16;
+            var right = Rational.NaN;
+
+            // action
+            var sum = left + right;
+
+            // assert
+            Assert.Equal(Rational.NaN, sum);
+        }
+
+        [Fact]
         public void Division1()
         {
             // arrange
@@ -116,6 +130,20 @@ namespace Rationals.Tests
 
             // assert
             Assert.Equal(-(Rational)225 / 4, result);
+        }
+
+        [Fact]
+        public void DivisionNaN()
+        {
+            // arrange
+            var left = -(Rational)15 / 4;
+            var right = Rational.NaN;
+
+            // action
+            var result = left / right;
+
+            // assert
+            Assert.Equal(Rational.NaN, result);
         }
 
         [Fact]
@@ -189,6 +217,20 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void ExponentiationNaN()
+        {
+            // arrange
+            var value = Rational.NaN;
+            const int exponent = 2;
+
+            // action
+            var result = Rational.Pow(value, exponent);
+
+            // assert
+            Assert.Equal(Rational.NaN, result);
+        }
+
+        [Fact]
         public void Inversion1()
         {
             // arrange
@@ -222,6 +264,19 @@ namespace Rationals.Tests
 
             // action
             Assert.Throws<DivideByZeroException>(() => Rational.Invert(p));
+        }
+
+        [Fact]
+        public void InversionNaN()
+        {
+            // arrange
+            var p = Rational.NaN;
+
+            // action
+            var inverted = Rational.Invert(p);
+
+            // assert
+            Assert.Equal(Rational.NaN, inverted);
         }
 
         [Fact]
@@ -278,6 +333,20 @@ namespace Rationals.Tests
 
             // assert
             Assert.Equal(-(Rational)3 / 12, product);
+        }
+
+        [Fact]
+        public void MultiplicationNaN()
+        {
+            // arrange
+            var left = (Rational)3 / 4;
+            var right = Rational.NaN;
+
+            // action
+            var product = left * right;
+
+            // assert
+            Assert.Equal(Rational.NaN, product);
         }
 
         [Fact]
@@ -343,6 +412,19 @@ namespace Rationals.Tests
 
             // assert
             Assert.Equal(p, q);
+        }
+        
+        [Fact]
+        public void NegationNaN()
+        {
+            // arrange
+            var p = Rational.NaN;
+
+            // action
+            var q = -p;
+
+            // assert
+            Assert.Equal(Rational.NaN, q);
         }
 
         [Fact]
@@ -415,6 +497,20 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void SubtractionNaN()
+        {
+            // arrange
+            var left = (Rational)5 / 4;
+            var right = Rational.NaN;
+
+            // action
+            var result = left - right;
+
+            // assert
+            Assert.Equal(Rational.NaN, result);
+        }
+
+        [Fact]
         public void Absolute1()
         {
             // arrange
@@ -478,6 +574,19 @@ namespace Rationals.Tests
             // assert
             Assert.Equal(p, Rational.Abs(q));
         }
+        
+        [Fact]
+        public void AbsoluteNaN()
+        {
+            // arrange
+            var input = Rational.NaN;
+
+            // action
+            var result = Rational.Abs(input);
+
+            // assert
+            Assert.Equal(Rational.NaN, result);
+        }
 
         [Fact]
         public void Base10Logarithm1()
@@ -536,6 +645,19 @@ namespace Rationals.Tests
         {
             // arrange
             var value = (Rational)25 / -2;
+
+            // action
+            var result = Rational.Log10(value);
+
+            // assert
+            Assert.True(double.IsNaN(result));
+        }
+        
+        [Fact]
+        public void Base10LogarithmNaN()
+        {
+            // arrange
+            var value = Rational.NaN;
 
             // action
             var result = Rational.Log10(value);
@@ -610,6 +732,19 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void NaturalLogarithmNaN()
+        {
+            // arrange
+            var value = Rational.NaN;
+
+            // action
+            var result = Rational.Log(value);
+
+            // assert
+            Assert.True(double.IsNaN(result));
+        }
+
+        [Fact]
         public void Logarithm1()
         {
             // arrange
@@ -666,6 +801,19 @@ namespace Rationals.Tests
         {
             // arrange
             var value = (Rational)25 / -2;
+
+            // action
+            var result = Rational.Log(value, 2);
+
+            // assert
+            Assert.True(double.IsNaN(result));
+        }
+
+        [Fact]
+        public void LogarithmNaN()
+        {
+            // arrange
+            var value = Rational.NaN;
 
             // action
             var result = Rational.Log(value, 2);
@@ -739,6 +887,20 @@ namespace Rationals.Tests
         }
 
         [Fact]
+        public void RationalRootNaN()
+        {
+            // arrange
+            var value = Rational.NaN;
+            const int radix = 2;
+
+            // action
+            var result = Rational.RationalRoot(value, radix);
+
+            // assert
+            Assert.Equal(Rational.NaN, result);
+        }
+
+        [Fact]
         public void Root1()
         {
             // arrange
@@ -800,6 +962,20 @@ namespace Rationals.Tests
 
             // action
             Assert.Throws<InvalidOperationException>(() => Rational.Root(value, radix));
+        }
+
+        [Fact]
+        public void RootNaN()
+        {
+            // arrange
+            var value = Rational.NaN;
+            const int radix = 2;
+
+            // action
+            var result = Rational.Root(value, radix);
+
+            // assert
+            Assert.Equal(double.NaN, result);
         }
     }
 }

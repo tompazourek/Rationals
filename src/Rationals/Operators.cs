@@ -43,31 +43,31 @@
         /// <summary>
         /// Overload of the == operator.
         /// </summary>
-        public static bool operator ==(Rational left, Rational right) => left.Equals(right);
+        public static bool operator ==(Rational left, Rational right) => !left.IsNaN && !right.IsNaN && left.Equals(right);
 
         /// <summary>
         /// Overload of the != operator.
         /// </summary>
-        public static bool operator !=(Rational left, Rational right) => !left.Equals(right);
+        public static bool operator !=(Rational left, Rational right) => !(left == right);
 
         /// <summary>
         /// Overload of the &lt; operator.
         /// </summary>
-        public static bool operator <(Rational left, Rational right) => left.CompareTo(right) < 0;
+        public static bool operator <(Rational left, Rational right) => !left.IsNaN && !right.IsNaN && left.CompareTo(right) < 0;
 
         /// <summary>
         /// Overload of the &gt; operator.
         /// </summary>
-        public static bool operator >(Rational left, Rational right) => left.CompareTo(right) > 0;
+        public static bool operator >(Rational left, Rational right) => !left.IsNaN && !right.IsNaN && left.CompareTo(right) > 0;
         
         /// <summary>
         /// Overload of the &lt;= operator.
         /// </summary>
-        public static bool operator <=(Rational left, Rational right) => left.CompareTo(right) <= 0;
+        public static bool operator <=(Rational left, Rational right) => !left.IsNaN && !right.IsNaN && left.CompareTo(right) <= 0;
 
         /// <summary>
         /// Overload of the &gt;= operator.
         /// </summary>
-        public static bool operator >=(Rational left, Rational right) => left.CompareTo(right) >= 0;
+        public static bool operator >=(Rational left, Rational right) => !left.IsNaN && !right.IsNaN && left.CompareTo(right) >= 0;
     }
 }

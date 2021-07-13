@@ -23,6 +23,7 @@ namespace Rationals
         {
             get
             {
+                if (IsNaN) yield break;
                 var numerator = BigInteger.Abs(Numerator);
                 var denominator = BigInteger.Abs(Denominator);
                 var removeLeadingZeros = true;
@@ -59,10 +60,7 @@ namespace Rationals
         /// </summary>
         /// <param name="format">F for normal fraction, C for canonical fraction, W for whole+fractional</param>
         /// <param name="formatProvider">Ignored, custom format providers are not supported</param>
-        public string ToString(string format, IFormatProvider formatProvider)
-        {
-            return ToString(format);
-        }
+        public string ToString(string format, IFormatProvider formatProvider) => ToString(format);
 
         /// <summary>
         /// Formats rational number to string
@@ -79,6 +77,9 @@ namespace Rationals
 
                 case "W": // as whole + fractional part
                 {
+                    if (IsNaN)
+                        return "NaN";
+
                     var whole = WholePart;
                     var fraction = FractionPart.CanonicalForm;
                     if (whole.IsZero)
@@ -99,6 +100,9 @@ namespace Rationals
         /// <inheritdoc />
         public override string ToString()
         {
+            if (IsNaN)
+                return "NaN";
+
             if (Denominator.IsOne)
                 return Numerator.ToString();
 
@@ -108,6 +112,6 @@ namespace Rationals
             return string.Format(CultureInfo.InvariantCulture, "{0}/{1}", Numerator, Denominator);
         }
 
-        private string DebuggerDisplay => Numerator + "/" + Denominator;
+        private string DebuggerDisplay => IsNaN ? "NaN" : Numerator + "/" + Denominator;
     }
 }

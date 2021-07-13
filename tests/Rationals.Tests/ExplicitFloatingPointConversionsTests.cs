@@ -34,7 +34,6 @@ namespace Rationals.Tests
         [Theory]
         [InlineData(double.NegativeInfinity)]
         [InlineData(double.PositiveInfinity)]
-        [InlineData(double.NaN)]
         [InlineData(double.Epsilon)]
         public void FromDouble_Throws(double input)
         {
@@ -69,7 +68,6 @@ namespace Rationals.Tests
         [Theory]
         [InlineData(float.NegativeInfinity)]
         [InlineData(float.PositiveInfinity)]
-        [InlineData(float.NaN)]
         [InlineData(float.Epsilon)]
         public void FromFloat_Throws(float input)
         {

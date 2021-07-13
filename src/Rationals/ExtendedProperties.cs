@@ -11,22 +11,28 @@ namespace Rationals
         /// <summary>
         /// True if the number is equal to zero.
         /// </summary>
-        public bool IsZero => Numerator.IsZero;
+        public bool IsZero => !IsNaN && Numerator.IsZero;
 
         /// <summary>
         /// True if the number is equal to one.
         /// </summary>
-        public bool IsOne => Numerator == Denominator;
+        public bool IsOne => !IsNaN && Numerator == Denominator;
+
+        /// <summary>
+        /// True if the value is not a number.
+        /// <see cref="NaN"/>
+        /// </summary>
+        public bool IsNaN => Denominator.IsZero;
 
         /// <summary>
         /// Gets a number that indicates the sign (negative, positive, or zero) of the rational number.
         /// </summary>
-        public int Sign => Numerator.Sign * Denominator.Sign;
+        public int Sign => IsNaN ? 0 : Numerator.Sign * Denominator.Sign;
 
         /// <summary>
         /// Indicates whether the value of the rational number is a power of two.
         /// </summary>
-        public bool IsPowerOfTwo => Numerator.IsPowerOfTwo && Denominator.IsPowerOfTwo;
+        public bool IsPowerOfTwo => !IsNaN && Numerator.IsPowerOfTwo && Denominator.IsPowerOfTwo;
 
         /// <summary>
         /// Represents the exponent of 10 if the number was written in scientific notation.
@@ -43,6 +49,9 @@ namespace Rationals
         {
             get
             {
+                if (IsNaN)
+                    return 0;
+
                 if (IsZero)
                     return 0;
 

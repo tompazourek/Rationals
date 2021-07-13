@@ -88,5 +88,18 @@ namespace Rationals.Tests
             Assert.Equal(new BigInteger(0), canonical.Numerator);
             Assert.Equal(new BigInteger(1), canonical.Denominator);
         }
+
+        [Fact]
+        public void CanonicalForm_NaN()
+        {
+            // arrange
+            var rational = Rational.NaN;
+
+            // action
+            var canonical = rational.CanonicalForm;
+
+            // assert
+            Assert.Equal(Rational.NaN, canonical);
+        }
     }
 }

@@ -15,6 +15,9 @@ namespace Rationals
         {
             get
             {
+                if (IsNaN)
+                    return NaN;
+
                 if (Numerator.IsZero)
                     return Zero;
 

@@ -18,6 +18,9 @@ namespace Rationals
             new Regex(@"^\s*(?<Whole>-?\d+)\s*[+]\s*(?<Numerator>-?\d+)/(?<Denominator>-?\d+)\s*$",
                 RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
+        private static readonly Regex NaNFormat = new Regex(@"^\s*NaN\s*$",
+            RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
         /// <summary>
         /// Converts the string representation of a number to its rational number equivalent.
         /// Accepts either "3/4" format, or "4 1/2" format.
@@ -73,7 +76,7 @@ namespace Rationals
 
         private static bool TryParse(string value, NumberStyles style, NumberFormatInfo info, out Rational result)
         {
-            result = default(BigInteger);
+            result = default;
 
             try
             {
@@ -93,6 +96,13 @@ namespace Rationals
                     var numerator = BigInteger.Parse(match.Groups["Numerator"].Value, style, info);
                     var denominator = BigInteger.Parse(match.Groups["Denominator"].Value, style, info);
                     result = new Rational(whole) + new Rational(numerator, denominator);
+                    return true;
+                }
+                
+                match = NaNFormat.Match(value);
+                if (match.Success)
+                {
+                    result = NaN;
                     return true;
                 }
             }

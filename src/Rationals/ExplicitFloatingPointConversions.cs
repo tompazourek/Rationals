@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 
 namespace Rationals
 {
@@ -12,6 +13,8 @@ namespace Rationals
         /// </summary>
         public static explicit operator decimal(Rational rational)
         {
+            if (rational.IsNaN) throw new OverflowException("Cannot convert the rational NaN value to decimal.");
+
             if (rational < 0)
                 return -(decimal)-rational;
 

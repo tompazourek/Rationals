@@ -24,6 +24,16 @@ namespace Rationals.Tests
             Assert.Equal((Rational)expectedNumerator / expectedDenominator, rational);
         }
 
+        [Fact]
+        public void ApproximateFloatNaN()
+        {
+            // action
+            var rational = Rational.Approximate(float.NaN);
+
+            // assert
+            Assert.Equal(Rational.NaN, rational);
+        }
+
         [Theory]
         [InlineData(0.333d, 0.0001d, 333, 1000)]
         [InlineData(-0.333d, 0.0001d, -333, 1000)]
@@ -40,6 +50,16 @@ namespace Rationals.Tests
 
             // assert
             Assert.Equal((Rational)expectedNumerator / expectedDenominator, rational);
+        }
+
+        [Fact]
+        public void ApproximateDoubleNaN()
+        {
+            // action
+            var rational = Rational.Approximate(double.NaN);
+
+            // assert
+            Assert.Equal(Rational.NaN, rational);
         }
 
         [Theory]

@@ -16,6 +16,9 @@ namespace Rationals
         /// <returns>Output sequence of continued fraction coefficients</returns>
         public IEnumerable<BigInteger> ToContinuedFraction()
         {
+            if (IsNaN)
+                yield break;
+
             yield return WholePart;
             var fractionPart = FractionPart;
 

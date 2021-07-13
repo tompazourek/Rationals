@@ -64,8 +64,19 @@ namespace Rationals
         /// <inheritdoc />
         public int CompareTo(Rational other)
         {
+            if (IsNaN)
+            {
+                return other.IsNaN ? 0 : -1;
+            }
+
+            if (other.IsNaN)
+            {
+                return 1;
+            }
+
             if (Sign == other.Sign)
             {
+                
                 BigInteger adjDenominator = BigInteger.Abs(Denominator) * other.Denominator.Sign;
                 BigInteger adjOtherDenominator = BigInteger.Abs(other.Denominator) * Denominator.Sign;
                 return (Numerator * adjOtherDenominator).CompareTo(other.Numerator * adjDenominator);
@@ -109,7 +120,16 @@ namespace Rationals
         public bool Equals(long other) => Equals((Rational)other);
 
         /// <inheritdoc />
-        public bool Equals(Rational other) => (Numerator * other.Denominator).Equals(other.Numerator * Denominator);
+        public bool Equals(Rational other)
+        {
+            if (IsNaN)
+                return other.IsNaN;
+
+            if (other.IsNaN)
+                return false;
+
+            return (Numerator * other.Denominator).Equals(other.Numerator * Denominator);
+        }
 
         /// <inheritdoc />
         [CLSCompliant(false)]
