@@ -98,6 +98,7 @@ namespace Rationals
                 {
                     break;
                 }
+
                 if (currentDifference < previousDifference)
                 {
                     previousDifference = currentDifference;
@@ -107,6 +108,7 @@ namespace Rationals
                     break;
                 }
             }
+
             return currentNumber;
         }
 
@@ -119,6 +121,8 @@ namespace Rationals
         public static Rational Approximate(double input, double tolerance = 0)
         {
             if (tolerance < 0) throw new ArgumentOutOfRangeException(nameof(tolerance));
+            if (double.IsNaN(input)) return NaN;
+
             var continuedFraction = ExpandToContinuedFraction(input);
 
             var sequence = new List<BigInteger>();
@@ -134,6 +138,7 @@ namespace Rationals
                 {
                     break;
                 }
+
                 if (currentDifference < previousDifference)
                 {
                     previousDifference = currentDifference;
@@ -143,6 +148,7 @@ namespace Rationals
                     break;
                 }
             }
+
             return currentNumber;
         }
 
@@ -155,6 +161,8 @@ namespace Rationals
         public static Rational Approximate(float input, float tolerance = 0)
         {
             if (tolerance < 0) throw new ArgumentOutOfRangeException(nameof(tolerance));
+            if (float.IsNaN(input)) return NaN;
+
             var continuedFraction = ExpandToContinuedFraction(input);
 
             var sequence = new List<BigInteger>();
@@ -170,6 +178,7 @@ namespace Rationals
                 {
                     break;
                 }
+
                 if (currentDifference < previousDifference)
                 {
                     previousDifference = currentDifference;
@@ -179,6 +188,7 @@ namespace Rationals
                     break;
                 }
             }
+
             return currentNumber;
         }
     }

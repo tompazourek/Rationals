@@ -21,10 +21,11 @@ namespace Rationals.Tests
         [InlineData(@"-1", true, -1, 1)]
         [InlineData(@"-4/6", true, -4, 6)]
         [InlineData(@"-1 + 2/3", true, -1, 3)]
+        [InlineData(@"NaN", true, 0, 0)]
         public void Parse(string input, bool expectedSuccess, long numerator, long denominator)
         {
             // arrange
-            var expectedResult = expectedSuccess ? (Rational)numerator / denominator : default(Rational);
+            var expectedResult = expectedSuccess && (denominator != 0) ? (Rational)numerator / denominator : default;
 
             // action
             var success = Rational.TryParse(input, NumberStyles.Float, CultureInfo.InvariantCulture, out var result);
@@ -45,7 +46,7 @@ namespace Rationals.Tests
         public void ParseDecimal(string input, double tolerance, bool expectedSuccess, long numerator, long denominator)
         {
             // arrange
-            var expectedResult = expectedSuccess ? (Rational)numerator / denominator : default(Rational);
+            var expectedResult = expectedSuccess && (denominator != 0) ? (Rational)numerator / denominator : default;
 
             // action
             var success = Rational.TryParseDecimal(input, NumberStyles.Float, CultureInfo.InvariantCulture, out var result, (decimal)tolerance);

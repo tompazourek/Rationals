@@ -24,6 +24,19 @@ namespace Rationals.Tests
             Assert.Equal(expectedDigits, digits);
         }
 
+        [Fact]
+        public void Digits_NaN()
+        {
+            // arrange
+            var rational = Rational.NaN;
+
+            // action
+            var digits = new string(rational.Digits.Take(10).ToArray());
+
+            // assert
+            Assert.Equal(string.Empty, digits);
+        }
+
         [Theory]
         [InlineData(3, 4, "3/4")]
         [InlineData(3, -4, "3/-4")]
@@ -42,6 +55,19 @@ namespace Rationals.Tests
 
             // assert
             Assert.Equal(expectedResult, result);
+        }
+        
+        [Fact]
+        public void Format_NaN()
+        {
+            // arrange
+            var rational = Rational.NaN;
+
+            // action
+            var result = rational.ToString();
+
+            // assert
+            Assert.Equal("NaN", result);
         }
 
         [Theory]
@@ -62,6 +88,19 @@ namespace Rationals.Tests
 
             // assert
             Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void Format_C_NaN()
+        {
+            // arrange
+            var rational = Rational.NaN;
+
+            // action
+            var result = rational.ToString("C");
+
+            // assert
+            Assert.Equal("NaN", result);
         }
 
         [Theory]
@@ -87,6 +126,19 @@ namespace Rationals.Tests
 
             // assert
             Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void Format_W_NaN()
+        {
+            // arrange
+            var rational = Rational.NaN;
+
+            // action
+            var result = rational.ToString("W");
+
+            // assert
+            Assert.Equal("NaN", result);
         }
     }
 }

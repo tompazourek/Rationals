@@ -18,6 +18,9 @@ namespace Rationals
         {
             get
             {
+                if (IsNaN)
+                    return 0;
+
                 if (IsZero)
                     return 0;
 
@@ -58,6 +61,9 @@ namespace Rationals
         {
             get
             {
+                if (IsNaN)
+                    return NaN;
+
                 // ensure that minus is only in numerator, if negative
                 var num = Sign > 0 ? BigInteger.Abs(Numerator) : -BigInteger.Abs(Numerator);
                 var den = BigInteger.Abs(Denominator);

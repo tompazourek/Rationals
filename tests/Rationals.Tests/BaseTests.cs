@@ -56,5 +56,21 @@ namespace Rationals.Tests
             Assert.Equal(new BigInteger(0), numerator);
             Assert.Equal(new BigInteger(1), denominator);
         }
+
+        [Fact]
+        public void Default_NaN()
+        {
+            // arrange
+            Rational rational = default;
+
+            // action
+            var numerator = rational.Numerator;
+            var denominator = rational.Denominator;
+
+            // assert
+            Assert.Equal(0, numerator);
+            Assert.Equal(0, denominator);
+            Assert.Equal(Rational.NaN, rational);
+        }
     }
 }
