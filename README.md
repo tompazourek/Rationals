@@ -2,7 +2,7 @@
 
 *Implementation of rational number arithmetic for .NET with arbitrary precision.*
 
-[![Build status](https://img.shields.io/appveyor/ci/tompazourek/rationals.svg)](https://ci.appveyor.com/project/tompazourek/rationals)
+[![Build status](https://img.shields.io/appveyor/build/tompazourek/rationals/master.svg)](https://ci.appveyor.com/project/tompazourek/rationals)
 [![Tests](https://img.shields.io/appveyor/tests/tompazourek/rationals.svg)](https://ci.appveyor.com/project/tompazourek/rationals/build/tests)
 [![codecov](https://codecov.io/gh/tompazourek/Rationals/branch/master/graph/badge.svg?token=AJBWY172D6)](https://codecov.io/gh/tompazourek/Rationals)
 [![NuGet version](https://img.shields.io/nuget/v/Rationals.svg)](https://www.nuget.org/packages/Rationals/)
