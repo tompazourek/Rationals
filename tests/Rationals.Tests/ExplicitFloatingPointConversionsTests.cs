@@ -361,7 +361,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, FloatPrecision);
+            Assert.Equal((double)d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -375,7 +375,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, FloatPrecision);
+            Assert.Equal((double)d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -390,7 +390,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, FloatPrecision);
+            Assert.Equal((double)d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -404,7 +404,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, FloatPrecision);
+            Assert.Equal((double)d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -418,7 +418,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, FloatPrecision);
+            Assert.Equal((double)d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -432,7 +432,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, FloatPrecision);
+            Assert.Equal((double)d, converted, FloatPrecision);
         }
 
         [Fact]
@@ -446,7 +446,7 @@ namespace Rationals.Tests
             var converted = (float)rational;
 
             // assert
-            Assert.Equal(d, converted, FloatPrecision);
+            Assert.Equal((double)d, converted, FloatPrecision);
         }
     }
 }
