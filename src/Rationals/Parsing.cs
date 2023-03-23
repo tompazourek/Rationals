@@ -15,7 +15,7 @@ namespace Rationals
             RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
         private static readonly Regex WholeFractionalFormat =
-            new Regex(@"^\s*(?<Whole>-?\d+)\s*[+]\s*(?<Numerator>-?\d+)/(?<Denominator>-?\d+)\s*$",
+            new Regex(@"^\s*(?<Whole>-?\d+)(\s*[+]\s*|\s+)(?<Numerator>-?\d+)/(?<Denominator>-?\d+)\s*$",
                 RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
         private static readonly Regex NaNFormat = new Regex(@"^\s*NaN\s*$",
