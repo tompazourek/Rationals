@@ -7,6 +7,8 @@ namespace Rationals.Tests
     {
         [Theory]
         [InlineData(@"3/4", true, 3, 4)]
+        [InlineData(@"1 2/5", true, 7, 5)]
+        [InlineData(@"1  2/5", true, 7, 5)]
         [InlineData(@"3\4", false, 0, 0)]
         [InlineData(@"3|4", false, 0, 0)]
         [InlineData(@"-25/-2310832109823", true, -25, -2310832109823)]
