@@ -54,12 +54,18 @@ namespace Rationals
 
 
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
-
-        public static Rational Parse(ReadOnlySpan<char> value, NumberStyles style, IFormatProvider provider)
-            => throw new NotImplementedException();
-
+        
+        /// <inheritdoc cref="Parse(string)"/>
+        [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static Rational Parse(ReadOnlySpan<char> value, IFormatProvider provider)
-            => throw new NotImplementedException();
+        {
+            return Parse(value, NumberStyles.Float, NumberFormatInfo.GetInstance(provider));
+        }
+
+        /// <inheritdoc cref="Parse(string)"/>
+        [SuppressMessage("ReSharper", "UnusedMember.Global")]
+        public static Rational Parse(ReadOnlySpan<char> value, NumberStyles style, IFormatProvider provider)
+            => Parse(value.ToString(), style, NumberFormatInfo.GetInstance(provider));
 
 #endif
 
@@ -93,12 +99,18 @@ namespace Rationals
         }
 
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
-        
-        public static bool TryParse(ReadOnlySpan<char> s, IFormatProvider provider, out Rational result)
-            => throw new NotImplementedException();
 
-        public static bool TryParse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider provider, out Rational result)
-            => throw new NotImplementedException();
+        /// <inheritdoc cref="Parse(string)"/>
+        [SuppressMessage("ReSharper", "UnusedMember.Global")]
+        public static bool TryParse(ReadOnlySpan<char> value, IFormatProvider provider, out Rational result)
+        {
+            return TryParse(value, NumberStyles.Float, NumberFormatInfo.GetInstance(provider), out result);
+        }
+
+        /// <inheritdoc cref="Parse(string)"/>
+        [SuppressMessage("ReSharper", "UnusedMember.Global")]
+        public static bool TryParse(ReadOnlySpan<char> value, NumberStyles style, IFormatProvider provider, out Rational result)
+            => TryParse(value.ToString(), style, NumberFormatInfo.GetInstance(provider), out result);
 
 #endif
 
