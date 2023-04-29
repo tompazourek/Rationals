@@ -1,4 +1,6 @@
-﻿namespace Rationals
+﻿using System;
+
+namespace Rationals
 {
     /// <summary>
     /// Rational number.
@@ -69,5 +71,17 @@
         /// Overload of the &gt;= operator.
         /// </summary>
         public static bool operator >=(Rational left, Rational right) => !left.IsNaN && !right.IsNaN && left.CompareTo(right) >= 0;
+
+        /// <summary>
+        /// Overload of the % operator.
+        /// </summary>
+        public static Rational operator %(Rational left, Rational right)
+            => throw new NotImplementedException();
+
+        /// <summary>
+        /// Overload of the unary + operator.
+        /// </summary>
+        public static Rational operator +(Rational value)
+            => new(+value.Denominator, +value.Numerator);
     }
 }
