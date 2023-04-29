@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Label="Basic build">
-    <TargetFrameworks>netstandard1.3;net40;</TargetFrameworks>
-    <LangVersion>7.3</LangVersion>
+    <TargetFrameworks>net7.0;netstandard2.1;netstandard1.3;net40</TargetFrameworks>
+    <LangVersion>11</LangVersion>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
 
