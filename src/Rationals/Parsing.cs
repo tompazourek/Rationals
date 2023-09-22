@@ -52,6 +52,23 @@ namespace Rationals
             return Parse(value, style, NumberFormatInfo.GetInstance(provider));
         }
 
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
+        
+        /// <inheritdoc cref="Parse(string)"/>
+        [SuppressMessage("ReSharper", "UnusedMember.Global")]
+        public static Rational Parse(ReadOnlySpan<char> value, IFormatProvider provider)
+        {
+            return Parse(value, NumberStyles.Float, NumberFormatInfo.GetInstance(provider));
+        }
+
+        /// <inheritdoc cref="Parse(string)"/>
+        [SuppressMessage("ReSharper", "UnusedMember.Global")]
+        public static Rational Parse(ReadOnlySpan<char> value, NumberStyles style, IFormatProvider provider)
+            => Parse(value.ToString(), style, NumberFormatInfo.GetInstance(provider));
+
+#endif
+
         private static Rational Parse(string value, NumberStyles style, NumberFormatInfo info)
         {
             if (!TryParse(value, style, info, out var result))
@@ -73,6 +90,29 @@ namespace Rationals
         {
             return TryParse(value, style, NumberFormatInfo.GetInstance(provider), out result);
         }
+
+        /// <inheritdoc cref="Parse(string)"/>
+        [SuppressMessage("ReSharper", "UnusedMember.Global")]
+        public static bool TryParse(string value, IFormatProvider provider, out Rational result)
+        {
+            return TryParse(value, NumberStyles.Float, NumberFormatInfo.GetInstance(provider), out result);
+        }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
+
+        /// <inheritdoc cref="Parse(string)"/>
+        [SuppressMessage("ReSharper", "UnusedMember.Global")]
+        public static bool TryParse(ReadOnlySpan<char> value, IFormatProvider provider, out Rational result)
+        {
+            return TryParse(value, NumberStyles.Float, NumberFormatInfo.GetInstance(provider), out result);
+        }
+
+        /// <inheritdoc cref="Parse(string)"/>
+        [SuppressMessage("ReSharper", "UnusedMember.Global")]
+        public static bool TryParse(ReadOnlySpan<char> value, NumberStyles style, IFormatProvider provider, out Rational result)
+            => TryParse(value.ToString(), style, NumberFormatInfo.GetInstance(provider), out result);
+
+#endif
 
         private static bool TryParse(string value, NumberStyles style, NumberFormatInfo info, out Rational result)
         {
