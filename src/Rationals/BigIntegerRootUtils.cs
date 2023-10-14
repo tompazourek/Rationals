@@ -59,6 +59,7 @@ namespace Rationals
                 op2 >>= n;
                 s += n;
             }
+
             return T;
         }
 
@@ -90,6 +91,7 @@ namespace Rationals
                 T = (y - 1) * S + DivideQuotient(X, Z);
                 R0 = T / y;
             } while (R0 < S);
+
             return S;
         }
 
@@ -333,6 +335,7 @@ namespace Rationals
             {
                 P[i] = SmallMultiply(U[i], V[i], n);
             }
+
             return (((P[2] << n) + P[1] - (P[0] + P[2])) << n) + P[0];
         }
 
@@ -368,6 +371,7 @@ namespace Rationals
                     U[i] = A & Mask;
                     A >>= n;
                 }
+
                 QR = Divide21(A, B, n);
                 A = QR[0];
                 for (i--; i >= 0; i--)
@@ -375,8 +379,10 @@ namespace Rationals
                     QR = Divide21((QR[1] << n) | U[i], B, n);
                     A = (A << n) | QR[0];
                 }
+
                 QR[0] = A;
             }
+
             QR[0] *= signA * signB;
             QR[1] *= signA;
             return QR;
@@ -420,12 +426,14 @@ namespace Rationals
                 QR[0] = (BigInteger.One << n) - 1;
                 QR[1] = A12 + B1 - (B1 << n);
             }
+
             QR[1] = ((QR[1] << n) | A3) - BigIntegerMultiply(QR[0], B2, n);
             while (QR[1] < 0)
             {
                 QR[0] -= 1;
                 QR[1] += B;
             }
+
             return QR;
         }
     }

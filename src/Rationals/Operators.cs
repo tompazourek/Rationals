@@ -59,7 +59,7 @@
         /// Overload of the &gt; operator.
         /// </summary>
         public static bool operator >(Rational left, Rational right) => !left.IsNaN && !right.IsNaN && left.CompareTo(right) > 0;
-        
+
         /// <summary>
         /// Overload of the &lt;= operator.
         /// </summary>

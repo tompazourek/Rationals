@@ -31,21 +31,21 @@ namespace Rationals
             return Parse(value, NumberStyles.Float, NumberFormatInfo.CurrentInfo);
         }
 
-        /// <inheritdoc cref="Parse(string)"/>
+        /// <inheritdoc cref="Parse(string)" />
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static Rational Parse(string value, NumberStyles style)
         {
             return Parse(value, style, NumberFormatInfo.CurrentInfo);
         }
 
-        /// <inheritdoc cref="Parse(string)"/>
+        /// <inheritdoc cref="Parse(string)" />
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static Rational Parse(string value, IFormatProvider provider)
         {
             return Parse(value, NumberStyles.Float, NumberFormatInfo.GetInstance(provider));
         }
 
-        /// <inheritdoc cref="Parse(string)"/>
+        /// <inheritdoc cref="Parse(string)" />
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static Rational Parse(string value, NumberStyles style, IFormatProvider provider)
         {
@@ -60,14 +60,14 @@ namespace Rationals
             return result;
         }
 
-        /// <inheritdoc cref="Parse(string)"/>
+        /// <inheritdoc cref="Parse(string)" />
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static bool TryParse(string value, out Rational result)
         {
             return TryParse(value, NumberStyles.Float, NumberFormatInfo.CurrentInfo, out result);
         }
 
-        /// <inheritdoc cref="Parse(string)"/>
+        /// <inheritdoc cref="Parse(string)" />
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static bool TryParse(string value, NumberStyles style, IFormatProvider provider, out Rational result)
         {
@@ -98,7 +98,7 @@ namespace Rationals
                     result = new Rational(whole) + new Rational(numerator, denominator);
                     return true;
                 }
-                
+
                 match = NaNFormat.Match(value);
                 if (match.Success)
                 {
@@ -130,21 +130,21 @@ namespace Rationals
             return ParseDecimal(value, NumberStyles.Float, NumberFormatInfo.CurrentInfo, tolerance);
         }
 
-        /// <inheritdoc cref="ParseDecimal(string,decimal)"/>
+        /// <inheritdoc cref="ParseDecimal(string,decimal)" />
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static Rational ParseDecimal(string value, NumberStyles style, decimal tolerance = 0)
         {
             return ParseDecimal(value, style, NumberFormatInfo.CurrentInfo, tolerance);
         }
 
-        /// <inheritdoc cref="ParseDecimal(string,decimal)"/>
+        /// <inheritdoc cref="ParseDecimal(string,decimal)" />
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static Rational ParseDecimal(string value, IFormatProvider provider, decimal tolerance = 0)
         {
             return ParseDecimal(value, NumberStyles.Float, NumberFormatInfo.GetInstance(provider), tolerance);
         }
 
-        /// <inheritdoc cref="ParseDecimal(string,decimal)"/>
+        /// <inheritdoc cref="ParseDecimal(string,decimal)" />
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static Rational ParseDecimal(string value, NumberStyles style, IFormatProvider provider, decimal tolerance = 0)
         {
@@ -159,14 +159,14 @@ namespace Rationals
             return result;
         }
 
-        /// <inheritdoc cref="ParseDecimal(string,decimal)"/>
+        /// <inheritdoc cref="ParseDecimal(string,decimal)" />
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public static bool TryParseDecimal(string value, out Rational result, decimal tolerance = 0)
         {
             return TryParseDecimal(value, NumberStyles.Float, NumberFormatInfo.CurrentInfo, out result, tolerance);
         }
 
-        /// <inheritdoc cref="ParseDecimal(string,decimal)"/>
+        /// <inheritdoc cref="ParseDecimal(string,decimal)" />
         public static bool TryParseDecimal(string value, NumberStyles style, IFormatProvider provider, out Rational result, decimal tolerance = 0)
         {
             return TryParseDecimal(value, style, NumberFormatInfo.GetInstance(provider), out result, tolerance);

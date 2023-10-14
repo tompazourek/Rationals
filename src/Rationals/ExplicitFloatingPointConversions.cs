@@ -56,17 +56,17 @@ namespace Rationals
         public static explicit operator float(Rational rational) => (float)(decimal)rational;
 
         /// <summary>
-        /// Approximation from a decimal number. <seealso cref="Approximate(decimal,decimal)"/>.
+        /// Approximation from a decimal number. <seealso cref="Approximate(decimal,decimal)" />.
         /// </summary>
         public static explicit operator Rational(decimal num) => Approximate(num);
 
         /// <summary>
-        /// Approximation from a double number. <seealso cref="Approximate(double,double)"/>.
+        /// Approximation from a double number. <seealso cref="Approximate(double,double)" />.
         /// </summary>
         public static explicit operator Rational(double num) => Approximate(num);
 
         /// <summary>
-        /// Approximation from a float number. <seealso cref="Approximate(float,float)"/>.
+        /// Approximation from a float number. <seealso cref="Approximate(float,float)" />.
         /// </summary>
         public static explicit operator Rational(float num) => Approximate(num);
     }

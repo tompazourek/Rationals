@@ -47,6 +47,7 @@ namespace Rationals
                 numerator = BigInteger.Negate(p.Numerator);
                 denominator = p.Denominator;
             }
+
             var result = new Rational(ref numerator, ref denominator);
             return result;
         }

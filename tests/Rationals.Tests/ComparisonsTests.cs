@@ -80,7 +80,7 @@ namespace Rationals.Tests
             Assert.False(b < a);
             Assert.False(b <= a);
         }
-        
+
         [Fact]
         public void Equality1()
         {
@@ -146,7 +146,7 @@ namespace Rationals.Tests
             // assert
             Assert.True(p == q);
         }
-        
+
         [Fact]
         public void Equals1()
         {

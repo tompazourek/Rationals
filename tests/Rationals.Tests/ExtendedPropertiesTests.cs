@@ -40,7 +40,7 @@ namespace Rationals.Tests
             // assert
             Assert.False(p.IsZero);
         }
-        
+
         [Fact]
         public void IsZero2()
         {
@@ -50,7 +50,7 @@ namespace Rationals.Tests
             // assert
             Assert.True(p.IsZero);
         }
-        
+
         [Fact]
         public void IsOne1()
         {
@@ -60,7 +60,7 @@ namespace Rationals.Tests
             // assert
             Assert.False(p.IsOne);
         }
-        
+
         [Fact]
         public void IsOne2()
         {
@@ -70,7 +70,7 @@ namespace Rationals.Tests
             // assert
             Assert.False(p.IsOne);
         }
-        
+
         [Fact]
         public void IsOne3()
         {
@@ -80,7 +80,7 @@ namespace Rationals.Tests
             // assert
             Assert.True(p.IsOne);
         }
-        
+
         [Fact]
         public void IsOne4()
         {

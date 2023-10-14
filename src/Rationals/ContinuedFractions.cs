@@ -47,8 +47,10 @@ namespace Rationals
                     rational = coefficient;
                     continue;
                 }
+
                 rational = coefficient + 1 / rational;
             }
+
             return rational;
         }
     }

@@ -76,9 +76,8 @@ namespace Rationals
 
             if (Sign == other.Sign)
             {
-                
-                BigInteger adjDenominator = BigInteger.Abs(Denominator) * other.Denominator.Sign;
-                BigInteger adjOtherDenominator = BigInteger.Abs(other.Denominator) * Denominator.Sign;
+                var adjDenominator = BigInteger.Abs(Denominator) * other.Denominator.Sign;
+                var adjOtherDenominator = BigInteger.Abs(other.Denominator) * Denominator.Sign;
                 return (Numerator * adjOtherDenominator).CompareTo(other.Numerator * adjDenominator);
             }
 

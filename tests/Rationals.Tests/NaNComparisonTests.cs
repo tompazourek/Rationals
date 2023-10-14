@@ -37,6 +37,7 @@ namespace Rationals.Tests
                 yield return new object[] { Rational.NaN, d, };
                 yield return new object[] { d, Rational.NaN, };
             }
+
             yield return new object[] { Rational.NaN, Rational.NaN, };
         }
 

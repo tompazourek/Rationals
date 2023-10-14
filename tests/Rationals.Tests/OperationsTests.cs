@@ -413,7 +413,7 @@ namespace Rationals.Tests
             // assert
             Assert.Equal(p, q);
         }
-        
+
         [Fact]
         public void NegationNaN()
         {
@@ -574,7 +574,7 @@ namespace Rationals.Tests
             // assert
             Assert.Equal(p, Rational.Abs(q));
         }
-        
+
         [Fact]
         public void AbsoluteNaN()
         {
@@ -652,7 +652,7 @@ namespace Rationals.Tests
             // assert
             Assert.True(double.IsNaN(result));
         }
-        
+
         [Fact]
         public void Base10LogarithmNaN()
         {

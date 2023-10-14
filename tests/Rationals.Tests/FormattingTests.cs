@@ -56,7 +56,7 @@ namespace Rationals.Tests
             // assert
             Assert.Equal(expectedResult, result);
         }
-        
+
         [Fact]
         public void Format_NaN()
         {

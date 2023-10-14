@@ -1,5 +1,4 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace Rationals
 {
@@ -20,7 +19,7 @@ namespace Rationals
 
         /// <summary>
         /// True if the value is not a number.
-        /// <see cref="NaN"/>
+        /// <see cref="NaN" />
         /// </summary>
         public bool IsNaN => Denominator.IsZero;
 
