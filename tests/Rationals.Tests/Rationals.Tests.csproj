@@ -1,16 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <LangVersion>7.3</LangVersion>
+    <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <CoverletOutputFormat>opencover</CoverletOutputFormat>
     <CoverletOutput>$(MSBuildThisFileDirectory)../../testresults/$(MSBuildProjectName).opencover.xml</CoverletOutput>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="coverlet.msbuild" Version="6.0.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,9 +18,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\src\Rationals\Rationals.csproj" />
   </ItemGroup>
-
 </Project>
