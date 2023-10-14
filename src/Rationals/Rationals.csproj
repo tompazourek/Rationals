@@ -2,17 +2,17 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.0;net40;net6.0</TargetFrameworks>
     <LangVersion>7.3</LangVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <ContinuousIntegrationBuild Condition="'$(CI)'=='true'">true</ContinuousIntegrationBuild>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>.pdb;$(AllowedOutputExtensionsInPackageBuildOutputFolder)</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <EnablePackageValidation>true</EnablePackageValidation>
+
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)../../rationals.snk</AssemblyOriginatorKeyFile>
+
     <Authors>Tomáš Pažourek</Authors>
     <Company>$(Authors)</Company>
-    <Copyright>$(Copyright)</Copyright>
+    <Copyright>Copyright $([System.DateTime]::Now.Year) $(Company)</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/tompazourek/Rationals</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -21,37 +21,12 @@
     <PackageReleaseNotes>$(RepositoryUrl)/releases</PackageReleaseNotes>
     <PackageIcon>logo_64.png</PackageIcon>
     <PackageTags>arbitrary-precision biginteger bigrational c-sharp coefficients continued-fractions fraction fractional rational-numbers rational-number-arithmetic rationals</PackageTags>
-    <Description>
-      Implementation of rational number arithmetic for .NET with arbitrary precision.
-
-      Supported features:
-
-      - implicit conversions - rationals integrate seamlessly with other number types
-      - unlimited precision - rationals use BigInteger inside
-      - canonical form - each rational can have its canonical form (irreducible fraction where denominator is always positive)
-      - separate whole and fractional part - any rational number can be separated into a whole part (integer quotient aka result of integer division) and fractional part (reminder of the integral division aka result of modulo operation)
-      - comparison &amp;amp; equality
-      - multiple formatting options - ToString("C") (canonical form), ToString("W") (whole + fractional part), or normal fraction format
-      - continued fraction expansion - expand rational numbers to continued fraction (sequence of coefficients), construct rational numbers from sequence of continued fraction coefficients
-      - rational number approximation - approximate floating point numbers (decimal, double, float) as rational numbers with customizable tolerance
-
-      Example usage:
-
-      Rational left = (Rational) 1 / 2;
-
-      Rational right = (Rational) 1 / 4;
-
-      Rational sum = left + right; // equals to: 3 / 4
-    </Description>
+    <Description>Implementation of rational number arithmetic for .NET with arbitrary precision.</Description>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MinVer" Version="4.3.0">
       <PrivateAssets>all</PrivateAssets>
@@ -62,7 +37,7 @@
     <None Include="..\..\assets\logo_64.png" Pack="true" PackagePath="" />
     <None Include="..\..\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
-  <Target Name="UpdateAppVeyorBuildVersion" AfterTargets="MinVer" Condition=" '$(APPVEYOR)' == 'true' ">
+  <Target Name="UpdateAppVeyorBuildVersion" AfterTargets="MinVer" Condition="'$(APPVEYOR)'=='true'">
     <Exec Command="appveyor UpdateBuild -Version &quot;$(MinVerVersion)&quot;" />
   </Target>
 </Project>

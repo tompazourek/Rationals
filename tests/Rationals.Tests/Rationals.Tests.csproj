@@ -3,7 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <CoverletOutputFormat>opencover</CoverletOutputFormat>
-    <CoverletOutput>$(MSBuildThisFileDirectory)../../testresults/$(MSBuildProjectName).opencover.xml</CoverletOutput>
+    <CoverletOutput>$(ArtifactsPath)/coverage/$(MSBuildProjectName).opencover.xml</CoverletOutput>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="coverlet.msbuild" Version="6.0.0">

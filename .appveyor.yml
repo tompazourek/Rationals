@@ -11,14 +11,14 @@ before_build:
 - dotnet restore
 
 build_script:
-- dotnet build --no-restore --configuration Release
+- dotnet pack --no-restore --configuration Release -p:ContinuousIntegrationBuild=true
 
 test_script:
 - dotnet test --no-build --configuration Release -p:CollectCoverage=true
 
 after_test:
 - choco install codecov
-- pwsh: codecov --file @(ls ./testresults/*.opencover.xml)
+- pwsh: codecov --file @(ls artifacts/coverage/*.opencover.xml)
 
 artifacts:
-- path: ./**/*.nupkg
+- path: artifacts/package/**/*.nupkg
