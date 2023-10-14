@@ -1,65 +1,49 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup Label="Basic build">
-    <TargetFrameworks>netstandard1.3;net40;</TargetFrameworks>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard2.0;net40;net6.0</TargetFrameworks>
     <LangVersion>7.3</LangVersion>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-
-  <PropertyGroup Label="NuGet package">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ContinuousIntegrationBuild Condition="'$(CI)'=='true'">true</ContinuousIntegrationBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)../../rationals.snk</AssemblyOriginatorKeyFile>
     <Authors>Tomáš Pažourek</Authors>
     <Company>$(Authors)</Company>
     <Copyright>$(Copyright)</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/tompazourek/Rationals</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
     <PackageReleaseNotes>$(RepositoryUrl)/releases</PackageReleaseNotes>
     <PackageIcon>logo_64.png</PackageIcon>
     <PackageTags>arbitrary-precision biginteger bigrational c-sharp coefficients continued-fractions fraction fractional rational-numbers rational-number-arithmetic rationals</PackageTags>
-    <Description>Implementation of rational number arithmetic for .NET with arbitrary precision.
+    <Description>
+      Implementation of rational number arithmetic for .NET with arbitrary precision.
 
-Supported features:
+      Supported features:
 
-- implicit conversions - rationals integrate seamlessly with other number types
-- unlimited precision - rationals use BigInteger inside
-- canonical form - each rational can have its canonical form (irreducible fraction where denominator is always positive)
-- separate whole and fractional part - any rational number can be separated into a whole part (integer quotient aka result of integer division) and fractional part (reminder of the integral division aka result of modulo operation)
-- comparison &amp;amp; equality
-- multiple formatting options - ToString("C") (canonical form), ToString("W") (whole + fractional part), or normal fraction format
-- continued fraction expansion - expand rational numbers to continued fraction (sequence of coefficients), construct rational numbers from sequence of continued fraction coefficients
-- rational number approximation - approximate floating point numbers (decimal, double, float) as rational numbers with customizable tolerance
+      - implicit conversions - rationals integrate seamlessly with other number types
+      - unlimited precision - rationals use BigInteger inside
+      - canonical form - each rational can have its canonical form (irreducible fraction where denominator is always positive)
+      - separate whole and fractional part - any rational number can be separated into a whole part (integer quotient aka result of integer division) and fractional part (reminder of the integral division aka result of modulo operation)
+      - comparison &amp;amp; equality
+      - multiple formatting options - ToString("C") (canonical form), ToString("W") (whole + fractional part), or normal fraction format
+      - continued fraction expansion - expand rational numbers to continued fraction (sequence of coefficients), construct rational numbers from sequence of continued fraction coefficients
+      - rational number approximation - approximate floating point numbers (decimal, double, float) as rational numbers with customizable tolerance
 
-Example usage:
+      Example usage:
 
-Rational left = (Rational) 1 / 2;
+      Rational left = (Rational) 1 / 2;
 
-Rational right = (Rational) 1 / 4;
+      Rational right = (Rational) 1 / 4;
 
-Rational sum = left + right; // equals to: 3 / 4
-</Description>
+      Rational sum = left + right; // equals to: 3 / 4
+    </Description>
   </PropertyGroup>
-
-  <PropertyGroup Label="Symbols, docs">
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-  </PropertyGroup>
-
-  <PropertyGroup Label="CI build only" Condition=" '$(CI)' == 'true' ">
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
-
-  <PropertyGroup Label="Signature">
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)../../rationals.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -74,12 +58,11 @@ Rational sum = left + right; // equals to: 3 / 4
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
   <ItemGroup>
     <None Include="..\..\assets\logo_64.png" Pack="true" PackagePath="" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
-    
   <Target Name="UpdateAppVeyorBuildVersion" AfterTargets="MinVer" Condition=" '$(APPVEYOR)' == 'true' ">
     <Exec Command="appveyor UpdateBuild -Version &quot;$(MinVerVersion)&quot;" />
-   </Target>
+  </Target>
 </Project>
