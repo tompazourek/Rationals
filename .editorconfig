@@ -1,4 +1,20 @@
+﻿root = true
+
 [*]
-end_of_line = CRLF
 indent_style = space
+indent_size = 2
+tab_width = 2
+charset = utf-8-bom
+trim_trailing_whitespace = true
+insert_final_newline = true
+end_of_line = crlf
+
+[*.cs]
 indent_size = 4
+tab_width = 4
+
+[*.sln]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
