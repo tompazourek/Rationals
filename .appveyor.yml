@@ -22,7 +22,7 @@ test_script:
 
 after_test:
 - choco install codecov
-- pwsh: codecov --file @(ls artifacts/coverage/*.opencover.xml)
+- pwsh: codecov --file @(Get-ChildItem -Path artifacts/coverage/*opencover*.xml -Recurse)
 
 artifacts:
 - path: artifacts/package/**/*.nupkg
