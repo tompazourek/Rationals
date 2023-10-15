@@ -12,7 +12,7 @@ before_build:
 - dotnet restore
 
 build_script:
-- dotnet pack --no-restore --configuration Release -p:ContinuousIntegrationBuild=true
+- dotnet build --no-restore --configuration Release -p:GeneratePackageOnBuild=true -p:ContinuousIntegrationBuild=true
 
 test_script:
 - dotnet test --no-build --configuration Release -p:CollectCoverage=true
