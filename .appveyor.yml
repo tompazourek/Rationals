@@ -1,8 +1,11 @@
 image: Visual Studio 2022
 
-# Adds "+build.XXX" to MinVer's build metadata
 environment:
+  # Adds "+build.XXX" to MinVer's build metadata
   MINVERBUILDMETADATA: build.%APPVEYOR_BUILD_NUMBER%
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_NOLOGO: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
 
 # AppVeyor's displayed version, will get updated by MSBuild target
 version: '{build}'
