@@ -8,6 +8,7 @@ environment:
 version: '{build}'
 
 before_build:
+- choco install dotnet-sdk --version 8.0.100-rc2235022 --pre
 - dotnet restore
 
 build_script:
