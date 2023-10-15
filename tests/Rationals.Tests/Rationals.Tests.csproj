@@ -2,6 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
+
+    <!-- Coverage -->
     <CoverletOutputFormat>opencover</CoverletOutputFormat>
     <CoverletOutput>$(ArtifactsPath)/coverage/$(MSBuildProjectName).opencover.xml</CoverletOutput>
   </PropertyGroup>

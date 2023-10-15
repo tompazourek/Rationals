@@ -3,13 +3,16 @@
     <TargetFrameworks>netstandard1.3;netstandard2.0;net40;net6.0</TargetFrameworks>
     <LangVersion>7.3</LangVersion>
 
+    <!-- Documents, symbols, validation -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>.pdb;$(AllowedOutputExtensionsInPackageBuildOutputFolder)</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <EnablePackageValidation>true</EnablePackageValidation>
 
+    <!-- Strong-named assembly -->
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)../../rationals.snk</AssemblyOriginatorKeyFile>
 
+    <!-- Package/Assembly metadata -->
     <Authors>Tomáš Pažourek</Authors>
     <Company>$(Authors)</Company>
     <Copyright>Copyright $([System.DateTime]::Now.Year) $(Company)</Copyright>
@@ -23,6 +26,17 @@
     <PackageTags>arbitrary-precision biginteger bigrational c-sharp coefficients continued-fractions fraction fractional rational-numbers rational-number-arithmetic rationals</PackageTags>
     <Description>Implementation of rational number arithmetic for .NET with arbitrary precision.</Description>
   </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+      <_Parameter1>true</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.InteropServices.ComVisibleAttribute">
+      <_Parameter1>false</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.InteropServices.GuidAttribute">
+      <_Parameter1>64844312-c711-4e37-ac63-65bcb449afb7</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
       <PrivateAssets>all</PrivateAssets>
