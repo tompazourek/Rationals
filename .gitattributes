@@ -1,4 +1,9 @@
 ﻿*               text eol=crlf
-*.cs            diff=csharp
+
+*.cs            text diff=csharp
+*.sln           text merge=union
+
+*.png           binary
+
 .gitattributes  export-ignore
 .gitignore      export-ignore
