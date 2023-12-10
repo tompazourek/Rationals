@@ -4,6 +4,7 @@
 *.sln           text merge=union
 
 *.png           binary
+*.snk           binary
 
 .gitattributes  export-ignore
 .gitignore      export-ignore
